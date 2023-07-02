@@ -11,6 +11,10 @@
 		630682D62A5162580042D294 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630682D52A5162580042D294 /* ContentView.swift */; };
 		630682D82A51625A0042D294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 630682D72A51625A0042D294 /* Assets.xcassets */; };
 		630682DB2A51625A0042D294 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 630682DA2A51625A0042D294 /* Preview Assets.xcassets */; };
+		63A58F932A51735D00B9832F /* LogIn_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A58F922A51735D00B9832F /* LogIn_View.swift */; };
+		63A58F952A51737000B9832F /* Registration_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A58F942A51737000B9832F /* Registration_View.swift */; };
+		63A58F972A519DD500B9832F /* Auth_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A58F962A519DD500B9832F /* Auth_View.swift */; };
+		63A58F992A51A2A200B9832F /* Error_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A58F982A51A2A200B9832F /* Error_View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		630682D52A5162580042D294 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		630682D72A51625A0042D294 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		630682DA2A51625A0042D294 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		63A58F922A51735D00B9832F /* LogIn_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn_View.swift; sourceTree = "<group>"; };
+		63A58F942A51737000B9832F /* Registration_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration_View.swift; sourceTree = "<group>"; };
+		63A58F962A519DD500B9832F /* Auth_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth_View.swift; sourceTree = "<group>"; };
+		63A58F982A51A2A200B9832F /* Error_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error_View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				630682D32A5162580042D294 /* adminAppApp.swift */,
+				63A58F912A5170B100B9832F /* enterModule */,
 				630682D52A5162580042D294 /* ContentView.swift */,
 				630682D72A51625A0042D294 /* Assets.xcassets */,
 				630682D92A51625A0042D294 /* Preview Content */,
@@ -65,6 +74,17 @@
 				630682DA2A51625A0042D294 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		63A58F912A5170B100B9832F /* enterModule */ = {
+			isa = PBXGroup;
+			children = (
+				63A58F922A51735D00B9832F /* LogIn_View.swift */,
+				63A58F942A51737000B9832F /* Registration_View.swift */,
+				63A58F962A519DD500B9832F /* Auth_View.swift */,
+				63A58F982A51A2A200B9832F /* Error_View.swift */,
+			);
+			path = enterModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +158,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				630682D62A5162580042D294 /* ContentView.swift in Sources */,
+				63A58F992A51A2A200B9832F /* Error_View.swift in Sources */,
+				63A58F932A51735D00B9832F /* LogIn_View.swift in Sources */,
 				630682D42A5162580042D294 /* adminAppApp.swift in Sources */,
+				63A58F952A51737000B9832F /* Registration_View.swift in Sources */,
+				63A58F972A519DD500B9832F /* Auth_View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +291,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"adminApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 944K4M9L9M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -295,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"adminApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 944K4M9L9M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
