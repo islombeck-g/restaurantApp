@@ -1,16 +1,19 @@
 import SwiftUI
 
-struct LogIn_View: View {
+struct Registration_View: View {
     @State var color = Color.black.opacity(0.7)
     @State var email = ""
     @State var password = ""
     @State var visible = false
+    @State var rePassword = ""
+    @State var reVisible = false
     @Binding var wichView:Bool
+    @State private var error = ""
     @State var alert = false
-    @State var error = ""
+    @Binding var authView:Bool
     var body: some View{
         ZStack{
-            ZStack(alignment: .topTrailing){
+            ZStack(alignment: .topLeading){
                 GeometryReader{_ in
                     VStack{
                        Image("robot")
@@ -38,8 +41,6 @@ struct LogIn_View: View {
                                     SecureField("Password", text: self.$password)
                                         
                                 }
-                                
-
                             }
                             Button{
                                 self.visible.toggle()
@@ -51,16 +52,25 @@ struct LogIn_View: View {
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.password != "" ? Color.red: self.color, lineWidth: 2))
 
-                        
                         HStack(spacing: 15){
-                            Spacer()
-                            Button{}label: {
-                                Text("Forget Password")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color.red)
+                            VStack{
+                                if self.reVisible{
+                                    TextField("Password", text: self.$rePassword)
+                                        
+                                }else{
+                                    SecureField("Password", text: self.$rePassword)
+                                        
+                                }
                             }
-                        }.padding(.top, 25)
-                        
+                            Button{
+                                self.reVisible.toggle()
+                            }label: {
+                                Image(systemName: self.reVisible ? "eye.slash.fill" : "eye.fill")
+                                    .foregroundColor(self.color)
+                            }
+                        }
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.rePassword != "" ? Color.red: self.color, lineWidth: 2))
                         Button{
                             self.verify()
                         }label: {
@@ -79,31 +89,29 @@ struct LogIn_View: View {
                 Button{
                     self.wichView.toggle()
                 }label: {
-                    Text("Registration")
-                        .fontWeight(.bold)
+                    Image(systemName: "chevron.left")
+                        .font(.title)
                         .foregroundColor(.red)
                 }.padding()
             }
-            if self.alert{
-                Error_View(alert: $alert, error: $error)
-            }
+        }
+        if self.alert{
+            Error_View(alert: $alert, error: $error)
         }
     }
     func verify(){
-        if self.email != "" && self.password != ""{
+        if self.email != "" && self.password != "" && self.rePassword != ""{
             
         }else{
             self.error = "Fill all"
             self.alert.toggle()
         }
     }
-
 }
 
-struct LogIn_View_Previews: PreviewProvider {
-    @State static var isLogged = false
+struct Registration_view_Previews: PreviewProvider {
+    @State static var isLogged = true
     static var previews: some View {
-        LogIn_View(wichView: $isLogged)
-        
+        Registration_View(wichView: $isLogged, authView: .constant(true))
     }
 }
