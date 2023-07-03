@@ -66,8 +66,8 @@ struct LogIn_View: View {
                         Button{
                             Task{
                                 let result = self.viewModel.signIn()
-                                do {
-                                    var value = try await result.value
+                                
+                                    let value = try await result.value
                                     // Task succeeded, value contains the success string
                                     if value == "success" {
                                         authView.toggle()
@@ -75,9 +75,7 @@ struct LogIn_View: View {
                                         self.error = value
                                         self.alert.toggle()
                                     }
-                                } catch {
-                                    // Task failed, handle the error
-                                }
+                               
                                 
                             }
 

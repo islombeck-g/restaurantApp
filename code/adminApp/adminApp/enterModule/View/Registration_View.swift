@@ -11,6 +11,7 @@ struct Registration_View: View {
     @State private var error = ""
     @State var alert = false
     @Binding var authView:Bool
+    @StateObject var viewModel = AuthEmailViewModel()
     var body: some View{
         ZStack{
             ZStack(alignment: .topLeading){
@@ -25,20 +26,20 @@ struct Registration_View: View {
                             .font(.title2)
                             
                         
-                        TextField("Email", text: self.$email)
+                        TextField("Email", text: self.$viewModel.email)
                             .padding()
                             
-                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color.red: self.color, lineWidth: 2))
+                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.viewModel.email != "" ? Color.red: self.color, lineWidth: 2))
                             
                        
                         
                         HStack(spacing: 15){
                             VStack{
                                 if self.visible{
-                                    TextField("Password", text: self.$password)
+                                    TextField("Password", text: self.$viewModel.password)
                                         
                                 }else{
-                                    SecureField("Password", text: self.$password)
+                                    SecureField("Password", text: self.$viewModel.password)
                                         
                                 }
                             }
@@ -50,15 +51,15 @@ struct Registration_View: View {
                             }
                         }
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.password != "" ? Color.red: self.color, lineWidth: 2))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.viewModel.password != "" ? Color.red: self.color, lineWidth: 2))
 
                         HStack(spacing: 15){
                             VStack{
                                 if self.reVisible{
-                                    TextField("Password", text: self.$rePassword)
+                                    TextField("Password", text: self.$viewModel.rePassword)
                                         
                                 }else{
-                                    SecureField("Password", text: self.$rePassword)
+                                    SecureField("Password", text: self.$viewModel.rePassword)
                                         
                                 }
                             }
@@ -70,11 +71,23 @@ struct Registration_View: View {
                             }
                         }
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.rePassword != "" ? Color.red: self.color, lineWidth: 2))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.viewModel.rePassword != "" ? Color.red: self.color, lineWidth: 2))
                         Button{
-                            self.verify()
-                        }label: {
-                            Text("LogIn")
+                            Task{
+                                let result = self.viewModel.signUp()
+                                
+                                    let value = try await result.value
+                                    // Task succeeded, value contains the success string
+                                    if value == "success" {
+                                        authView.toggle()
+                                    } else {
+                                        self.error = value
+                                        self.alert.toggle()
+                                    }
+                               
+                                
+                            }                        }label: {
+                            Text("LogUp")
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
                                 .padding(.vertical)
@@ -99,14 +112,7 @@ struct Registration_View: View {
             Error_View(alert: $alert, error: $error)
         }
     }
-    func verify(){
-        if self.email != "" && self.password != "" && self.rePassword != ""{
-            
-        }else{
-            self.error = "Fill all"
-            self.alert.toggle()
-        }
-    }
+  
 }
 
 struct Registration_view_Previews: PreviewProvider {
