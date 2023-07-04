@@ -3,7 +3,7 @@ import SwiftUI
 
 struct Main_View: View {
     @StateObject private var viewModel = MainViewModel()
-    @Binding var authView:Bool
+//    @Binding var authView:Bool
     @State private var path = NavigationPath()
     var body: some View {
         TabView{
@@ -32,7 +32,8 @@ struct Main_View: View {
 struct main_View_Previews: PreviewProvider {
     @State static var me = true
     static var previews: some View {
-        Main_View(authView: $me)
+//        Main_View(authView: $me)
+        Main_View()
     }
 }
 //List{

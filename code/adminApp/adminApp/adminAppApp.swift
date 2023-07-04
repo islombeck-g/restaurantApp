@@ -6,7 +6,8 @@ struct adminAppApp: App {
     @UIApplicationDelegateAdaptor (AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            root_View()
+//            root_View()
+            Main_View()
         }
     }
 }

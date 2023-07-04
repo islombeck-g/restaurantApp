@@ -7,7 +7,8 @@ struct root_View: View {
     var body: some View {
         ZStack{
             NavigationStack{
-                Main_View(authView: $authView)
+//                Main_View(authView: $authView)
+                Main_View()
             }
         }
         .onAppear{

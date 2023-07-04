@@ -26,6 +26,8 @@
 		63838AE72A541A6F0045EEEF /* EmployeesMain_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63838AE62A541A6F0045EEEF /* EmployeesMain_View.swift */; };
 		63838AEA2A541B180045EEEF /* MenuMain_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63838AE92A541B180045EEEF /* MenuMain_View.swift */; };
 		63838AEC2A542DB10045EEEF /* AddNewEmployeer_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63838AEB2A542DB10045EEEF /* AddNewEmployeer_View.swift */; };
+		63A072782A547F920021C45E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 63A072772A547F920021C45E /* FirebaseDatabase */; };
+		63A0727A2A547F920021C45E /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63A072792A547F920021C45E /* FirebaseDatabaseSwift */; };
 		63A58F932A51735D00B9832F /* LogIn_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A58F922A51735D00B9832F /* LogIn_View.swift */; };
 		63A58F952A51737000B9832F /* Registration_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A58F942A51737000B9832F /* Registration_View.swift */; };
 		63A58F972A519DD500B9832F /* Auth_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A58F962A519DD500B9832F /* Auth_View.swift */; };
@@ -61,8 +63,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A0727A2A547F920021C45E /* FirebaseDatabaseSwift in Frameworks */,
 				6361A6302A51D02A00C445A6 /* FirebaseAnalyticsSwift in Frameworks */,
 				6361A6322A51D02A00C445A6 /* FirebaseAuth in Frameworks */,
+				63A072782A547F920021C45E /* FirebaseDatabase in Frameworks */,
 				6361A62E2A51D02A00C445A6 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +79,7 @@
 			children = (
 				630682D22A5162580042D294 /* adminApp */,
 				630682D12A5162580042D294 /* Products */,
+				63A072762A547F920021C45E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,6 +243,13 @@
 			path = menuModule;
 			sourceTree = "<group>";
 		};
+		63A072762A547F920021C45E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63A58F912A5170B100B9832F /* enterModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +281,8 @@
 				6361A62D2A51D02A00C445A6 /* FirebaseAnalytics */,
 				6361A62F2A51D02A00C445A6 /* FirebaseAnalyticsSwift */,
 				6361A6312A51D02A00C445A6 /* FirebaseAuth */,
+				63A072772A547F920021C45E /* FirebaseDatabase */,
+				63A072792A547F920021C45E /* FirebaseDatabaseSwift */,
 			);
 			productName = adminApp;
 			productReference = 630682D02A5162580042D294 /* adminApp.app */;
@@ -481,6 +495,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,6 +525,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,6 +588,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6361A62C2A51D02A00C445A6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		63A072772A547F920021C45E /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6361A62C2A51D02A00C445A6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		63A072792A547F920021C45E /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6361A62C2A51D02A00C445A6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
