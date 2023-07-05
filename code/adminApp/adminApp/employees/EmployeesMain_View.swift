@@ -4,21 +4,16 @@ import SwiftUI
 
 struct EmployeesMain_View: View {
     @State private var showAddSheetView:Bool = false
+    @ObservedObject private var viewModel = Employees_ViewModel()
+    @State private var listOfEmployees = [Employeer]()
+   
     var body: some View {
         NavigationStack{
             ZStack(alignment: .bottomTrailing){
                 List{
-                    Text("asdklfnldsf")
-                    Text("asdklfnldsf")
-                    Text("asdklfnldsf")
-                    Text("asdklfnldsf")
-                    Text("asdklfnldsf")
-                    Text("asdklfnldsf")
-                    Text("asdklfnldsf")
-                    Text("asdklfnldsf")
-                    Text("asdklfnldsf")
-                    Text("asdklfnldsf")
-              
+                    ForEach(self.viewModel.list) { employee in
+                        Text(employee.name)
+                    }
                     
                 }
                 Button{
@@ -41,11 +36,15 @@ struct EmployeesMain_View: View {
         .sheet(isPresented: $showAddSheetView,
                onDismiss: {print("sheetDismissed")},
                content: {
-                    AddNewEmployeer_View()
+            AddNewEmployeer_View()
                         .interactiveDismissDisabled()
                         .presentationDetents([.medium])
         })
         
+    }
+    
+    init(){
+        self.viewModel.get()
     }
 }
 
