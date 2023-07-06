@@ -4,17 +4,20 @@ import SwiftUI
 
 struct EmployeesMain_View: View {
     @State private var showAddSheetView:Bool = false
+    @State private var showEmployeeIDSheetView:Bool = false
     @ObservedObject private var viewModel = Employees_ViewModel()
-    @State private var listOfEmployees = [Employeer]()
-   
+    
+    @State private var selectedEmployee: Employeer? = nil
     var body: some View {
         NavigationStack{
             ZStack(alignment: .bottomTrailing){
                 List{
-                    ForEach(self.viewModel.list) { employee in
-                        Text(employee.name)
+                    ForEach(self.viewModel.list){ employee in
+                        EmployeeBanner_View(employee: employee)
+                            .onTapGesture {
+                                self.selectedEmployee = employee
+                            }
                     }
-                    
                 }
                 Button{
                     self.showAddSheetView.toggle()
@@ -25,21 +28,22 @@ struct EmployeesMain_View: View {
                         .background(Color.black)
                         .font(.system(size: 25))
                         .cornerRadius(50)
-                        
+                    
                 } .offset(x: -20)
             }
         }
-//        .sheet(isPresented: $showAddSheetView){
-//            AddNewEmployeer_View()
-//
-//        }
         .sheet(isPresented: $showAddSheetView,
-               onDismiss: {print("sheetDismissed")},
+               onDismiss: self.viewModel.get,
                content: {
             AddNewEmployeer_View()
-                        .interactiveDismissDisabled()
-                        .presentationDetents([.medium])
+                .interactiveDismissDisabled()
+                .presentationDetents([.medium])
         })
+        .sheet(item:  $selectedEmployee, onDismiss: self.viewModel.get){employee in
+            EmployeeIDSheet_View(employee: employee, viewModel: viewModel)
+                .presentationDetents([.medium])
+                
+        }
         
     }
     
@@ -48,8 +52,14 @@ struct EmployeesMain_View: View {
     }
 }
 
-struct EmployeesMain_View_Previews: PreviewProvider {
-    static var previews: some View {
-        EmployeesMain_View()
-    }
-}
+
+
+
+
+
+
+//struct EmployeesMain_View_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EmployeesMain_View()
+//    }
+//}
