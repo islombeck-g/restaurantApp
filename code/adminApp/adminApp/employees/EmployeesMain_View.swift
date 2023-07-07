@@ -12,11 +12,13 @@ struct EmployeesMain_View: View {
         NavigationStack{
             ZStack(alignment: .bottomTrailing){
                 List{
-                    ForEach(self.viewModel.list){ employee in
-                        EmployeeBanner_View(employee: employee)
-                            .onTapGesture {
-                                self.selectedEmployee = employee
-                            }
+                    Section{
+                        ForEach(self.viewModel.list){ employee in
+                            EmployeeBanner_View(employee: employee)
+                                .onTapGesture {
+                                    self.selectedEmployee = employee
+                                }
+                        }
                     }
                 }
                 Button{
@@ -29,7 +31,8 @@ struct EmployeesMain_View: View {
                         .font(.system(size: 25))
                         .cornerRadius(50)
                     
-                } .offset(x: -20)
+                }
+                .offset(x: -25, y: -10)
             }
         }
         .sheet(isPresented: $showAddSheetView,

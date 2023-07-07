@@ -12,8 +12,8 @@ struct root_View: View {
             }
         }
         .onAppear{
-            let authUser = try? AuthManager.me.auth_edUser()
-            self.authView = authUser == nil
+//            let authUser = try? AuthManager.me.auth_edUser()
+//            self.authView = authUser == nil
         }
         .fullScreenCover(isPresented: $authView){
             NavigationStack{
