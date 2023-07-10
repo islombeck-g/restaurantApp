@@ -23,7 +23,7 @@ struct ProductIDList_View: View {
     }
 }
 
-struct ProductIDSheet_View_Previews: PreviewProvider {
+struct ProductIDList_View_Previews: PreviewProvider {
     static var previews: some View {
         ProductIDList_View(product: Product(id: "", name: "картошка", count: 400, price: 21))
     }

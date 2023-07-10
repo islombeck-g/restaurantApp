@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct ProductsMain_View: View {
-    @ObservedObject private var viewModel = Products_ViewModel()
+    @StateObject private var viewModel = Products_ViewModel()
     
     @State private var showProductAddSheet = false
     @State private var selectedProduct:Product? = nil
@@ -10,7 +10,7 @@ struct ProductsMain_View: View {
         NavigationStack{
             ZStack(alignment: .bottomTrailing){
                 List{
-                    ForEach(viewModel.listOfProducts){product in
+                    ForEach(viewModel.productsInWarehouse){product in
                         ProductIDList_View(product: product)
                             .onTapGesture {
                                 self.selectedProduct = product
@@ -33,13 +33,13 @@ struct ProductsMain_View: View {
             
         }
         .sheet(item: $selectedProduct, content:{ product in
-            ProductIDSheet_View()
+            ProductIDSheet_View(product: self.viewModel.product)
                 .presentationDetents([.medium])
         })
         .sheet(isPresented: self.$showProductAddSheet, content: { ProductAdd_View()
-            
-            
+                .environmentObject(viewModel)
         })
+        
     }
         
     init(){
