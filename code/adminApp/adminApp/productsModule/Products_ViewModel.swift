@@ -20,7 +20,6 @@ class Products_ViewModel:ObservableObject{
                         }
                     }
                 }
-                
             }else{
                 print("error in Products_ViewModel in get_Products: \(String(describing: error))")
             }

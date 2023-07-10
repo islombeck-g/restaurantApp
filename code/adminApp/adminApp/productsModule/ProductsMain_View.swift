@@ -10,6 +10,9 @@ struct ProductsMain_View: View {
         NavigationStack{
             ZStack(alignment: .bottomTrailing){
                 List{
+                    if viewModel.productsInWarehouse.isEmpty{
+                        Text("На складе закончились продукты :(")
+                    }
                     ForEach(viewModel.productsInWarehouse){product in
                         ProductIDList_View(product: product)
                             .onTapGesture {
@@ -32,6 +35,9 @@ struct ProductsMain_View: View {
             }
             
         }
+        .onAppear{
+            self.viewModel.get_Products()
+        }
         .sheet(item: $selectedProduct, content:{ product in
             ProductIDSheet_View(product: self.viewModel.product)
                 .presentationDetents([.medium])
@@ -41,10 +47,10 @@ struct ProductsMain_View: View {
         })
         
     }
-        
-    init(){
-        self.viewModel.get_Products()
-    }
+       
+//    init(){
+//        self.viewModel.get_Products()
+//    }
 }
 
 struct ProductsMain_View_Previews: PreviewProvider {
