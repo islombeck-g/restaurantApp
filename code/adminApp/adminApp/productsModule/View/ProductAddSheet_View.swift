@@ -90,7 +90,7 @@ struct ProductAddSheet_View: View {
             HStack{
                 Spacer()
                 Button{
-                    self.viewModel.addToBasket(product: Product(id: "", name: selectedProduct.name, count: self.selectedValue, price: self.result))
+                    self.viewModel.addToBasket(product: Product(id: "", name: selectedProduct.name, count: self.selectedValue, price: selectedProduct.price))
                    dismiss()
                 }label: {
                     Text("Добавить")

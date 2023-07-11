@@ -37,6 +37,7 @@ struct ProductsMain_View: View {
         }
         .onAppear{
             self.viewModel.get_Products()
+            self.viewModel.finalList()
         }
         .sheet(item: $selectedProduct, content:{ product in
             ProductIDSheet_View(product: self.viewModel.product)

@@ -6,8 +6,15 @@ import Foundation
 struct Product:Identifiable, Hashable{
     let id: String?
     var name:String
-    let count:Int
+    var count:Int
     let price:Double
+    
+    init(id: String, name: String, count: Int, price: Double) {
+            self.id = id
+            self.name = name
+            self.count = count
+            self.price = price
+        }
     
 }
 

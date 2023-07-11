@@ -18,6 +18,7 @@ class Products_ViewModel:ObservableObject{
                         self.productsInWarehouse = snapshot.documents.map{i in
                             return Product(id: i.documentID, name: i["name"] as! String , count: i["count"] as! Int, price: i["price"] as! Double)
                         }
+                        self.finalList()
                     }
                 }
             }else{
@@ -25,6 +26,8 @@ class Products_ViewModel:ObservableObject{
             }
             
         }
+       
+   
     }
     
     func addToBasket(product:Product){
@@ -34,10 +37,52 @@ class Products_ViewModel:ObservableObject{
         }
         self.productsInBasket.append(Product.init(id: "", name: product.name, count: product.count, price: product.price))
             
+        self.finalListBasket()
+    
+        
+    }
+    func addToWarehouse(){
+        guard !self.productsInBasket.isEmpty else {return}
+        let db = Firestore.firestore()
+        
+        for i in productsInBasket{
+            db.collection("products").addDocument(data: ["name": i.name, "count": i.count, "price": i.price]){error in
+                if error != nil{
+                    print("error in ProductViewModel in addToWarehouse: \(String(describing: error))")
+                }
+            }
+        }
+        self.productsInBasket = []
+        self.get_Products()
         
         
     }
+    func finalList(){
+        var newList = [Product]()
+        for i in productsInWarehouse{
+            if let index = newList.firstIndex(where: {$0.name == i.name}){
+                newList[index].count += i.count
+                
+            }else{
+                newList.append(i)
+            }
+
+        }
+        self.productsInWarehouse = []
+        self.productsInWarehouse = newList
+    }
     
-    
+    private func finalListBasket(){
+        var newList = [Product]()
+        for i in productsInBasket{
+            if let index = newList.firstIndex(where: {$0.name == i.name}){
+                newList[index].count += i.count
+            }else{
+                newList.append(i)
+            }
+
+        }
+        self.productsInBasket = newList
+    }
     
 }

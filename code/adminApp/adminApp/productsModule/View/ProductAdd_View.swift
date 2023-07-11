@@ -10,6 +10,7 @@ import SwiftUI
 //}
 
 struct ProductAdd_View: View {
+    @Environment(\.dismiss) var dismiss
     @State private var sheetView:Bool = false
     @EnvironmentObject var viewModel: Products_ViewModel
 
@@ -19,11 +20,12 @@ struct ProductAdd_View: View {
                 Section{
                     if !viewModel.productsInBasket.isEmpty{
                         ForEach(viewModel.productsInBasket, id: \.self){ pro in
-                            Text(pro.name)
+                            ProductIDList_View(product: pro)
                             
                         }
                     }else{
-                        Text("List of Products are Empty")
+                        Text("Корзина пуста")
+                            .frame(alignment: .center)
                     }
                 }
                 Section{
@@ -32,10 +34,19 @@ struct ProductAdd_View: View {
                     }label: {
                         HStack{
                             Spacer()
-                            Text("addProduct")
+                            Text("Добавить продукт")
                                 .frame(alignment: .center)
                             Spacer()
                         }
+                    }
+                }
+                Section{
+                    Button{
+                        self.viewModel.addToWarehouse()
+                        dismiss()
+                    }label:{
+                        Text("сделать заказ")
+                            .frame(alignment: .center)
                     }
                 }
                 
