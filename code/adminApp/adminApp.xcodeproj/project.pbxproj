@@ -43,6 +43,7 @@
 		63AA8ACE2A58806000A832E7 /* ProductIDList_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AA8ACD2A58806000A832E7 /* ProductIDList_View.swift */; };
 		63AA8AD02A589CF400A832E7 /* ProductAdd_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AA8ACF2A589CF400A832E7 /* ProductAdd_View.swift */; };
 		63AA8AD22A589D4200A832E7 /* ProductIDSheet_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AA8AD12A589D4200A832E7 /* ProductIDSheet_View.swift */; };
+		63C22FD72A5DD34300F1BADD /* ProductMainId_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C22FD62A5DD34300F1BADD /* ProductMainId_View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		63AA8ACD2A58806000A832E7 /* ProductIDList_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIDList_View.swift; sourceTree = "<group>"; };
 		63AA8ACF2A589CF400A832E7 /* ProductAdd_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAdd_View.swift; sourceTree = "<group>"; };
 		63AA8AD12A589D4200A832E7 /* ProductIDSheet_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIDSheet_View.swift; sourceTree = "<group>"; };
+		63C22FD62A5DD34300F1BADD /* ProductMainId_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMainId_View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 		63AA8ACC2A58803A00A832E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63C22FD62A5DD34300F1BADD /* ProductMainId_View.swift */,
 				63AA8ACF2A589CF400A832E7 /* ProductAdd_View.swift */,
 				63854D6C2A5A9F93000AC703 /* ProductAddSheet_View.swift */,
 				63AA8ACD2A58806000A832E7 /* ProductIDList_View.swift */,
@@ -399,6 +402,7 @@
 				6361A6342A51D56000C445A6 /* AuthManager.swift in Sources */,
 				63854D6D2A5A9F93000AC703 /* ProductAddSheet_View.swift in Sources */,
 				63838AE52A541A5A0045EEEF /* OrdersMain_View.swift in Sources */,
+				63C22FD72A5DD34300F1BADD /* ProductMainId_View.swift in Sources */,
 				6361A63E2A52AB7000C445A6 /* AuthEmail_ViewModel.swift in Sources */,
 				632D1D282A58785900034206 /* Products_Model.swift in Sources */,
 				6361A6432A52AC2300C445A6 /* main_ViewModel.swift in Sources */,

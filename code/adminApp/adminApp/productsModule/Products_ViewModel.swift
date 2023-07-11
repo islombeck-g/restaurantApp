@@ -4,10 +4,23 @@ import FirebaseFirestore
 class Products_ViewModel:ObservableObject{
     
     @Published var product:Product = Product(id: "", name: "", count: 0, price: 0)
+    
     @Published var productsInWarehouse = [Product]()//
     @Published var productsInBasket = [Product]()// в корзине
+    @Published var isLoading = false // это добавил
+    
+    func progress(){
+        self.isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now()){
+            self.isLoading = false
+        }
+        
+        
+    }
+    
     
     func get_Products(){
+        
         self.productsInWarehouse = []
         let db = Firestore.firestore()
         db.collection("products").getDocuments{ snapshot, error in
@@ -18,9 +31,11 @@ class Products_ViewModel:ObservableObject{
                             return Product(id: i.documentID, name: i["name"] as! String , count: i["count"] as! Int, price: i["price"] as! Double)
                         }
                     }
+                    
                 }
             }else{
                 print("error in Products_ViewModel in get_Products: \(String(describing: error))")
+                
             }
             
         }
@@ -35,15 +50,17 @@ class Products_ViewModel:ObservableObject{
         
         self.productsInBasket = self.finalList(list: self.productsInBasket)
         
-        
     }
     func addProductToDB(product: [Product], completion: @escaping () -> Void){
+        
         print("productTo add \(product)")
         addToDB(product: product){
+            
             self.someFunc()
             completion()
+            
         }
-       
+        
         
         
     }
@@ -57,7 +74,9 @@ class Products_ViewModel:ObservableObject{
                     print("error in ProductViewModel in addToWarehouse: \(String(describing: error))")
                 }else{
                     counter += 1
-                    if counter == product.count{completion()}
+                    if counter == product.count{
+                        completion()
+                    }
                 }
             }
         }
@@ -81,7 +100,8 @@ class Products_ViewModel:ObservableObject{
                 print("!!!!!!!!Document successfully deleted!")
             }
         }
-        self.get_Products() 
+        self.get_Products()
+        
     }
     
     
@@ -109,7 +129,7 @@ class Products_ViewModel:ObservableObject{
                 print("b")
             }
         }
-     
+        
         
         return newList
         
