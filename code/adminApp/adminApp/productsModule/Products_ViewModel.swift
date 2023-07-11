@@ -2,7 +2,7 @@ import Foundation
 import FirebaseFirestore
 
 class Products_ViewModel:ObservableObject{
-
+    
     @Published var product:Product = Product(id: "", name: "", count: 0, price: 0)
     @Published var productsInWarehouse = [Product]()//
     @Published var productsInBasket = [Product]()// в корзине
@@ -18,7 +18,7 @@ class Products_ViewModel:ObservableObject{
                         self.productsInWarehouse = snapshot.documents.map{i in
                             return Product(id: i.documentID, name: i["name"] as! String , count: i["count"] as! Int, price: i["price"] as! Double)
                         }
-                        self.finalList()
+                        self.productsInWarehouse = self.finalList(list: self.productsInWarehouse)
                     }
                 }
             }else{
@@ -26,8 +26,8 @@ class Products_ViewModel:ObservableObject{
             }
             
         }
-       
-   
+        
+        
     }
     
     func addToBasket(product:Product){
@@ -36,16 +36,22 @@ class Products_ViewModel:ObservableObject{
             return
         }
         self.productsInBasket.append(Product.init(id: "", name: product.name, count: product.count, price: product.price))
-            
-        self.finalListBasket()
-    
+        
+        self.productsInBasket = self.finalList(list: self.productsInBasket)
+        
         
     }
-    func addToWarehouse(){
-        guard !self.productsInBasket.isEmpty else {return}
+    func addProductToDB(product: [Product]){
+        
+        addToDB(product: product)
+        someFunc()
+        
+    }
+    func addToDB(product:[Product]){
+        guard !product.isEmpty else {return}
         let db = Firestore.firestore()
         
-        for i in productsInBasket{
+        for i in product{
             db.collection("products").addDocument(data: ["name": i.name, "count": i.count, "price": i.price]){error in
                 if error != nil{
                     print("error in ProductViewModel in addToWarehouse: \(String(describing: error))")
@@ -53,36 +59,50 @@ class Products_ViewModel:ObservableObject{
             }
         }
         self.productsInBasket = []
-        self.get_Products()
-        
-        
     }
-    func finalList(){
-        var newList = [Product]()
-        for i in productsInWarehouse{
-            if let index = newList.firstIndex(where: {$0.name == i.name}){
-                newList[index].count += i.count
-                
-            }else{
-                newList.append(i)
-            }
-
+    func countSumInBasket()->Double{
+        var sum = 0.0
+        for i in self.productsInBasket{
+            sum += (Double(i.count) * i.price/100.0)
         }
-        self.productsInWarehouse = []
-        self.productsInWarehouse = newList
+        return sum
+    }
+    func deleteProductFromDB(product:Product){
+        let db = Firestore.firestore()
+        db.collection("products").document(product.id!).delete{error in
+            if let error = error{
+                print("????????Error deleting document: \(error)")
+            }else{
+                print("!!!!!!!!Document successfully deleted!")
+            }
+        }
     }
     
-    private func finalListBasket(){
+    
+    private func someFunc(){
+        let array = self.finalList(list: self.productsInWarehouse)
+        
+        for i in self.productsInWarehouse{
+            self.deleteProductFromDB(product: i)
+        }
+        self.productsInWarehouse = []
+        addProductToDB(product: array)
+        
+        get_Products()
+        
+    }
+    private func finalList(list:[Product])->[Product]{
         var newList = [Product]()
-        for i in productsInBasket{
+        for i in list{
             if let index = newList.firstIndex(where: {$0.name == i.name}){
                 newList[index].count += i.count
             }else{
                 newList.append(i)
             }
-
         }
-        self.productsInBasket = newList
+        
+        return newList
+        
     }
     
 }

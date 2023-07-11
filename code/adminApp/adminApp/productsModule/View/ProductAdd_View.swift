@@ -42,10 +42,11 @@ struct ProductAdd_View: View {
                 }
                 Section{
                     Button{
-                        self.viewModel.addToWarehouse()
+                        self.viewModel.addToDB(product: self.viewModel.productsInBasket)
+                        self.viewModel.get_Products()
                         dismiss()
                     }label:{
-                        Text("сделать заказ")
+                        Text("сделать заказ на сумму: \(self.viewModel.countSumInBasket().formatted())")
                             .frame(alignment: .center)
                     }
                 }
