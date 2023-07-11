@@ -8,17 +8,15 @@ class Products_ViewModel:ObservableObject{
     @Published var productsInBasket = [Product]()// в корзине
     
     func get_Products(){
+        self.productsInWarehouse = []
         let db = Firestore.firestore()
-        
         db.collection("products").getDocuments{ snapshot, error in
             if error == nil{
-                
                 if let snapshot = snapshot{
                     DispatchQueue.main.async {
                         self.productsInWarehouse = snapshot.documents.map{i in
                             return Product(id: i.documentID, name: i["name"] as! String , count: i["count"] as! Int, price: i["price"] as! Double)
                         }
-                        self.productsInWarehouse = self.finalList(list: self.productsInWarehouse)
                     }
                 }
             }else{
@@ -26,8 +24,6 @@ class Products_ViewModel:ObservableObject{
             }
             
         }
-        
-        
     }
     
     func addToBasket(product:Product){
@@ -41,23 +37,32 @@ class Products_ViewModel:ObservableObject{
         
         
     }
-    func addProductToDB(product: [Product]){
+    func addProductToDB(product: [Product], completion: @escaping () -> Void){
+        print("productTo add \(product)")
+        addToDB(product: product){
+            self.someFunc()
+            completion()
+        }
+       
         
-        addToDB(product: product)
-        someFunc()
         
     }
-    func addToDB(product:[Product]){
+    private func addToDB(product:[Product], completion: @escaping () -> Void){
         guard !product.isEmpty else {return}
         let db = Firestore.firestore()
-        
+        var counter = 0
         for i in product{
             db.collection("products").addDocument(data: ["name": i.name, "count": i.count, "price": i.price]){error in
                 if error != nil{
                     print("error in ProductViewModel in addToWarehouse: \(String(describing: error))")
+                }else{
+                    counter += 1
+                    if counter == product.count{completion()}
                 }
             }
         }
+        self.get_Products()
+        print("productsInWarehouse = \(productsInWarehouse)")
         self.productsInBasket = []
     }
     func countSumInBasket()->Double{
@@ -76,30 +81,35 @@ class Products_ViewModel:ObservableObject{
                 print("!!!!!!!!Document successfully deleted!")
             }
         }
+        self.get_Products() 
     }
     
     
     private func someFunc(){
         let array = self.finalList(list: self.productsInWarehouse)
-        
+        print("NewArray = \(array)")
         for i in self.productsInWarehouse{
             self.deleteProductFromDB(product: i)
         }
         self.productsInWarehouse = []
-        addProductToDB(product: array)
+        addToDB(product: array){}
         
         get_Products()
         
     }
     private func finalList(list:[Product])->[Product]{
         var newList = [Product]()
+        print("list = \(list)")
         for i in list{
             if let index = newList.firstIndex(where: {$0.name == i.name}){
                 newList[index].count += i.count
+                print("a")
             }else{
                 newList.append(i)
+                print("b")
             }
         }
+     
         
         return newList
         

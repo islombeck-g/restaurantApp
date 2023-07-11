@@ -19,7 +19,12 @@ struct ProductsMain_View: View {
                                 self.selectedProduct = product
                             }
                     }
-                    
+                    .onDelete { indexSet in
+                        for index in indexSet {
+                            let productToDelete = viewModel.productsInWarehouse[index]
+                            viewModel.deleteProductFromDB(product: productToDelete)
+                        }
+                    }
                 }
                 Button{
                     self.showProductAddSheet.toggle()
@@ -47,10 +52,6 @@ struct ProductsMain_View: View {
         })
         
     }
-       
-//    init(){
-//        self.viewModel.get_Products()
-//    }
 }
 
 struct ProductsMain_View_Previews: PreviewProvider {

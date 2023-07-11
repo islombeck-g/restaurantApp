@@ -42,8 +42,7 @@ struct ProductAdd_View: View {
                 }
                 Section{
                     Button{
-                        self.viewModel.addToDB(product: self.viewModel.productsInBasket)
-                        self.viewModel.get_Products()
+                        self.viewModel.addProductToDB(product: self.viewModel.productsInBasket){}
                         dismiss()
                     }label:{
                         Text("сделать заказ на сумму: \(self.viewModel.countSumInBasket().formatted())")
