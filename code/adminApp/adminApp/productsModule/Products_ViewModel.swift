@@ -11,7 +11,7 @@ class Products_ViewModel:ObservableObject{
     
     func progress(){
         self.isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now()){
+        DispatchQueue.main.asyncAfter(deadline: .now()+2){
             self.isLoading = false
         }
         
