@@ -5,7 +5,8 @@ import FirebaseFirestore
 class Menu_ViewModel:ObservableObject{
     
     @Published var arrayOfMealIn = [Meal]()
-    
+    @Published var name = ""
+    @Published var icon = ""
     func getMeal() {
         self.arrayOfMealIn = [] // Инициализация пустого массива
         let db = Firestore.firestore()
@@ -46,8 +47,9 @@ class Menu_ViewModel:ObservableObject{
     }
 
     
+
     
-    
+   
 }
 
 
