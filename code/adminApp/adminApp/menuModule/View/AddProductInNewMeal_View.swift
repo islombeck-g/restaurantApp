@@ -10,54 +10,34 @@ struct AddProductInNewMeal_View: View {
             HStack{
                 Picker("Название продукта", selection: $selectedProduct, content: {
                     ForEach(ProductsArray, id: \.self) { me in
-                        Button{
-                            selectedProduct = me.name
-                        }label: {
-                            HStack{
-                                Image("\(me.name)")
-                                    .resizable()
-                                    .frame(width: 15, height: 15)
-                                Text("\(me.name)")
-                                    .foregroundColor(.blue)
-                                
-                                Spacer()
-                                
-                            }
+                        HStack{
+                            Image("\(me.name)")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                            Text("\(me.name)")
+                                .foregroundColor(.blue)
                             
-                            
-                            
-                        }
+                            Spacer()
+                        }.tag("\(me.name)")
                     }})
-                .onChange(of: selectedProduct){newValue in
-                    self.selectedProduct = newValue
-                }
-                .pickerStyle(.wheel)
+                .pickerStyle(.inline)
                 .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.width/2)
                 
-                Image(selectedProduct)
+                Image("\(self.selectedProduct)")
                 
                     .resizable()
                     .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width/3)
             }
-            
-            
             Text(selectedProduct)
-            
             Spacer()
-            
         }
-        
     }
-    
 }
-
-
-
-
 
 struct AddProductInNewMeal_View_Previews: PreviewProvider {
     static var previews: some View {
         AddProductInNewMeal_View(arrayOfProduct: .constant(
-            [MealProduct(countOfProduct: 100 , nameOfProduct: "булочка"),                                                MealProduct(countOfProduct: 120 , nameOfProduct: "фарш")]))
+            [MealProduct(countOfProduct: 100 , nameOfProduct: "булочка"),
+             MealProduct(countOfProduct: 120 , nameOfProduct: "фарш")]))
     }
 }

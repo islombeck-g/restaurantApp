@@ -43,19 +43,19 @@ struct ProductAddSheet_View: View {
                 HStack{
                     Text("вес")
                     Picker("Tip percentage", selection: $selectedValue) {
-                
-                                ForEach(Array(range), id: \.self) { me in
-                                    Text("\(me.formatted()) грамм")
-                                        .foregroundColor(.blue)
-                                }
-                            }
+                        
+                        ForEach(Array(range), id: \.self) { me in
+                            Text("\(me.formatted()) грамм")
+                                .foregroundColor(.blue)
+                        }
+                    }
                     .onChange(of: selectedValue){newValue in
                         self.result = Double(newValue) * selectedProduct.price/100
                     }
                     .onChange(of: selectedProduct){newValue in
                         self.result = Double(self.selectedValue) * newValue.price/100
                     }
-                            .pickerStyle(.inline)
+                    .pickerStyle(.inline)
                 }
             }
             Spacer()
@@ -91,7 +91,7 @@ struct ProductAddSheet_View: View {
                 Spacer()
                 Button{
                     self.viewModel.addToBasket(product: Product(id: "", name: selectedProduct.name, count: self.selectedValue, price: selectedProduct.price))
-                   dismiss()
+                    dismiss()
                 }label: {
                     Text("Добавить")
                 }
@@ -109,20 +109,14 @@ struct ProductAddSheet_View: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .sheet(isPresented: $isPresentingListOfProducts) {
             ListOfProducts(selectedOption: $selectedProduct)
-            
         }
-        
     }
 }
-
-
 struct ProductAddSheet_View_Previews: PreviewProvider {
     static var previews: some View {
         ProductAddSheet_View()
     }
 }
-
-
 struct ListOfProducts: View {
     @Binding var selectedOption: Products
     @Environment(\.presentationMode) var presentationMode
