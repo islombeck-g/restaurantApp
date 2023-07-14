@@ -2,9 +2,11 @@
 import SwiftUI
 
 struct AddProductInNewMeal_View: View {
+    @Environment(\.dismiss) var dismiss
     @Binding var arrayOfProduct:[MealProduct]
     @State private var selectedProduct = "картошка"
-    @State private var selectedCount:Int = 0
+//    @State private var score = 0
+    @State private var selectedCount:Int = Int()
     var body: some View {
         VStack{
             HStack{
@@ -28,9 +30,47 @@ struct AddProductInNewMeal_View: View {
                     .resizable()
                     .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width/3)
             }
-            Text(selectedProduct)
+            Group{
+                TextField("количество", value: $selectedCount, format: .number)
+//                    .keyboardType(.decimalPad)
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 8).stroke(selectedCount == 0 ? Color.black: Color.blue, lineWidth: 2))
+                    .padding()
+            }
+
+            
+            if let result = isNumber(){
+                switch result{
+                    case "заполните данное wwwsdfполе":
+                    Text(result)
+                    case "не пусто":
+                    Button{
+                        let newProduct = MealProduct(countOfProduct: selectedCount, nameOfProduct: selectedProduct)
+                        self.arrayOfProduct.append(newProduct)
+                        self.dismiss()
+                    }label: {
+                        Text("добавить продукт")
+                            .padding(.horizontal)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    default:
+                    Text(result)
+                }
+            }else{
+                Text("неопознанная ошибка")
+            }
+            
+           
             Spacer()
         }
+        .onDisappear{
+            self.selectedProduct = "картошка"
+            self.selectedCount = 0
+        }
+    }
+    func isNumber()->String?{
+        guard selectedCount != 0 else {return "количество должно быть не нулевым"}
+        return "не пусто"
     }
 }
 

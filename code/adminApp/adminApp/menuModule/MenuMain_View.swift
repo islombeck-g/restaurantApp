@@ -6,16 +6,23 @@ struct MenuMain_View: View {
     @State private var showAddMealSheetView = false
     var body: some View {
         NavigationStack{
+           
             ZStack(alignment: .bottom){
+                
+                
+             
+                
                 List{
                     if self.viewModel.arrayOfMealIn.isEmpty{
                         Text("no meal")
                     }else{
                         ForEach(self.viewModel.arrayOfMealIn, id: \.self){meal in
                             MenuId_View(meal: meal)
+                            
                         }
                     }
                 }
+                .listStyle(.inset)
                 Button{
                     self.showAddMealSheetView.toggle()
                 }label: {
@@ -24,6 +31,7 @@ struct MenuMain_View: View {
                 .buttonStyle(.bordered)
             }
             
+            .navigationTitle("Меню")
         }
         .onAppear{
             self.viewModel.getMeal()
@@ -31,6 +39,9 @@ struct MenuMain_View: View {
         .sheet(isPresented: self.$showAddMealSheetView){
             AddMealSheet_View()
                 .environmentObject(viewModel)
+                .onDisappear{
+                    self.viewModel.getMeal()
+                }
         }
         
     }

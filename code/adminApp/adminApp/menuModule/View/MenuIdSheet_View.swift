@@ -1,9 +1,3 @@
-//
-//  MenuIdSheet_View.swift
-//  adminApp
-//
-//  Created by Islombek Gofurov on 12.07.2023.
-//
 
 import SwiftUI
 

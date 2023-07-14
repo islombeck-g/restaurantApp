@@ -45,7 +45,38 @@ class Menu_ViewModel:ObservableObject{
             }
         }
     }
-
+    
+    func addMeal(newMeal:Meal){
+        if checkDataToAdd(newMeal: newMeal){
+            let db = Firestore.firestore()
+            
+            var productsData = [[String: Any]]()
+            
+            for i in newMeal.products{
+                let productData:[String:Any] = [
+                    "countOfProduct": i.countOfProduct,
+                    "nameOfProduct": i.nameOfProduct
+                ]
+                productsData.append(productData)
+            }
+            let mealData:[String:Any] = [
+                "icon": newMeal.icon,
+                "name": newMeal.name,
+                "products": productsData
+            ]
+            db.collection("meal").addDocument(data: mealData)
+        }else{
+            print("??????error in menu_ViewModel in addMeal")
+        }
+        
+        
+    }
+     private func checkDataToAdd(newMeal:Meal) -> Bool{
+        guard !newMeal.name.isEmpty else{return false}
+        guard !newMeal.icon.isEmpty else{return false}
+        guard !newMeal.products.isEmpty else {return false}
+        return true
+    }
     
 
     

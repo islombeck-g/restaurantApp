@@ -80,5 +80,12 @@ let ProductsArray = [
     Products(name: "сливочное масло", price: 14.99),
     Products(name: "соевый соус", price: 15.99),
     Products(name: "сосиски", price: 23.49),
-    Products(name: "спагетти", price: 10.99)
+    Products(name: "спагетти", price: 10.99),
+    Products(name: "булочка", price: 10),
+    Products(name: "гранат", price: 20),
+    Products(name: "лимон", price: 30),
+    Products(name: "майонез", price: 150),
+    Products(name: "хлеб", price: 10),
+    Products(name: "шоколад", price: 10),
+    Products(name: "яйца", price: 11)
 ]

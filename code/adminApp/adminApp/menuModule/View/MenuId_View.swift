@@ -7,11 +7,11 @@ struct MenuId_View: View {
         HStack {
             ZStack{
                 RoundedRectangle(cornerRadius: 8)
-                    .frame(width: UIScreen.main.bounds.width/2.5-20, height: UIScreen.main.bounds.width/2.5-20)
+                    .frame(width: UIScreen.main.bounds.width/2.5-20, height: UIScreen.main.bounds.width/2.5-30)
                     .foregroundColor(.green)
                 Image(meal.icon)
                     .resizable()
-                    .frame(width: UIScreen.main.bounds.width/2.5, height: UIScreen.main.bounds.width/2.5)
+                    .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width/3)
                 
             }
 
@@ -47,7 +47,7 @@ struct MenuId_View: View {
             .frame(width: UIScreen.main.bounds.width/2)
         }
         .frame(width: UIScreen.main.bounds.width - 50, height: 160)
-        .clipped() // Clip any overflowing content
+//        .clipped() // Clip any overflowing content
     }
 }
 
