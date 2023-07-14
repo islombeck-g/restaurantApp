@@ -4,9 +4,10 @@ import Foundation
 struct MealProduct:Hashable{
     let countOfProduct:Int
     let nameOfProduct:String
+    var haveOrNot: Bool
 }
 
-struct Meal:Hashable{
+struct Meal:Hashable, Identifiable{
     let id:String
     let name:String
     let icon:String

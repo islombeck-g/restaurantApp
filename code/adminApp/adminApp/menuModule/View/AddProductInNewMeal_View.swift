@@ -45,7 +45,7 @@ struct AddProductInNewMeal_View: View {
                     Text(result)
                     case "не пусто":
                     Button{
-                        let newProduct = MealProduct(countOfProduct: selectedCount, nameOfProduct: selectedProduct)
+                        let newProduct = MealProduct(countOfProduct: selectedCount, nameOfProduct: selectedProduct, haveOrNot: true)
                         self.arrayOfProduct.append(newProduct)
                         self.dismiss()
                     }label: {
@@ -77,7 +77,7 @@ struct AddProductInNewMeal_View: View {
 struct AddProductInNewMeal_View_Previews: PreviewProvider {
     static var previews: some View {
         AddProductInNewMeal_View(arrayOfProduct: .constant(
-            [MealProduct(countOfProduct: 100 , nameOfProduct: "булочка"),
-             MealProduct(countOfProduct: 120 , nameOfProduct: "фарш")]))
+            [MealProduct(countOfProduct: 100 , nameOfProduct: "булочка", haveOrNot: false),
+             MealProduct(countOfProduct: 120 , nameOfProduct: "фарш", haveOrNot: false)]))
     }
 }

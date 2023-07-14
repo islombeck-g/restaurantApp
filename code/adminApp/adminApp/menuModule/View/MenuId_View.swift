@@ -2,13 +2,14 @@ import SwiftUI
 
 struct MenuId_View: View {
     var meal: Meal
+    var haveOfNot:Bool
     
     var body: some View {
         HStack {
             ZStack{
                 RoundedRectangle(cornerRadius: 8)
                     .frame(width: UIScreen.main.bounds.width/2.5-20, height: UIScreen.main.bounds.width/2.5-30)
-                    .foregroundColor(.green)
+                    .foregroundColor(self.haveOfNot == true ? Color.green:Color.red)
                 Image(meal.icon)
                     .resizable()
                     .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width/3)
@@ -57,14 +58,14 @@ struct MenuId_View: View {
 struct MenuId_View_Previews: PreviewProvider {
     static var previews: some View {
         MenuId_View(meal: Meal(id: "", name: "Гамбургер", icon: "гамбургер", products: [
-            MealProduct(countOfProduct: 100 , nameOfProduct: "булочка"),
-            MealProduct(countOfProduct: 120 , nameOfProduct: "фарш"),
-            MealProduct(countOfProduct: 30 , nameOfProduct: "помидор"),
-            MealProduct(countOfProduct: 10 , nameOfProduct: "капуста"),
-            MealProduct(countOfProduct: 10 , nameOfProduct: "огурец"),
-            MealProduct(countOfProduct: 10 , nameOfProduct: "майонез"),
-            MealProduct(countOfProduct: 10 , nameOfProduct: "кетчуп")
-        ]))
+            MealProduct(countOfProduct: 100 , nameOfProduct: "булочка", haveOrNot: true),
+            MealProduct(countOfProduct: 120 , nameOfProduct: "фарш", haveOrNot: true),
+            MealProduct(countOfProduct: 30 , nameOfProduct: "помидор", haveOrNot: true),
+            MealProduct(countOfProduct: 10 , nameOfProduct: "капуста", haveOrNot: true),
+            MealProduct(countOfProduct: 10 , nameOfProduct: "огурец", haveOrNot: true),
+            MealProduct(countOfProduct: 10 , nameOfProduct: "майонез", haveOrNot: true),
+            MealProduct(countOfProduct: 10 , nameOfProduct: "кетчуп", haveOrNot: true)
+        ]), haveOfNot: false)
     }
 }
 
