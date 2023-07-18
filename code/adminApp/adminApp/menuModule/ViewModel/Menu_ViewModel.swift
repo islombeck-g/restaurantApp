@@ -2,6 +2,7 @@
 import Foundation
 import FirebaseFirestore
 
+
 class Menu_ViewModel:ObservableObject{
     
     @Published var arrayOfMealIn = [Meal]()
@@ -20,7 +21,7 @@ class Menu_ViewModel:ObservableObject{
             }
             
             guard let snapshot = snapshot else {
-                print("Snapshot is nil") // Проверка наличия snapshot
+                print("Snapshot is nil") // Про верка наличия snapshot
                 return
             }
             
@@ -40,9 +41,11 @@ class Menu_ViewModel:ObservableObject{
                             return nil
                         }
                         
-                        return MealProduct(countOfProduct: countOfProduct, nameOfProduct: nameOfProduct, haveOrNot: true)
+                        return MealProduct(countOfProduct: countOfProduct, nameOfProduct: nameOfProduct, haveOrNot: false)
                     }
-                    self.checkDataToCook(productList: products)
+                    print("11111 products")
+                    products = self.checkDataToCook(productList: products)
+                    print("333333 products")
                     return Meal(id: document.documentID, name: name, icon: icon, products: products)
                 }
             }
@@ -89,16 +92,18 @@ class Menu_ViewModel:ObservableObject{
         guard !newMeal.products.isEmpty else {return false}
         return true
     }
+    
+    
     private func checkDataToCook(productList: [MealProduct])->[MealProduct]{
         var newProductList = productList
         //MARK: getProducts
         getProductsToCheck{
-            
             for i in newProductList.indices{
-                print(newProductList[i].nameOfProduct)
                 
                 if let index = self.arrayOfProducts.firstIndex(where: {$0.name == newProductList[i].nameOfProduct}){
                     if self.arrayOfProducts[index].count > newProductList[i].countOfProduct {
+                        print("self.arrayOfProducts[index].count ==== \(self.arrayOfProducts[index].count)")
+                        print("newProductList[i].countOfProduct === \(newProductList[i].countOfProduct)")
                         newProductList[i].haveOrNot = true
                     }else{
                         newProductList[i].haveOrNot = false
@@ -106,12 +111,12 @@ class Menu_ViewModel:ObservableObject{
                 }else{
                     newProductList[i].haveOrNot = false
                 }
-                
-                
             }
+            
         }
-        
+        print("2222222newProductList = \(newProductList)")
         return newProductList
+        
     }
     private func getProductsToCheck(completion: @escaping () -> Void){
         self.arrayOfProducts = []
@@ -136,8 +141,8 @@ class Menu_ViewModel:ObservableObject{
                 print("error in Menu_ViewModel in getProductsToCheck: \(String(describing: error))")
             }
         }
-        
     }
+    
     
     
     

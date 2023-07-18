@@ -6,19 +6,28 @@ struct MenuIdSheet_View: View {
     var haveOfNot:Bool
     
     var body: some View {
+        
         VStack {
+            HStack{
+                Spacer()
+                Button{}label: {
+                    Image(systemName: "minus.circle")
+                        .foregroundColor(.red)
+                        .font(.system(size: 25))
+
+                    
+                }
+                Spacer()
+                    .frame(width: 25)
+            }
             Spacer()
                 .frame(height: 20)
-            ZStack{
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(width: UIScreen.main.bounds.width/2.5-20, height: UIScreen.main.bounds.width/2.5-30)
-                    .foregroundColor(self.haveOfNot == true ? Color.green:Color.red)
-                Image(meal.icon)
-                    .resizable()
-                    .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width/3)
-                
-            }
-
+            Image(meal.icon)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width-50, height: 250)
+                .cornerRadius(15)
+            
             Spacer()
             
             VStack(alignment: .leading) {
@@ -36,14 +45,14 @@ struct MenuIdSheet_View: View {
                                 Image(product.nameOfProduct)
                                     .resizable()
                                     .frame(width: 35, height: 35)
-                                    
+                                
                                 Text(product.nameOfProduct)
                                     .font(.headline)
                                     .foregroundColor(product.haveOrNot == true ? Color.black: Color.red)
                                 Spacer()
                                 Text("\(product.countOfProduct) гр")
                                     .foregroundColor(product.haveOrNot == true ? Color.black: Color.red)
-                                 
+                                
                             }
                             
                         }.listRowInsets(EdgeInsets())
@@ -51,17 +60,45 @@ struct MenuIdSheet_View: View {
                 }
                 
                 Spacer()
+                
             }
             .frame(width: UIScreen.main.bounds.width/1.3)
+            
+            
+            HStack{
+                
+                
+                Button{}label:{
+                    Text("Изменить")
+                        .foregroundColor(.red)
+                        .frame(width: UIScreen.main.bounds.width/3)
+                }
+                .buttonStyle(.bordered)
+                
+                
+                Button{}label:{
+                    Text("Остановить")
+                        .foregroundColor(.red)
+                        .padding(.horizontal)
+                        .frame(width: UIScreen.main.bounds.width/3)
+                    
+                }
+                .buttonStyle(.bordered)
+                
+                
+            }
+            
         }
-       
-//        .clipped() // Clip any overflowing content
+        
+        
+        
+        
     }
 }
 
 struct MenuIdSheet_View_Previews: PreviewProvider {
     static var previews: some View {
-        MenuIdSheet_View(meal: Meal(id: "", name: "Гамбургер", icon: "гамбургер", products: [
+        MenuIdSheet_View(meal: Meal(id: "", name: "Гамбургер", icon: "лапша", products: [
             MealProduct(countOfProduct: 100 , nameOfProduct: "булочка", haveOrNot: true),
             MealProduct(countOfProduct: 120 , nameOfProduct: "фарш", haveOrNot: true),
             MealProduct(countOfProduct: 30 , nameOfProduct: "помидор", haveOrNot: false),

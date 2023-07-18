@@ -7,7 +7,7 @@ struct Main_View: View {
     @State private var path = NavigationPath()
     var body: some View {
         
-        TabView{
+        TabView {
             MenuMain_View()
                 .tabItem{
                     Label("Menu", systemImage: "menucard")

@@ -1,9 +1,3 @@
-//
-//  main_ViewModel.swift
-//  adminApp
-//
-//  Created by Islombek Gofurov on 03.07.2023.
-//
 
 import Foundation
 

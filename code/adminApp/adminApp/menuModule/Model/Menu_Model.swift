@@ -44,5 +44,8 @@ let imageList = [
     MealImage(name: "суши с лососем", url: ""),
     MealImage(name: "тако", url: ""),
     MealImage(name: "татарский суп", url: ""),
-    MealImage(name: "уйгурский лагман", url: "")
+    MealImage(name: "уйгурский лагман", url: ""),
+    MealImage(name: "макароны по флотски", url: "")
 ]
+
+
