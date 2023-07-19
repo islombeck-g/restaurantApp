@@ -4,10 +4,13 @@ import Firebase
 @main
 struct adminAppApp: App {
     @UIApplicationDelegateAdaptor (AppDelegate.self) var delegate
+    
+    
     var body: some Scene {
         WindowGroup {
 //            root_View()
             Main_View()
+                
         }
     }
 }

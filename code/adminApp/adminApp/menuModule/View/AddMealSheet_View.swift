@@ -103,7 +103,7 @@ struct AddMealSheet_View: View {
                         Button{
                             
                             let meal = Meal(id: "", name: nameOfNewProduct, icon: iconOfNewProduct, products: ingredients)
-                            self.viewModel.addMeal(newMeal: meal)
+                            self.viewModel.firebase.addMeal(newMeal: meal)
                             
                             self.dismiss()
                         }label: {

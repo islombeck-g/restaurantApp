@@ -2,13 +2,17 @@ import Foundation
 import FirebaseFirestore
 
 class Products_ViewModel:ObservableObject{
-    
+    var firebase: FireBase_ViewModel
     @Published var product:Product = Product(id: "", name: "", count: 0, price: 0)
     
     @Published var productsInWarehouse = [Product]()//
     @Published var productsInBasket = [Product]()// в корзине
     @Published var isLoading = false // это добавил
     
+
+    init(firebase: FireBase_ViewModel) {
+            self.firebase = firebase
+        }
     func progress(){
         self.isLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now()+2){

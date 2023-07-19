@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct ProductsMain_View: View {
-    @StateObject private var viewModel = Products_ViewModel()
+    @EnvironmentObject var viewModel:Products_ViewModel
     
     @State private var showProductAddSheet = false
     @State private var selectedProduct:Product? = nil

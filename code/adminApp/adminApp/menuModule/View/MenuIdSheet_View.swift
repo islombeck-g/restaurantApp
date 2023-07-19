@@ -3,7 +3,7 @@ import SwiftUI
 
 struct MenuIdSheet_View: View {
     var meal: Meal
-    var haveOfNot:Bool
+
     
     var body: some View {
         
@@ -106,6 +106,6 @@ struct MenuIdSheet_View_Previews: PreviewProvider {
             MealProduct(countOfProduct: 10 , nameOfProduct: "огурец", haveOrNot: true),
             MealProduct(countOfProduct: 10 , nameOfProduct: "майонез", haveOrNot: true),
             MealProduct(countOfProduct: 10 , nameOfProduct: "кетчуп", haveOrNot: true)
-        ]), haveOfNot: false)
+        ]))
     }
 }

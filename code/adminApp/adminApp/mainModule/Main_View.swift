@@ -2,32 +2,36 @@
 import SwiftUI
 
 struct Main_View: View {
-    //    @StateObject private var viewModel = MainViewModel()
-    //    @Binding var authView:Bool
-    @State private var path = NavigationPath()
+    @StateObject var productsViewModel: Products_ViewModel
+    @StateObject var menuViewModel: Menu_ViewModel
+
+    init() {
+           let firebase = FireBase_ViewModel()
+           _productsViewModel = StateObject(wrappedValue: Products_ViewModel(firebase: firebase))
+           _menuViewModel = StateObject(wrappedValue: Menu_ViewModel(firebase: firebase))
+       }
+    
     var body: some View {
-        
         TabView {
             MenuMain_View()
-                .tabItem{
+                .environmentObject(menuViewModel )
+                .tabItem {
                     Label("Menu", systemImage: "menucard")
                 }
             ProductsMain_View()
-                .tabItem{
+                .environmentObject(productsViewModel )
+                .tabItem {
                     Label("Products", systemImage: "refrigerator")
                 }
             EmployeesMain_View()
-                .tabItem{
+                .tabItem {
                     Label("Employees", systemImage: "person.3")
                 }
             OrdersMain_View()
-                .tabItem{
+                .tabItem {
                     Label("Orders", systemImage: "play.display")
                 }
         }
-        //        .tabViewStyle(PageTabViewStyle())
-        
-        
     }
 }
 

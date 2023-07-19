@@ -1,22 +1,18 @@
 
 import SwiftUI
-
 struct MenuMain_View: View {
-    @StateObject private var viewModel = Menu_ViewModel()
+    @EnvironmentObject var viewModel:Menu_ViewModel
     @State private var showAddMealSheetView = false
     @State private var selectedMealForShow: Meal? = nil
-    @State var shouldScroll: Bool = true
     var body: some View {
         NavigationStack {
-           
             ZStack (alignment: .bottom) {
                 ScrollView {
-//                    .disabled(true)
-                    if self.viewModel.arrayOfMealIn.isEmpty {
+                    if self.viewModel.firebase.arrayOfMeal.isEmpty{
                         Text ("no meal")
                     } else {
-                        ForEach (self.viewModel.arrayOfMealIn, id: \.self) {meal in
-                            MenuId_View(meal: meal, haveOfNot: self.viewModel.checkProduct (me: meal.products))
+                        ForEach(self.viewModel.firebase.arrayOfMeal, id: \.self){meal in
+                            MenuId_View(meal: meal)
                                 .onTapGesture {
                                     self.selectedMealForShow = meal
                                     print("button tapped")
@@ -24,8 +20,6 @@ struct MenuMain_View: View {
                         }
                     }
                 }
-                .environment(\.isScrollEnabled, shouldScroll)
-
                 Button {
                     self.showAddMealSheetView.toggle()
                 } label: {
@@ -33,26 +27,18 @@ struct MenuMain_View: View {
                 }
                 .buttonStyle (.bordered)
             }
-            
-            
             .navigationTitle ("Меню")
-        }
-        .onAppear {
-            self.viewModel.getMeal()
         }
         .sheet (isPresented: self.$showAddMealSheetView) {
             AddMealSheet_View()
                 .environmentObject (viewModel)
                 .onDisappear {
-                    self.viewModel.getMeal()
                 }
         }
         .sheet (item: self.$selectedMealForShow, content: {meal in
-            MenuIdSheet_View(meal: meal, haveOfNot: self.viewModel.checkProduct(me: meal.products))
+            MenuIdSheet_View(meal: meal)
         })
-        
     }
-    
 }
 
 struct MenuMain_View_Previews: PreviewProvider {
