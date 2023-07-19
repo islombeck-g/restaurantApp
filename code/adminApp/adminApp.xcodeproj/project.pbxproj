@@ -53,6 +53,8 @@
 		63AA8AD22A589D4200A832E7 /* ProductIDSheet_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AA8AD12A589D4200A832E7 /* ProductIDSheet_View.swift */; };
 		63ACD0762A67DF79003E58C5 /* FireBase_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACD0752A67DF79003E58C5 /* FireBase_ViewModel.swift */; };
 		63C22FD72A5DD34300F1BADD /* ProductMainId_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C22FD62A5DD34300F1BADD /* ProductMainId_View.swift */; };
+		63EBE2C82A68477C00610A71 /* MealService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBE2C72A68477C00610A71 /* MealService.swift */; };
+		63EBE2CA2A6847ED00610A71 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBE2C92A6847ED00610A71 /* ProductService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +99,8 @@
 		63AA8AD12A589D4200A832E7 /* ProductIDSheet_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIDSheet_View.swift; sourceTree = "<group>"; };
 		63ACD0752A67DF79003E58C5 /* FireBase_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBase_ViewModel.swift; sourceTree = "<group>"; };
 		63C22FD62A5DD34300F1BADD /* ProductMainId_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMainId_View.swift; sourceTree = "<group>"; };
+		63EBE2C72A68477C00610A71 /* MealService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealService.swift; sourceTree = "<group>"; };
+		63EBE2C92A6847ED00610A71 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +214,9 @@
 				633F92832A541666006A1068 /* trash.swift */,
 				63ACD0752A67DF79003E58C5 /* FireBase_ViewModel.swift */,
 				63325E0C2A6825BE00A988E3 /* MealApi.swift */,
+				63EBE2C72A68477C00610A71 /* MealService.swift */,
 				63325E0E2A6825D900A988E3 /* ProductApi.swift */,
+				63EBE2C92A6847ED00610A71 /* ProductService.swift */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -449,6 +455,7 @@
 				6358AEB32A5EB17000A8CB71 /* MenuId_View.swift in Sources */,
 				6361A6362A52A6FB00C445A6 /* root_View.swift in Sources */,
 				6361A6392A52AAB400C445A6 /* Main_View.swift in Sources */,
+				63EBE2C82A68477C00610A71 /* MealService.swift in Sources */,
 				63ACD0762A67DF79003E58C5 /* FireBase_ViewModel.swift in Sources */,
 				632D1D2A2A5879E300034206 /* Products_ViewModel.swift in Sources */,
 				63619CD82A569D360030BB06 /* EmployeeBanner_View.swift in Sources */,
@@ -468,6 +475,7 @@
 				63619CDC2A56CD980030BB06 /* Employee_Model.swift in Sources */,
 				63502BC12A5E88C4002878F9 /* MenuIdSheet_View.swift in Sources */,
 				63325E0F2A6825D900A988E3 /* ProductApi.swift in Sources */,
+				63EBE2CA2A6847ED00610A71 /* ProductService.swift in Sources */,
 				63AA8AD22A589D4200A832E7 /* ProductIDSheet_View.swift in Sources */,
 				63838AE72A541A6F0045EEEF /* EmployeesMain_View.swift in Sources */,
 				63A58F952A51737000B9832F /* Registration_View.swift in Sources */,

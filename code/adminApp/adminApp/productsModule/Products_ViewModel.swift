@@ -2,6 +2,7 @@ import Foundation
 import FirebaseFirestore
 
 class Products_ViewModel:ObservableObject{
+    
     var firebase: FireBase_ViewModel
     @Published var product:Product = Product(id: "", name: "", count: 0, price: 0)
     
