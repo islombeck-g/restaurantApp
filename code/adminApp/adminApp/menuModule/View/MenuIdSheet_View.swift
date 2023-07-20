@@ -2,6 +2,8 @@
 import SwiftUI
 
 struct MenuIdSheet_View: View {
+    @EnvironmentObject var viewModel:Menu_ViewModel
+    @Environment(\.dismiss) var dismiss
     var meal: Meal
 
     
@@ -10,7 +12,10 @@ struct MenuIdSheet_View: View {
         VStack {
             HStack{
                 Spacer()
-                Button{}label: {
+                Button{
+                    self.viewModel.deleteMeal(meal: meal)
+                    self.dismiss()
+                }label: {
                     Image(systemName: "minus.circle")
                         .foregroundColor(.red)
                         .font(.system(size: 25))

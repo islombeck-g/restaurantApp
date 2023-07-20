@@ -46,11 +46,8 @@ struct ProductsMain_View: View {
                 }
             }
         }
-        .onAppear{
-            self.viewModel.progress()
-            self.viewModel.get_Products()
-        }
-        .sheet(isPresented: self.$showProductAddSheet, content: { ProductAdd_View()
+        .sheet(isPresented: self.$showProductAddSheet, content: {
+            ProductsAdd_View()
                 .environmentObject(viewModel)
         })
         .sheet(item: $selectedProduct){ product in

@@ -6,12 +6,13 @@ struct MenuMain_View: View {
     @State private var selectedMealForShow: Meal? = nil
     var body: some View {
         NavigationStack {
+            
             ZStack (alignment: .bottom) {
                 ScrollView {
-                    if self.viewModel.firebase.arrayOfMeal.isEmpty{
+                    if self.viewModel.arrayOfMeal.isEmpty{
                         Text ("no meal")
                     } else {
-                        ForEach(self.viewModel.firebase.arrayOfMeal, id: \.self){meal in
+                        ForEach(self.viewModel.arrayOfMeal , id: \.self){meal in
                             MenuId_View(meal: meal)
                                 .onTapGesture {
                                     self.selectedMealForShow = meal
@@ -28,6 +29,9 @@ struct MenuMain_View: View {
                 .buttonStyle (.bordered)
             }
             .navigationTitle ("Меню")
+        }
+        .onAppear{
+            self.viewModel.getMeal()
         }
         .sheet (isPresented: self.$showAddMealSheetView) {
             AddMealSheet_View()

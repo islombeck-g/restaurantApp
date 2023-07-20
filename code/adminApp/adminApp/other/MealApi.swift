@@ -33,8 +33,8 @@ class MealAPI {
                         return nil
                     }
                     let products = productsData.compactMap{i -> MealProduct? in
-                        guard let name = i["name"] as? String,
-                              let count = i["count"] as? Int
+                        guard let name = i["nameOfProduct"] as? String,
+                              let count = i["countOfProduct"] as? Int
                         else {
                             print ("error in MealApi in getData in snapshot")
                             return nil
@@ -82,4 +82,7 @@ class MealAPI {
             print ("Meal successfully deleted!")
         }
     }
+    
+    
+    
 }

@@ -9,7 +9,7 @@ import SwiftUI
 //
 //}
 
-struct ProductAdd_View: View {
+struct ProductsAdd_View: View {
     @Environment(\.dismiss) var dismiss
     @State private var sheetView:Bool = false
     @EnvironmentObject var viewModel: Products_ViewModel
@@ -42,8 +42,7 @@ struct ProductAdd_View: View {
                 }
                 Section{
                     Button{
-                        self.viewModel.addProductToDB(product: self.viewModel.productsInBasket){}
-                        self.viewModel.progress()
+                        self.viewModel.addProductToDB()
                         dismiss()
                     }label:{
                         Text("сделать заказ на сумму: \(self.viewModel.countSumInBasket().formatted())")
@@ -66,6 +65,6 @@ struct ProductAdd_View: View {
 
 struct ProductAdd_View_Previews: PreviewProvider {
     static var previews: some View {
-        ProductAdd_View()
+        ProductsAdd_View()
     }
 }

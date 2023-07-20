@@ -7,23 +7,10 @@ struct AddMealSheet_View: View {
     @State private var nameOfNewProduct:String = ""
     @State private var iconOfNewProduct:String = "defaultMealName"
     @State private var ingredients = [MealProduct]()
-//    @State private var ingredients = [
-//        MealProduct(countOfProduct: 100 , nameOfProduct: "булочка"),
-//        MealProduct(countOfProduct: 120 , nameOfProduct: "фарш"),
-//        MealProduct(countOfProduct: 30 , nameOfProduct: "помидор"),
-//        MealProduct(countOfProduct: 10 , nameOfProduct: "капуста"),
-//        MealProduct(countOfProduct: 10 , nameOfProduct: "огурец"),
-//        MealProduct(countOfProduct: 10 , nameOfProduct: "майонез"),
-//        MealProduct(countOfProduct: 10 , nameOfProduct: "капуста"),
-//        MealProduct(countOfProduct: 10 , nameOfProduct: "огурец"),
-//        MealProduct(countOfProduct: 10 , nameOfProduct: "майонез"),
-//        MealProduct(countOfProduct: 10 , nameOfProduct: "кетчуп")
-//    ]
     @State private var showAddproductView = false
     var body: some View {
         NavigationStack{
             VStack{
-                
                 Spacer()
                     .frame(height: 40)
                 Image(iconOfNewProduct)
@@ -103,7 +90,7 @@ struct AddMealSheet_View: View {
                         Button{
                             
                             let meal = Meal(id: "", name: nameOfNewProduct, icon: iconOfNewProduct, products: ingredients)
-                            self.viewModel.firebase.addMeal(newMeal: meal)
+                            self.viewModel.addMeal(newMeal: meal)
                             
                             self.dismiss()
                         }label: {

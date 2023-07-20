@@ -23,11 +23,22 @@ class ProductService{
         }
         self.productAPI.pushData(product: product)
     }
-    func deleteAPI(product:Product){
+    func deleteAPI(product:Product, completion: @escaping (String) -> Void){
         guard product.count > 0 && product.name != "" && product.price > 0 else{
             print("error in ProductService in deleteAPI")
+            completion("error in deleteApi in format")
             return
         }
-        self.productAPI.deleteProduct(product: product)
+        self.productAPI.deleteProduct(product: product){ text in
+            
+            completion(text)
+        }
     }
+    
+    func getDataWithName(name: String, completion: @escaping (Product?)-> Void){
+        self.productAPI.getDataWithName(name: name){products in
+            completion (products)
+        }
+    }
+    
 }

@@ -2,24 +2,18 @@
 import SwiftUI
 
 struct Main_View: View {
-    @StateObject var productsViewModel: Products_ViewModel
-    @StateObject var menuViewModel: Menu_ViewModel
+    @StateObject var productsViewModel: Products_ViewModel = Products_ViewModel()
+    @StateObject var menuViewModel: Menu_ViewModel = Menu_ViewModel()
 
-    init() {
-           let firebase = FireBase_ViewModel()
-           _productsViewModel = StateObject(wrappedValue: Products_ViewModel(firebase: firebase))
-           _menuViewModel = StateObject(wrappedValue: Menu_ViewModel(firebase: firebase))
-       }
-    
     var body: some View {
         TabView {
             MenuMain_View()
-                .environmentObject(menuViewModel )
+                .environmentObject(menuViewModel)
                 .tabItem {
                     Label("Menu", systemImage: "menucard")
                 }
             ProductsMain_View()
-                .environmentObject(productsViewModel )
+                .environmentObject(productsViewModel)
                 .tabItem {
                     Label("Products", systemImage: "refrigerator")
                 }
