@@ -6,7 +6,7 @@ class MealService {
     
     func getFromAPI (completion: @escaping ([Meal]) -> Void) {
         self.mealAPI.getData{meal in
-            print("meal: \(meal)")
+//            print("meal: \(meal)")
             completion(meal)
         }
     }

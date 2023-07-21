@@ -6,38 +6,46 @@ class Menu_ViewModel:ObservableObject{
     @Published var arrayOfMeal = [Meal]()
     @Published var name = ""
     @Published var icon = ""
-//    private var arrayOfProducts = [Product]()
-    @Published var isloading:Bool = false
-   
-   
+    
+    @Published var isLoading:Bool = false
+    
     init(){
         self.getMeal()
     }
-    func getMeal(){
-        self.isloading = true
+    
+    func getMeal() {
+        self.isLoading = true
         
-        self.productService.getFromAPI{products in
+        self.productService.getFromAPI { products in
             
-            self.service.getFromAPI{meal in
+            self.service.getFromAPI { meal in
+                var updatedMeal = meal
                 
-                for i in meal{
-                    for var j in i.products{
-                        if let index = products.firstIndex(where: {$0.name == j.nameOfProduct}){
-                            if j.countOfProduct <= products[index].count{
-                                j.haveOrNot = true
+                print("start check have or not")
+                for mealItem in 0..<updatedMeal.count {
+                    for mealItemProduct in 0..<updatedMeal[mealItem].products.count {
+                        if let index = products.firstIndex(where: {
+                            $0.name == updatedMeal[mealItem].products[mealItemProduct].nameOfProduct
+                        }) {
+                            if updatedMeal[mealItem].products[mealItemProduct].countOfProduct <= products[index].count {
+                                var productCopy = updatedMeal[mealItem].products[mealItemProduct]
+                                productCopy.haveOrNot = true
+                                updatedMeal[mealItem].products[mealItemProduct] = productCopy
+                                print("mealItemProduct.haveOrNot: \(mealItemProduct)")
+                                print(updatedMeal)
                             }
                         }
                     }
                 }
-                self.arrayOfMeal = meal
-              
+                print("end check have or not")
+                self.arrayOfMeal = updatedMeal
+                print("products: \(products)")
+                print("meal: \(updatedMeal)")
             }
-            self.isloading = false
+            self.isLoading = false
         }
-        
-        
     }
-    
+
     func addMeal(newMeal: Meal){
         self.service.addToAPI(meal: newMeal)
         self.getMeal()
@@ -48,7 +56,7 @@ class Menu_ViewModel:ObservableObject{
     }
 }
 
-    
+
 
 
 

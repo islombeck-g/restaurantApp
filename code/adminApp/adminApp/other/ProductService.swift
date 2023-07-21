@@ -12,7 +12,6 @@ class ProductService{
 //    }
     func getFromAPI(completion: @escaping ([Product]) -> Void){
         self.productAPI.getData{ products in
-            print("products: \(products)")
            completion(products)
         }
     }

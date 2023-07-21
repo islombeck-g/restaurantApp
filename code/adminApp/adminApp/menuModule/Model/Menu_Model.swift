@@ -11,7 +11,7 @@ struct Meal:Hashable, Identifiable{
     let id:String
     let name:String
     let icon:String
-    let products:[MealProduct]
+    var products:[MealProduct]
 }
 
 

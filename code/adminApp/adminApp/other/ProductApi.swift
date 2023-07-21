@@ -85,7 +85,6 @@ class ProductAPI{
                   let count = document["count"] as? Int,
                   let price = document["price"] as? Double else {
                 print("Error in ProductAPI getDataWithName, data parsing failed")
-                print(snapshot.documents)
                 completion(nil)
                 
                 return

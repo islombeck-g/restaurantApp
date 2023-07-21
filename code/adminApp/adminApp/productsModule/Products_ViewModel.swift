@@ -13,12 +13,10 @@ class Products_ViewModel:ObservableObject{
         self.getProducts()
     }
     func getProducts() {
-        print("--------start")
         self.isLoading = true
         service.getFromAPI { products in
             self.productsInWarehouse = products
             self.isLoading = false
-            print("--------end")
         }
     }
     func addProductToDB(){
@@ -33,14 +31,10 @@ class Products_ViewModel:ObservableObject{
                     self.getProducts()
                     return
                 }
-                print(product)
-                print("2")
                 i.count += product!.count
                 self.service.deleteAPI(product: product!){t in
                     self.service.addToAPI(product: i)
                     self.getProducts()
-                    print(product)
-                    print("3")
                 }
                                        
             }

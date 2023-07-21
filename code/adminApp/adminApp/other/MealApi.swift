@@ -32,7 +32,7 @@ class MealAPI {
                         print ("error in MealApi in getData in snapshot")
                         return nil
                     }
-                    let products = productsData.compactMap{i -> MealProduct? in
+                    var products = productsData.compactMap{i -> MealProduct? in
                         guard let name = i["nameOfProduct"] as? String,
                               let count = i["countOfProduct"] as? Int
                         else {
