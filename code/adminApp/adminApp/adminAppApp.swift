@@ -10,7 +10,7 @@ struct adminAppApp: App {
         WindowGroup {
 //            root_View()
 //            Main_View()
-            ContentView()
+            AddImage_View()
                 
         }
     }
