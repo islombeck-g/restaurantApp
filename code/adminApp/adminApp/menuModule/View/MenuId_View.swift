@@ -2,19 +2,19 @@ import SwiftUI
 
 struct MenuId_View: View {
     var meal: Meal
-    
+    let frameConstSize = CGFloat(170)
     var body: some View {
             VStack{
                 
                 Image(meal.icon)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width-50, height: 250)
+                    .frame(width: frameConstSize, height: frameConstSize)
                     .cornerRadius(15)
                 Text(meal.name)
                 Divider()
                     .background(Color.red)
-                    .frame(width: UIScreen.main.bounds.width - 80)
+                    .frame(width: frameConstSize)
                     .offset(y: -10)
             }
         

@@ -4,8 +4,8 @@ class Menu_ViewModel:ObservableObject{
     private var service = MealService()
     private var productService = ProductService()
     @Published var arrayOfMeal = [Meal]()
-    @Published var name = ""
-    @Published var icon = ""
+//    @Published var name = ""
+//    @Published var icon = ""
     
     @Published var isLoading:Bool = false
     

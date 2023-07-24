@@ -9,7 +9,8 @@ struct adminAppApp: App {
     var body: some Scene {
         WindowGroup {
 //            root_View()
-            Main_View()
+//            Main_View()
+            ContentView()
                 
         }
     }

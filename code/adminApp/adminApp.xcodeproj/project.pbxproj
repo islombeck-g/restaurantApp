@@ -33,6 +33,7 @@
 		6361A6392A52AAB400C445A6 /* Main_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361A6382A52AAB400C445A6 /* Main_View.swift */; };
 		6361A63E2A52AB7000C445A6 /* AuthEmail_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361A63D2A52AB7000C445A6 /* AuthEmail_ViewModel.swift */; };
 		6361A6432A52AC2300C445A6 /* main_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361A6422A52AC2300C445A6 /* main_ViewModel.swift */; };
+		636AFC2A2A6E62FE006D1170 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AFC292A6E62FE006D1170 /* ImageAPI.swift */; };
 		6382F19D2A5EF3D3007D71CA /* AddMealSheet_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382F19C2A5EF3D3007D71CA /* AddMealSheet_View.swift */; };
 		6382F19F2A5EFE42007D71CA /* ImageSelect_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382F19E2A5EFE42007D71CA /* ImageSelect_View.swift */; };
 		6382F1A12A607BCD007D71CA /* AddProductInNewMeal_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382F1A02A607BCD007D71CA /* AddProductInNewMeal_View.swift */; };
@@ -81,6 +82,7 @@
 		6361A6382A52AAB400C445A6 /* Main_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_View.swift; sourceTree = "<group>"; };
 		6361A63D2A52AB7000C445A6 /* AuthEmail_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEmail_ViewModel.swift; sourceTree = "<group>"; };
 		6361A6422A52AC2300C445A6 /* main_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main_ViewModel.swift; sourceTree = "<group>"; };
+		636AFC292A6E62FE006D1170 /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		6382F19C2A5EF3D3007D71CA /* AddMealSheet_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealSheet_View.swift; sourceTree = "<group>"; };
 		6382F19E2A5EFE42007D71CA /* ImageSelect_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelect_View.swift; sourceTree = "<group>"; };
 		6382F1A02A607BCD007D71CA /* AddProductInNewMeal_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductInNewMeal_View.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				63ACD0752A67DF79003E58C5 /* FireBase_ViewModel.swift */,
 				63325E0C2A6825BE00A988E3 /* MealApi.swift */,
 				63EBE2C72A68477C00610A71 /* MealService.swift */,
+				636AFC292A6E62FE006D1170 /* ImageAPI.swift */,
 				63325E0E2A6825D900A988E3 /* ProductApi.swift */,
 				63EBE2C92A6847ED00610A71 /* ProductService.swift */,
 			);
@@ -481,6 +484,7 @@
 				63A58F952A51737000B9832F /* Registration_View.swift in Sources */,
 				63A58F972A519DD500B9832F /* Auth_View.swift in Sources */,
 				6382F19D2A5EF3D3007D71CA /* AddMealSheet_View.swift in Sources */,
+				636AFC2A2A6E62FE006D1170 /* ImageAPI.swift in Sources */,
 				63502BC32A5E8926002878F9 /* Menu_Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
