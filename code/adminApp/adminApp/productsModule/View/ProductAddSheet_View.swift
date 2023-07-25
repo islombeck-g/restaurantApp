@@ -6,10 +6,10 @@ struct ProductAddSheet_View: View {
     @EnvironmentObject var viewModel: Products_ViewModel
     @State private var isPresentingListOfProducts = false
     let range = stride(from: 100, through: 20000, by: 100)
-    @State private var result:Double = ProductsArray[0].price
+//    @State private var result:Double = ProductsArray[0].price
     @State private var derivedValue: Double = 100
-    
-    @State private var selectedProduct:Products = ProductsArray[0]
+    @Binding var selectedOption: Product
+//    @State private var selectedProduct:Products = viewModel.constProducts[0]
     
     @State private var selectedValue: Int = 100
     var body: some View {
@@ -28,9 +28,10 @@ struct ProductAddSheet_View: View {
                     isPresentingListOfProducts = true
                 }label: {
                     HStack{
-                        Text("\(selectedProduct.name)")
+//                        Text("\(selectedProduct.name)")
+                        Text("\(self.viewModel.selectedProduct.name)")
                             .font(.system(size: 25))
-                        Image(selectedProduct.name)
+                        Image(uiImage: self.viewModel.selectedProduct!.image)
                             .resizable()
                             .frame(width: 35, height: 35)
                     }
@@ -50,9 +51,10 @@ struct ProductAddSheet_View: View {
                         }
                     }
                     .onChange(of: selectedValue){newValue in
-                        self.result = Double(newValue) * selectedProduct.price/100
+//                        self.result = Double(newValue) * selectedProduct.price/100
+                        self.viewModel.result = Double(newValue) * self.viewModel.selectedProduct!.price/100
                     }
-                    .onChange(of: selectedProduct){newValue in
+                    .onChange(of: self.viewModel.selectedProduct){newValue in
                         self.result = Double(self.selectedValue) * newValue.price/100
                     }
                     .pickerStyle(.inline)
@@ -63,7 +65,7 @@ struct ProductAddSheet_View: View {
             Group{
                 HStack{
                     Text("Цена за 100 грамм: ")
-                    Text("\(selectedProduct.price.formatted())")
+                    Text("\(self.viewModel.selectedProduct.price.formatted())")
                         .foregroundColor(.blue)
                         .padding(.leading, -6)
                     Text("руб")
@@ -78,7 +80,7 @@ struct ProductAddSheet_View: View {
                         .foregroundColor(.blue)
                     Text("грамм:")
                     
-                    Text("\(result.formatted())")
+                    Text("\(self.viewModel.result.formatted())")
                         .foregroundColor(.blue)
                     Text("руб")
                 }
@@ -90,7 +92,7 @@ struct ProductAddSheet_View: View {
             HStack{
                 Spacer()
                 Button{
-                    self.viewModel.addToBasket(product: Product(id: "", name: selectedProduct.name, count: self.selectedValue, price: selectedProduct.price))
+                    self.viewModel.addToBasket(product: Product(id: "", name: self.viewModel.selectedProduct.name, count: self.selectedValue, price: self.viewModel.selectedProduct.price))
                     dismiss()
                 }label: {
                     Text("Добавить")
@@ -108,7 +110,8 @@ struct ProductAddSheet_View: View {
         .padding(.leading, 25)
         .frame(maxWidth: .infinity, alignment: .leading)
         .sheet(isPresented: $isPresentingListOfProducts) {
-            ListOfProducts(selectedOption: $selectedProduct)
+//            ListOfProducts(selectedOption: $selectedProduct)
+            ListOfProducts(selectedOption: self.viewModel.selectedProduct)
         }
     }
 }
@@ -118,11 +121,12 @@ struct ProductAddSheet_View_Previews: PreviewProvider {
     }
 }
 struct ListOfProducts: View {
-    @Binding var selectedOption: Products
+    @EnvironmentObject var viewModel:Products_ViewModel
+    @Binding var selectedOption: ImageStruct
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         List{
-            ForEach(ProductsArray, id: \.self){product in
+            ForEach(self.viewModel.constProducts, id: \.self){product in
                 
                 Button{
                     self.selectedOption = product

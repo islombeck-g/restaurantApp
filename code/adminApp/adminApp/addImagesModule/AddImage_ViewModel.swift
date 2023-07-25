@@ -3,23 +3,27 @@ import SwiftUI
 import FirebaseStorage
 import FirebaseFirestore
 
-class ContentView_ViewModel:ObservableObject{
+class AddImage_ViewModel:ObservableObject{
     @Published var productImageCollection = [ImageStruct]()
     @Published var mealImageCollection = [ImageStruct]()
     @Published var selectedImage:UIImage?
     @Published var imageName:String = ""
-    
+    @Published var imagePrice:Int = Int()
     private var service = ImageService()
     
-    
+
     func addPhotoToDB(type: String){
         guard selectedImage == selectedImage else{
             print("error in ")
             return}
-        self.service.addToAPI(text: imageName, image: selectedImage!, type: type)
-        self.downloadPhotos()
+        self.service.addToAPI(text: imageName, image: selectedImage!, type: type, price: imagePrice)
+     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.downloadPhotos()
+         self.selectedImage = nil
+         self.imageName = ""
+         self.imagePrice = 0
+        }
     }
-    
     
     func downloadPhotos() {
         self.service.getFromAPI { downloadedData in
@@ -36,12 +40,24 @@ class ContentView_ViewModel:ObservableObject{
             }
         }
     }
+    
+    func uploadButtonIsActive(text:String)-> Bool{
+        
+        guard selectedImage != nil else{return true}
+        if text == "mealImages"{
+            return false
+        }
+        if self.imageName != "" {
+            return false
+        }
+        return true
+    }
 }
 
 
 struct ImagePicker: UIViewControllerRepresentable{
     
-    @EnvironmentObject var viewModel: ContentView_ViewModel
+    @EnvironmentObject var viewModel: AddImage_ViewModel
     @Binding var showing:Bool
     func makeUIViewController(context: Context) -> some UIViewController {
         let imagePicker = UIImagePickerController()

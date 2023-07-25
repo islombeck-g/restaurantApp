@@ -2,6 +2,7 @@
 import SwiftUI
 
 struct AddProductInNewMeal_View: View {
+    @EnvironmentObject var viewModel:Products_ViewModel
     @Environment(\.dismiss) var dismiss
     @Binding var arrayOfProduct:[MealProduct]
     @State private var selectedProduct = "картошка"
@@ -11,7 +12,7 @@ struct AddProductInNewMeal_View: View {
         VStack{
             HStack{
                 Picker("Название продукта", selection: $selectedProduct, content: {
-                    ForEach(ProductsArray, id: \.self) { me in
+                    ForEach(self.viewModel.constProducts, id: \.self) { me in
                         HStack{
                             Image("\(me.name)")
                                 .resizable()

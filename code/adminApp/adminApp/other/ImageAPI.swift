@@ -25,20 +25,21 @@ class ImageAPI {
             }
             DispatchQueue.main.async {
                 print ("ImageAPI getData_start")
-                var imagesData = [(String, String, String)]()
+                var imagesData = [(String, String, String, Int)]()
                 
                 for doc in snapshot.documents {
                     
                     if let name = doc["name"] as? String,
                        let url = doc["url"] as? String,
-                       let type = doc["type"] as? String {
-                        imagesData.append((name, url, type))
+                       let type = doc["type"] as? String,
+                       let price = doc["price"] as? Int {
+                        imagesData.append((name, url, type, price))
                     }
                     
                 }
                 print ("imagesData: \(imagesData)")
                 for imageData in imagesData {
-                    let (name, url, type) = imageData
+                    let (name, url, type, price) = imageData
                     
                     let storageRef = Storage.storage().reference().child(url)
                     
@@ -49,7 +50,7 @@ class ImageAPI {
                             if let image = UIImage(data: data!){
                                 
                                 DispatchQueue.main.async {
-                                    images.append(ImageStruct(image: image, name: name, type: type, url: url))
+                                    images.append(ImageStruct(image: image, name: name, type: type, url: url, price: price))
                                     if images.count == imagesData.count {
                                         isFinished = true
                                         completion (images)
@@ -70,7 +71,7 @@ class ImageAPI {
         
     }
     
-    func pushData(text: String, image:UIImage, type:String){
+    func pushData(text: String, image:UIImage, type:String, price: Int){
         
         let storageRef = Storage.storage().reference()
         let imageData = image.jpegData(compressionQuality: 0.8)
@@ -90,7 +91,8 @@ class ImageAPI {
                 let data: [String:Any] = [
                     "name":text,
                     "url": path,
-                    "type": type
+                    "type": type,
+                    "price": price
                 ]
                 
                 db.collection("images").addDocument(data: data) { error in

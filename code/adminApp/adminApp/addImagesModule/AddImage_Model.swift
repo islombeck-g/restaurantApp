@@ -6,4 +6,5 @@ struct ImageStruct : Hashable{
     let name: String
     let type: String
     let url:  String
+    let price: Int
 }

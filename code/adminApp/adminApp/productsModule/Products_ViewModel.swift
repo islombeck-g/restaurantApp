@@ -9,7 +9,11 @@ class Products_ViewModel:ObservableObject{
     //    @Published var product:Product = Product(id: "", name: "", count: 0, price: 0)
     @Published var isLoading = false // это добавил
     
+    @Published var constProducts = [ImageStruct]()
+    @Published var selectedProduct:ImageStruct?
+    @Published var result: Int?
     init(){
+        self.getConstProductList()
         self.getProducts()
     }
     func getProducts() {
@@ -64,7 +68,7 @@ class Products_ViewModel:ObservableObject{
     func countSumInBasket()->Double{
         var sum = 0.0
         for i in self.productsInBasket{
-            sum += (Double(i.count) * i.price/100.0)
+            sum += (Double(i.count) * Double(i.price)) / 100.0
         }
         return sum
     }
@@ -79,6 +83,15 @@ class Products_ViewModel:ObservableObject{
             }
         }
         return newList
+    }
+    
+    private func getConstProductList(){
+        self.service.getConstProducts{ products in
+            
+            self.constProducts = products
+            self.selectedProduct = products[0]
+            self.result = products[0].price
+        }
     }
 }
 //func get_Products(){
