@@ -9,107 +9,30 @@ class ContentView_ViewModel:ObservableObject{
     @Published var selectedImage:UIImage?
     @Published var imageName:String = ""
     
+    private var service = ImageService()
+    
+    
     func addPhotoToDB(type: String){
-        
-        if type == "mealImages"{self.imageName = "1"}
-        guard let selectedImage = self.selectedImage, !imageName.isEmpty else {
-            print("No image or image name provided.")
-            return
-        }
-        
-        let storageRef = Storage.storage().reference()
-        let imageData = self.selectedImage!.jpegData(compressionQuality: 0.8)
-        
-        guard imageData != nil else {
-            print("Error converting image to data.")
-            return
-        }
-        
-        let path = "\(UUID().uuidString).jpg"
-        let fileRef = storageRef.child(path)
-        
-        let uploadTasl = fileRef.putData(imageData!, metadata: nil) { metadata, error in
-            if error == nil && metadata != nil {
-                let db = Firestore.firestore()
-                
-                let data: [String:Any] = [
-                    "name":self.imageName,
-                    "url": path,
-                    "type": type
-                ]
-                
-                db.collection("images").addDocument(data: data) { error in
-                    if error == nil {
-                        DispatchQueue.main.async {
-                            if type == "mealImages" {
-//                                self.mealImageCollection.append(self.selectedImage!)
-                                self.mealImageCollection.append(ImageStruct(image: self.selectedImage!, name: self.imageName, type: type, url: path))
-                            } else{
-//                                self.productImageCollection.append(self.selectedImage!)
-                                self.productImageCollection.append(ImageStruct(image: self.selectedImage!, name: self.imageName, type: type, url: path))
-                            }
-                            self.imageName = ""
-                            self.selectedImage = nil
-                        }
-                    } else {
-                        print("error2: \(String(describing: error))")
-                    }
-                    
-                }
-                
-            } else {
-                print("error2: \(String(describing: error))")
-            }
-            
-        }
+        guard selectedImage == selectedImage else{
+            print("error in ")
+            return}
+        self.service.addToAPI(text: imageName, image: selectedImage!, type: type)
+        self.downloadPhotos()
     }
     
     
     func downloadPhotos() {
-        let db =  Firestore.firestore()
-        
-        db.collection("images").getDocuments{ snapshot, error in
-            if error == nil && snapshot != nil {
-
-                var imagesData = [(String, String, String)]()
-                
-                for doc in snapshot!.documents {
-
-                    if let name = doc["name"] as? String,
-                       let url = doc["url"] as? String,
-                       let type = doc["type"] as? String {
-                        imagesData.append((name, url, type))
-                    }
-                    
+        self.service.getFromAPI { downloadedData in
+            self.productImageCollection = []
+            self.mealImageCollection = []
+            for data in downloadedData{
+                if data.type == "mealImages"{
+                    self.mealImageCollection.append(data)
+                }else if data.type == "productImages"{
+                    self.productImageCollection.append(data)
+                }else{
+                    print("some in Image_viewMdoel error document in downloaded data ")
                 }
-                for imageData in imagesData {
-                    let (name, url, type) = imageData
-                    
-                    let storageRef = Storage.storage().reference().child(url)
-                    
-                    storageRef.getData(maxSize: 5*1024*1024) { data, error in
-                        
-                        if error == nil && data != nil {
-                            
-                            if let image = UIImage(data: data!){
-                                
-                                DispatchQueue.main.async {
-                                    if type == "mealImages" {
-                                        self.mealImageCollection.append(ImageStruct(image: image, name: name, type: type, url: url))
-
-                                    } else {
-                                        self.productImageCollection.append(ImageStruct(image: image, name: name, type: type, url: url))
-                                    }
-                                }
-                            }
-                        } else {
-                            print("error: \(String(describing: error))")
-                        }
-                    }
-                }
-                
-            } else {
-                print("error: \(String(describing: error))")
             }
         }
     }

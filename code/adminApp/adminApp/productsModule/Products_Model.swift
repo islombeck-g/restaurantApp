@@ -1,6 +1,7 @@
 
 
 import Foundation
+import UIKit
 
 
 struct Product:Identifiable, Hashable{
@@ -9,14 +10,26 @@ struct Product:Identifiable, Hashable{
     var count:Int
     let price:Double
     
-    init(id: String, name: String, count: Int, price: Double) {
-            self.id = id
-            self.name = name
-            self.count = count
-            self.price = price
-        }
     
 }
+   
+//    struct Product:Identifiable, Hashable{
+//        let id: String?
+//        var name:String
+//        var image:UIImage
+//        var count:Int
+//        let price:Double
+//}
+        
+    
+//    init(id: String, name: String, count: Int, price: Double) {
+//            self.id = id
+//            self.name = name
+//            self.count = count
+//            self.price = price
+//        }
+    
+
 
 //enum productNames:String, CaseIterable{
 //
