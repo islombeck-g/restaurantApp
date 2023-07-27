@@ -8,7 +8,6 @@ struct ProductAddSheet_View: View {
     let range = stride(from: 100, through: 20000, by: 100)
 //    @State private var result:Double = ProductsArray[0].price
     @State private var derivedValue: Double = 100
-    @Binding var selectedOption: Product
 //    @State private var selectedProduct:Products = viewModel.constProducts[0]
     
     @State private var selectedValue: Int = 100
@@ -28,12 +27,14 @@ struct ProductAddSheet_View: View {
                     isPresentingListOfProducts = true
                 }label: {
                     HStack{
-//                        Text("\(selectedProduct.name)")
-                        Text("\(self.viewModel.selectedProduct.name)")
-                            .font(.system(size: 25))
-                        Image(uiImage: self.viewModel.selectedProduct!.image)
-                            .resizable()
-                            .frame(width: 35, height: 35)
+                        if self.viewModel.selectedProduct != nil{
+                            Text("\(self.viewModel.selectedProduct!.name)")
+                                .font(.system(size: 25))
+                            Image(uiImage: self.viewModel.selectedProduct!.image)
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                        }
+                       
                     }
                     
                 }

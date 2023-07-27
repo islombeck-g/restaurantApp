@@ -12,6 +12,8 @@ class Products_ViewModel:ObservableObject{
     @Published var constProducts = [ImageStruct]()
     @Published var selectedProduct:ImageStruct?
     @Published var result: Int?
+    
+    
     init(){
         self.getConstProductList()
         self.getProducts()

@@ -1,14 +1,6 @@
 
 import SwiftUI
 
-//struct Product:Identifiable{
-//    let id: String?
-//    let name:String
-//    let count:Int
-//    let price:Int
-//
-//}
-
 struct ProductsAdd_View: View {
     @Environment(\.dismiss) var dismiss
     @State private var sheetView:Bool = false

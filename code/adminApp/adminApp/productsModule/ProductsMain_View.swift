@@ -50,8 +50,8 @@ struct ProductsMain_View: View {
             ProductsAdd_View()
                 .environmentObject(viewModel)
         })
-        .sheet(item: $selectedProduct){ product in
-            ProductIDSheet_View(product: selectedProduct!)
+        .sheet(item: $selectedProduct) { product in
+            ProductIDSheet_View(product: product)
                 .presentationDetents([.medium])
         }
     }
