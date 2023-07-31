@@ -18,6 +18,7 @@ struct LogInView: View {
                 Button{
                     Task{
                        try await self.viewModel.signIn()
+                        print("i tries to logIn")     
                     }
                 }label: {
                     HStack{

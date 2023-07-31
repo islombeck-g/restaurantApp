@@ -2,12 +2,13 @@
 import SwiftUI
 
 struct rootView: View {
-    @State private var authed:Bool = false
-    @StateObject var authViewModel = AuthViewModel()
+    
+    @EnvironmentObject var authViewModel:AuthViewModel
     var body: some View {
-        NavigationStack{
-            if authed{
-                
+        Group{
+            if authViewModel.userSession != nil {
+                ProfileView()
+                    .environmentObject(authViewModel)
             }else{
                 LogInView()
                     .environmentObject(authViewModel)

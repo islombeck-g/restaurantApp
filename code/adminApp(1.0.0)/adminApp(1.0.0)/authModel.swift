@@ -5,8 +5,8 @@ struct User: Identifiable, Codable {
     let id: String
     let name: String
     let email: String
-    var image: String?
-    
+//    var image: String?
+
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
         if let components = formatter.personNameComponents(from: name){

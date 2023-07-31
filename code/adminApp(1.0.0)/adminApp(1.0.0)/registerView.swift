@@ -25,6 +25,7 @@ struct registerView: View {
             Button{
                 Task{
                     try await self.viewModel.createUser()
+                    print("i tries createUser")
                 }
             }label: {
                 HStack{
@@ -35,20 +36,27 @@ struct registerView: View {
                     .fontWeight(.semibold)
             }.background(Color.blue)
                 .cornerRadius(8)
-            Button{
-                dismiss()
-            }label: {
-                HStack{
-                    Spacer()
-                    Text("Уже есть аккаунт?")
-                    Text("Войди")
-                        .fontWeight(.bold)
+            Group{
+                Spacer()
+                    .frame(height: 20)
+                Button{
+                    dismiss()
+                }label: {
+                    
+                    HStack{
+                        Spacer()
+                        Text("Уже есть аккаунт?")
+                        Text("Войди")
+                            .fontWeight(.bold)
+                    }
+                    
+
+                    .padding(.trailing, 16)
                 }
-                .padding(.top, 10)
-                .padding(.trailing, 16)
+                
+                Spacer()
             }
             
-            Spacer()
             if self.viewModel.error != nil {
                 Text(self.viewModel.error!)
                     .foregroundColor(.red)

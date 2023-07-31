@@ -2,9 +2,11 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
+
 @MainActor
 class AuthViewModel:ObservableObject {
-    @Published var userSession :FirebaseAuth.User?
+    
+    @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     
     @Published var name = ""
@@ -15,10 +17,20 @@ class AuthViewModel:ObservableObject {
     @Published var error:String?
     init(){
         self.userSession = Auth.auth().currentUser
+        Task{
+            await fetchUser()
+        }
     }
     
     func signIn() async throws {
-        print("signin")
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            self.userSession  = result.user
+            await fetchUser()
+        }
+        catch {
+            print("error in AuthViewModel in signIn: \(error.localizedDescription)")
+        }
     }
     
     func createUser() async throws{
@@ -48,9 +60,21 @@ class AuthViewModel:ObservableObject {
             let user = User(id: result.user.uid, name: self.name, email: self.email)
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+            await fetchUser()
         }
         catch {
             print("error in AuthViewModel in creatUser: \(error.localizedDescription)")
+        }
+    }
+    
+    func signOut(){
+        do {
+            try Auth.auth().signOut()
+            self.userSession = nil
+            self.currentUser = nil
+        }
+        catch{
+            print("error in AuthViewModel in signOut: \(error.localizedDescription)")
         }
     }
     
@@ -58,5 +82,12 @@ class AuthViewModel:ObservableObject {
         
     }
     
+    func fetchUser() async {
+        guard let uid = Auth.auth().currentUser?.uid else{return}
+        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else {return}
+        self.currentUser = try? snapshot.data(as:User.self)
+        
+        print("current user is: \(String(describing: self.currentUser))")
+    }
     
 }
