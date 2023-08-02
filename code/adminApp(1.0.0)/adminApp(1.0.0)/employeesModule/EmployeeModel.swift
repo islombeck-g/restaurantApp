@@ -6,7 +6,7 @@ enum positions{
 }
 
 struct EmployeerStruct:Identifiable{
-    let id: String
+    let id: String?
     let name:String
     let phone:String
     let position:String
