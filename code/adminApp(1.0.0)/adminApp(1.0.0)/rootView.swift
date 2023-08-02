@@ -8,10 +8,12 @@ struct rootView: View {
         Group{
             if authViewModel.userSession != nil {
                 ProfileView()
+                    .transition(.slide)
                     .environmentObject(authViewModel)
             }else{
                 LogInView()
                     .environmentObject(authViewModel)
+                    .transition(.move(edge: .bottom))
             }
         }
     }

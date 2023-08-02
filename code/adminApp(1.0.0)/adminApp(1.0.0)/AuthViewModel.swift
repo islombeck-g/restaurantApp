@@ -91,3 +91,10 @@ class AuthViewModel:ObservableObject {
     }
     
 }
+
+final class UserData: AuthViewModel{
+    func getUserEmail()-> String{
+        return currentUser?.email ?? "errorINGetingUserEmail"
+    }
+    
+}

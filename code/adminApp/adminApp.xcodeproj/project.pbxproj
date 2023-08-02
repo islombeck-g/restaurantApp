@@ -153,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				630682D32A5162580042D294 /* adminAppApp.swift */,
-				6361A6352A52A6FB00C445A6 /* root_View.swift */,
 				6320F3412A6EFD80006EAD40 /* addImagesModule */,
 				633F92802A5415AC006A1068 /* other */,
 				63A58F912A5170B100B9832F /* enterModule */,
@@ -235,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				633F92832A541666006A1068 /* trash.swift */,
+				6361A6352A52A6FB00C445A6 /* root_View.swift */,
 				63ACD0752A67DF79003E58C5 /* FireBase_ViewModel.swift */,
 				63325E0C2A6825BE00A988E3 /* MealApi.swift */,
 				63EBE2C72A68477C00610A71 /* MealService.swift */,

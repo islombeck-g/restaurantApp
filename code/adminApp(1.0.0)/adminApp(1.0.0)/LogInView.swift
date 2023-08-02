@@ -18,15 +18,14 @@ struct LogInView: View {
                 Button{
                     Task{
                        try await self.viewModel.signIn()
-                        print("i tries to logIn")     
                     }
-                }label: {
-                    HStack{
-                        Text("Войти")
-                        Image(systemName: "arrow.right")
-                    }.frame(width: UIScreen.main.bounds.width - 32, height: 50)
-                        .foregroundColor(.white)
-                        .fontWeight(.semibold)
+                }label: {   
+                        HStack{
+                            Text("Войти")
+                            Image(systemName: "arrow.right")
+                        }.frame(width: UIScreen.main.bounds.width - 32, height: 50)
+                            .foregroundColor(.white)
+                            .fontWeight(.semibold)
                 }.background(Color.blue)
                     .cornerRadius(8)
                 
