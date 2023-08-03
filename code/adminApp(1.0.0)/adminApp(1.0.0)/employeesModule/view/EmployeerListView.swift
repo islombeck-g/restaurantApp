@@ -3,7 +3,24 @@ import SwiftUI
 struct EmployeerListView: View {
     let person: EmployeerStruct
     var body: some View {
-        VStack{
+        HStack{
+            
+            Image(person.photoUrl ?? "user")
+                .resizable()
+                .frame(width: 50, height: 50)
+            VStack{
+                HStack{
+                    Spacer()
+                        .frame(width: 20)
+                    Text(person.name)
+                    Spacer()
+                    Divider()
+                    Text(person.position)
+                }
+                
+                
+            }
+            
             
         }
     }
