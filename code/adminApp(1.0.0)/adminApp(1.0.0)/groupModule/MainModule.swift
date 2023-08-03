@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MainModule: View {
+    @StateObject private var employeersViewMode = EmployeeViewModel()
     var body: some View {
         VStack{
             TabView{
@@ -13,6 +14,7 @@ struct MainModule: View {
                          Label("Products", systemImage: "refrigerator")
                      }
                 EmployeesView()
+                    .environmentObject(self.employeersViewMode)
                      .tabItem{
                          Label("Employees", systemImage: "person.3")
                      }

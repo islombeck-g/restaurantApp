@@ -38,6 +38,7 @@
 		63E524C92A7AAD5300FA950F /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E524C82A7AAD5300FA950F /* OrdersView.swift */; };
 		63E524CC2A7AAE1800FA950F /* EmployeesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E524CB2A7AAE1800FA950F /* EmployeesAPI.swift */; };
 		63E524D02A7ABA3800FA950F /* EmployeesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E524CF2A7ABA3800FA950F /* EmployeesService.swift */; };
+		63E57EFC2A7BEC4000FA5AB9 /* EmployeerAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E57EFB2A7BEC4000FA5AB9 /* EmployeerAddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		63E524C82A7AAD5300FA950F /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
 		63E524CB2A7AAE1800FA950F /* EmployeesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesAPI.swift; sourceTree = "<group>"; };
 		63E524CF2A7ABA3800FA950F /* EmployeesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesService.swift; sourceTree = "<group>"; };
+		63E57EFB2A7BEC4000FA5AB9 /* EmployeerAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeerAddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				63A8721E2A7844D40023383F /* EmployyeeIDView.swift */,
+				63E57EFB2A7BEC4000FA5AB9 /* EmployeerAddView.swift */,
 				634FF2C62A7AF1A000AE62C3 /* EmployeerListView.swift */,
 			);
 			path = view;
@@ -335,6 +338,7 @@
 				63E524C32A7AABB800FA950F /* MainModule.swift in Sources */,
 				639F923D2A725AE600FC3A11 /* LogInView.swift in Sources */,
 				639F92472A725B4C00FC3A11 /* registerView.swift in Sources */,
+				63E57EFC2A7BEC4000FA5AB9 /* EmployeerAddView.swift in Sources */,
 				63A872192A78435B0023383F /* EmployeesView.swift in Sources */,
 				639F92522A72C50000FC3A11 /* customTextField.swift in Sources */,
 				63E524C52A7AAC2900FA950F /* MenuView.swift in Sources */,

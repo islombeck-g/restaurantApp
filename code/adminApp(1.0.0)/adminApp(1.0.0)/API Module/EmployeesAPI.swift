@@ -19,7 +19,7 @@ final class EmployeesAPI {
                                 position: i["position"] as! String ,
                                 email:i["email"] as! String,
                                 photoUrl: i["photo"] as? String,
-                                bossEmail: i["bossEmail"] as! String)
+                                bossEmail: i["bossEmail"] as? String ?? "error in boss mail")
                         }
                         completion(list)
                     }

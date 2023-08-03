@@ -7,9 +7,10 @@ struct rootView: View {
     var body: some View {
         Group{
             if authViewModel.userSession != nil {
-                ProfileView()
+                MainModule()
+//                ProfileView()
                     .transition(.slide)
-                    .environmentObject(authViewModel)
+//                    .environmentObject(authViewModel)
             }else{
                 LogInView()
                     .environmentObject(authViewModel)
@@ -22,5 +23,6 @@ struct rootView: View {
 struct rootView_Previews: PreviewProvider {
     static var previews: some View {
         rootView()
+            .environmentObject(AuthViewModel())
     }
 }

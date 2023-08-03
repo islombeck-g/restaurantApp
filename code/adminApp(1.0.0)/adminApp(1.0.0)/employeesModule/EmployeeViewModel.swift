@@ -1,7 +1,10 @@
 import Foundation
 
 class EmployeeViewModel:ObservableObject{
-    @Published var employeerToAdd = EmployeerStruct(id: "", name: "", phone: "", position: "", email: "", photoUrl: "", bossEmail: "")
+    @Published var name: String = ""
+    @Published var email: String = ""
+    @Published var phone: String = ""
+    @Published var position: String = "cashier"
     @Published var error:String?
     
     private let employeesService = EmployeesService()
@@ -18,7 +21,7 @@ class EmployeeViewModel:ObservableObject{
     @MainActor
     func addEmployee(){
         self.error = nil
-        self.employeesService.addToFirebase(employeer: self.employeerToAdd) { result in
+        self.employeesService.addToFirebase(employeer: EmployeerStruct(id: "", name: self.name, phone: self.phone, position: self.position, email: self.email, photoUrl: "user", bossEmail: "")) { result in
             if result == "error in decode data"{
                 self.error = "Ошибка в заполнении"
             }else if result != "Success" {
