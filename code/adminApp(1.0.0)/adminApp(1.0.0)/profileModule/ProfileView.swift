@@ -3,7 +3,7 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var authViewModel:AuthViewModel
     var body: some View {
-        if let user = authViewModel.currentUser {
+//        if let user = authViewModel.currentUser {
             NavigationStack{
                 List{
                     Section{
@@ -54,7 +54,7 @@ struct ProfileView: View {
                     }
                 }
             }
-        }
+//        }
         
     }
 }

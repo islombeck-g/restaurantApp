@@ -25,7 +25,7 @@ final class EmployeesAPI {
                     }
                 }
             }else{
-                print("error in FirebaseClass_ load\(String(describing: error))")
+                print("error in FirebaseClass_ load : \(String(describing: error))")
                 completion([])
             }
             

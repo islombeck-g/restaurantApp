@@ -10,13 +10,19 @@ struct EmployeesView: View {
             ZStack(alignment: .bottomTrailing){
                 List{
                     Section{
-                        ForEach((1...10), id: \.self){ i in
-                            EmployeerListView(person: EmployeerStruct(id: "", name: "testName", phone: "+79098889933", position: "cashier", email: "some@gmail.com", photoUrl: "user", bossEmail: "testBoss@gmail.com"))
-                                .onTapGesture {
-                                    self.selectedEmployeer = EmployeerStruct(id: "", name: "testName", phone: "+79098889933", position: "cashier", email: "some@gmail.com", photoUrl: "user", bossEmail: "testBoss@gmail.com")
-                                }
+                        if self.viewModel.employeesArray.count > 0 {
+                            ForEach(self.viewModel.employeesArray){ i in
+                                EmployeerListView(person: i)
+                                    .onTapGesture {
+                                        self.selectedEmployeer = i
+                                    }
+                                
+                            }
                             
+                        }else{
+                            Text("Работников пока нет(")
                         }
+                       
                     }
                 }
                 Button{

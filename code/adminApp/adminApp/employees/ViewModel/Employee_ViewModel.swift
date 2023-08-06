@@ -37,7 +37,12 @@ final class Employees_ViewModel:ObservableObject{
         }
         let db = Firestore.firestore()
         
-        db.collection("employees").addDocument(data: ["name": self.name, "phone": self.phone, "position": self.position, "email": self.email, "photo": "defaultImage"]){ error in
+        db.collection("employees").addDocument(data: [
+            "name": self.name,
+            "phone": self.phone,
+            "position": self.position,
+            "email": self.email,
+            "photo": "defaultImage"]){ error in
             if error == nil{
                 self.get()
             }else{
