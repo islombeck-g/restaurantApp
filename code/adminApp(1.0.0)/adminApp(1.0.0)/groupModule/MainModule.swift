@@ -19,10 +19,14 @@ struct MainModule: View {
                     .tabItem{
                         Label("Employees", systemImage: "person.3")
                     }
-                OrdersView()
+                ImageView()
                     .tabItem{
-                        Label("Menu", systemImage: "menucard")
+                        Label("Картинки", systemImage: "photo")
                     }
+//                OrdersView()
+//                    .tabItem{
+//                        Label("Menu", systemImage: "menucard")
+//                    }
                 ProfileView()
                     .environmentObject(authViewModel)
                     .tabItem {
