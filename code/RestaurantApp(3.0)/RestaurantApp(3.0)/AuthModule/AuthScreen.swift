@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct AuthScreen: View {
+    
+    @EnvironmentObject var viewModel:AuthViewModel
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
@@ -30,6 +33,18 @@ struct AuthScreen: View {
                     .frame(height: geometry.size.height/2)
                     .padding(.top, -30)
                     
+                    Group {
+//                        VStack(spacing: 20) {
+                            CustomTextField(name: "Email", text: self.$viewModel.email, isSecured: false)
+                        
+                        Spacer()
+                            .frame(height: 20)
+                        
+                            CustomTextField(name: "Password", text: self.$viewModel.password, isSecured: true)
+                            
+//                        }
+                    }
+                    .padding(.horizontal, 32)
                     
                 }
                 
@@ -38,12 +53,13 @@ struct AuthScreen: View {
                
             }
             .ignoresSafeArea()
-            .background(.red)
+            
         }
     }
 }
 
 #Preview {
     AuthScreen()
+        .environmentObject(AuthViewModel())
 }
 

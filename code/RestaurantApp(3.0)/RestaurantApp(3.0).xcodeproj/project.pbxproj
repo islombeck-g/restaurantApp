@@ -21,6 +21,7 @@
 		63BA05C12B605A9100E7E3A7 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05C02B605A9100E7E3A7 /* AuthScreen.swift */; };
 		63BA05C32B605AA000E7E3A7 /* CreateUserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05C22B605AA000E7E3A7 /* CreateUserScreen.swift */; };
 		63BA05C52B605AE500E7E3A7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05C42B605AE500E7E3A7 /* AuthViewModel.swift */; };
+		63FB01D72B606FAA0051EAED /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB01D62B606FAA0051EAED /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		63BA05C02B605A9100E7E3A7 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
 		63BA05C22B605AA000E7E3A7 /* CreateUserScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserScreen.swift; sourceTree = "<group>"; };
 		63BA05C42B605AE500E7E3A7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		63FB01D62B606FAA0051EAED /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		63FB01D52B606F5D0051EAED /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				63FB01D62B606FAA0051EAED /* CustomTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				63BA05A52B60144000E7E3A7 /* ContentView.swift in Sources */,
 				63BA05BF2B60595200E7E3A7 /* IntroductionScreen.swift in Sources */,
 				63BA05C52B605AE500E7E3A7 /* AuthViewModel.swift in Sources */,
+				63FB01D72B606FAA0051EAED /* CustomTextField.swift in Sources */,
 				63BA05A32B60144000E7E3A7 /* RestaurantApp_3_0_App.swift in Sources */,
 				63BA05C32B605AA000E7E3A7 /* CreateUserScreen.swift in Sources */,
 				63BA05C12B605A9100E7E3A7 /* AuthScreen.swift in Sources */,
