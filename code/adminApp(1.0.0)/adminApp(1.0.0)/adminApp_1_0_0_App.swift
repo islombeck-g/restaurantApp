@@ -6,7 +6,6 @@ struct adminApp_1_0_0_App: App {
     @StateObject var authViewModel = AuthViewModel()
     var body: some Scene {
         WindowGroup {
-            
             rootView()
                 .environmentObject(authViewModel)
         }
