@@ -2,7 +2,7 @@ import SwiftUI
 
 struct IntroductionScreen: View {
     
-    @StateObject private var authViewModel:AuthViewModel = AuthViewModel()
+    @EnvironmentObject private var authViewModel:AuthViewModel
     
     var body: some View {
         NavigationStack {
@@ -21,4 +21,5 @@ struct IntroductionScreen: View {
 
 #Preview {
     IntroductionScreen()
+        .environmentObject(AuthViewModel(userStateManager: UserManager.shared))
 }

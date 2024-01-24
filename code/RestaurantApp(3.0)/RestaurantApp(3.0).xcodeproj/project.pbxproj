@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		638807A82B618E510043D14D /* Chango-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 638807A72B618E4A0043D14D /* Chango-Regular.ttf */; };
 		63BA05A32B60144000E7E3A7 /* RestaurantApp_3_0_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05A22B60144000E7E3A7 /* RestaurantApp_3_0_App.swift */; };
-		63BA05A52B60144000E7E3A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05A42B60144000E7E3A7 /* ContentView.swift */; };
 		63BA05A72B60144200E7E3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BA05A62B60144200E7E3A7 /* Assets.xcassets */; };
 		63BA05AA2B60144200E7E3A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BA05A92B60144200E7E3A7 /* Preview Assets.xcassets */; };
 		63BA05B22B60154D00E7E3A7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 63BA05B12B60154D00E7E3A7 /* FirebaseAnalytics */; };
@@ -21,13 +21,20 @@
 		63BA05C12B605A9100E7E3A7 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05C02B605A9100E7E3A7 /* AuthScreen.swift */; };
 		63BA05C32B605AA000E7E3A7 /* CreateUserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05C22B605AA000E7E3A7 /* CreateUserScreen.swift */; };
 		63BA05C52B605AE500E7E3A7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05C42B605AE500E7E3A7 /* AuthViewModel.swift */; };
+		63E8AB442B612E9B003179CC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63E8AB432B612E9B003179CC /* FirebaseFirestoreSwift */; };
+		63E8AB462B613134003179CC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 63E8AB452B613134003179CC /* FirebaseAuth */; };
+		63E8AB482B613745003179CC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 63E8AB472B613745003179CC /* FirebaseFirestore */; };
+		63E8AB4A2B613B11003179CC /* MainTapBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8AB492B613B11003179CC /* MainTapBarView.swift */; };
+		63E8AB4C2B613DD9003179CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63E8AB4B2B613DD9003179CC /* GoogleService-Info.plist */; };
+		63E8AB4E2B613F10003179CC /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8AB4D2B613F10003179CC /* mainView.swift */; };
+		63E8AB502B6143F1003179CC /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8AB4F2B6143F1003179CC /* ErrorText.swift */; };
 		63FB01D72B606FAA0051EAED /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB01D62B606FAA0051EAED /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		638807A72B618E4A0043D14D /* Chango-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chango-Regular.ttf"; sourceTree = "<group>"; };
 		63BA059F2B60144000E7E3A7 /* RestaurantApp(3.0).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RestaurantApp(3.0).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BA05A22B60144000E7E3A7 /* RestaurantApp_3_0_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantApp_3_0_App.swift; sourceTree = "<group>"; };
-		63BA05A42B60144000E7E3A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		63BA05A62B60144200E7E3A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63BA05A92B60144200E7E3A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		63BA05BB2B6057C100E7E3A7 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -35,6 +42,10 @@
 		63BA05C02B605A9100E7E3A7 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
 		63BA05C22B605AA000E7E3A7 /* CreateUserScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserScreen.swift; sourceTree = "<group>"; };
 		63BA05C42B605AE500E7E3A7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		63E8AB492B613B11003179CC /* MainTapBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapBarView.swift; sourceTree = "<group>"; };
+		63E8AB4B2B613DD9003179CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		63E8AB4D2B613F10003179CC /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
+		63E8AB4F2B6143F1003179CC /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		63FB01D62B606FAA0051EAED /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,17 +59,29 @@
 				63BA05B42B60154D00E7E3A7 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				63BA05BA2B60154D00E7E3A7 /* FirebaseAppCheck in Frameworks */,
 				63BA05B82B60154D00E7E3A7 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				63E8AB482B613745003179CC /* FirebaseFirestore in Frameworks */,
+				63E8AB462B613134003179CC /* FirebaseAuth in Frameworks */,
+				63E8AB442B612E9B003179CC /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6302D65C2B6185A400B2250A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				638807A72B618E4A0043D14D /* Chango-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		63BA05962B60144000E7E3A7 = {
 			isa = PBXGroup;
 			children = (
 				63BA05A12B60144000E7E3A7 /* RestaurantApp(3.0) */,
 				63BA05A02B60144000E7E3A7 /* Products */,
+				63E8AB422B612E9B003179CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,12 +96,14 @@
 		63BA05A12B60144000E7E3A7 /* RestaurantApp(3.0) */ = {
 			isa = PBXGroup;
 			children = (
+				63E8AB4B2B613DD9003179CC /* GoogleService-Info.plist */,
 				63BA05A22B60144000E7E3A7 /* RestaurantApp_3_0_App.swift */,
-				63BA05A42B60144000E7E3A7 /* ContentView.swift */,
+				63E8AB4D2B613F10003179CC /* mainView.swift */,
 				63BA05BB2B6057C100E7E3A7 /* UserManager.swift */,
 				63FB01D52B606F5D0051EAED /* Helpers */,
 				63BA05BD2B60590A00E7E3A7 /* AuthModule */,
 				63BA05A62B60144200E7E3A7 /* Assets.xcassets */,
+				6302D65C2B6185A400B2250A /* Fonts */,
 				63BA05A82B60144200E7E3A7 /* Preview Content */,
 			);
 			path = "RestaurantApp(3.0)";
@@ -103,10 +128,19 @@
 			path = AuthModule;
 			sourceTree = "<group>";
 		};
+		63E8AB422B612E9B003179CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63FB01D52B606F5D0051EAED /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				63FB01D62B606FAA0051EAED /* CustomTextField.swift */,
+				63E8AB4F2B6143F1003179CC /* ErrorText.swift */,
+				63E8AB492B613B11003179CC /* MainTapBarView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -133,6 +167,9 @@
 				63BA05B52B60154D00E7E3A7 /* FirebaseAnalyticsSwift */,
 				63BA05B72B60154D00E7E3A7 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				63BA05B92B60154D00E7E3A7 /* FirebaseAppCheck */,
+				63E8AB432B612E9B003179CC /* FirebaseFirestoreSwift */,
+				63E8AB452B613134003179CC /* FirebaseAuth */,
+				63E8AB472B613745003179CC /* FirebaseFirestore */,
 			);
 			productName = "RestaurantApp(3.0)";
 			productReference = 63BA059F2B60144000E7E3A7 /* RestaurantApp(3.0).app */;
@@ -180,7 +217,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				63BA05AA2B60144200E7E3A7 /* Preview Assets.xcassets in Resources */,
+				638807A82B618E510043D14D /* Chango-Regular.ttf in Resources */,
 				63BA05A72B60144200E7E3A7 /* Assets.xcassets in Resources */,
+				63E8AB4C2B613DD9003179CC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,10 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E8AB4E2B613F10003179CC /* mainView.swift in Sources */,
 				63BA05BC2B6057C100E7E3A7 /* UserManager.swift in Sources */,
-				63BA05A52B60144000E7E3A7 /* ContentView.swift in Sources */,
 				63BA05BF2B60595200E7E3A7 /* IntroductionScreen.swift in Sources */,
 				63BA05C52B605AE500E7E3A7 /* AuthViewModel.swift in Sources */,
+				63E8AB4A2B613B11003179CC /* MainTapBarView.swift in Sources */,
+				63E8AB502B6143F1003179CC /* ErrorText.swift in Sources */,
 				63FB01D72B606FAA0051EAED /* CustomTextField.swift in Sources */,
 				63BA05A32B60144000E7E3A7 /* RestaurantApp_3_0_App.swift in Sources */,
 				63BA05C32B605AA000E7E3A7 /* CreateUserScreen.swift in Sources */,
@@ -441,6 +482,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63BA05B02B60154D00E7E3A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAppCheck;
+		};
+		63E8AB432B612E9B003179CC /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63BA05B02B60154D00E7E3A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		63E8AB452B613134003179CC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63BA05B02B60154D00E7E3A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		63E8AB472B613745003179CC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63BA05B02B60154D00E7E3A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

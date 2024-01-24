@@ -9,9 +9,22 @@ import Firebase
 
 @main
 struct RestaurantApp_3_0_App: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+//    @StateObject private var authViewModel:AuthViewModel = AuthViewModel(userStateManager: UserManager.shared)
+    @StateObject private var userStateManager:UserManager = UserManager.shared
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+           mainView()
+                .environmentObject(AuthViewModel(userStateManager: userStateManager))
         }
+    }
+}
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any ]? = nil) -> Bool {
+        FirebaseApp.configure ()
+        
+        return true
     }
 }
