@@ -87,7 +87,7 @@ struct AuthScreen: View {
                             
                             HStack {
                                 Text("Don't have account?")
-                                NavigationLink {CreateUserScreen()} label: {
+                                NavigationLink { CreateUserScreen() } label: {
                                     Text("Sign Up")
                                 }
                             }
@@ -110,6 +110,9 @@ struct AuthScreen: View {
                         .tint(.green)
                 }
             }
+        }
+        .onAppear {
+            self.viewModel.cleanData()
         }
     }
 }

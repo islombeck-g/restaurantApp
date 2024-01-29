@@ -58,6 +58,9 @@ struct CreateUserScreen: View {
                 
             }
         }
+        .onAppear {
+            self.viewModel.cleanData()
+        }
     }
 }
 

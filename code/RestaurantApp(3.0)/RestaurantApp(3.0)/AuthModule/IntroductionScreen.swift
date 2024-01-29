@@ -7,12 +7,15 @@ struct IntroductionScreen: View {
     var body: some View {
         NavigationStack {
             Text("Hi guys, it should be interesting")
+            Image("Bowl Icon")
             NavigationLink {
                 AuthScreen()
                     .environmentObject(authViewModel)
             } label: {
                 Text("go to auth")
             }
+            Image("Chef Hat Icon")
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
 
         

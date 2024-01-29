@@ -11,8 +11,8 @@ import Firebase
 struct RestaurantApp_3_0_App: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-//    @StateObject private var authViewModel:AuthViewModel = AuthViewModel(userStateManager: UserManager.shared)
     @StateObject private var userStateManager:UserManager = UserManager.shared
+    
     var body: some Scene {
         WindowGroup {
             

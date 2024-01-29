@@ -1,13 +1,3 @@
-//
-//  UserManager.swift
-//  RestaurantApp(3.0)
-//
-//  Created by Islombek Gofurov on 23/01/24.
-//
-
-//import Foundation
-//import Firebase
-//import FirebaseFirestoreSwift
 import FirebaseAuth
 import FirebaseFirestore
 
@@ -18,6 +8,7 @@ final class UserManager: ObservableObject {
     @Published var isLoading = false
     @Published var userSession: FirebaseAuth.User?
     @Published var isLoggedIn = false
+    
     init() {
         self.userSession = Auth.auth().currentUser
         Task {await fetchUser()}
@@ -56,7 +47,7 @@ final class UserManager: ObservableObject {
             isLoggedIn = false
             print("isLo\(isLoggedIn)")
         }
-        catch{
+        catch {
             print("error in AuthViewModel in signOut: \(error.localizedDescription)")
         }
     }

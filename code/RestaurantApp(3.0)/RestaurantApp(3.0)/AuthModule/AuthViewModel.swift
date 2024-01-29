@@ -57,5 +57,14 @@ final class AuthViewModel: ObservableObject {
         guard password == repeadPassword else { errorMessage = "Passwords are not same" ;return false }
         return true
     }
+    func cleanData() {
+        self.isLoading = false
+        self.errorMessage = ""
+        self.email = ""
+        self.name = ""
+        self.password = ""
+        self.repeadPassword = ""
+    }
+    
     
 }
