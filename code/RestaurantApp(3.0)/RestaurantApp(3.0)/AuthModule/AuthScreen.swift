@@ -69,13 +69,8 @@ struct AuthScreen: View {
                                 
                             } label: {
                                 Text("Login")
-                                    .foregroundStyle(.white)
-                                    .bold()
+                                    .styleOne()
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color("darkGreen"))
-                            .clipShape(.rect(cornerRadius: 8))
                             .padding(.top, 30)
                             
                             Button{
@@ -110,6 +105,8 @@ struct AuthScreen: View {
                         .tint(.green)
                 }
             }
+            
+            .navigationBarBackButtonHidden(true)
         }
         .onAppear {
             self.viewModel.cleanData()
@@ -120,4 +117,9 @@ struct AuthScreen: View {
 #Preview {
     AuthScreen()
         .environmentObject(AuthViewModel(userStateManager: UserManager()))
+}
+
+
+extension Text {
+    
 }

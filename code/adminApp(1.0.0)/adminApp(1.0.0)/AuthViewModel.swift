@@ -67,16 +67,7 @@ class AuthViewModel:ObservableObject {
         }
     }
     
-    func signOut(){
-        do {
-            try Auth.auth().signOut()
-            self.userSession = nil
-            self.currentUser = nil
-        }
-        catch{
-            print("error in AuthViewModel in signOut: \(error.localizedDescription)")
-        }
-    }
+    
     
     func deleteUser(){
         

@@ -1,10 +1,5 @@
 import Foundation
 
-enum positions{
-    case cooker
-    case cashier
-}
-
 struct EmployeerStruct:Identifiable{
     let id: String?
     let name:String
@@ -14,4 +9,7 @@ struct EmployeerStruct:Identifiable{
     let photoUrl:String?
     let bossEmail:String
 }
-
+enum EmployeePositions {
+    case cooker
+    case cashier
+}

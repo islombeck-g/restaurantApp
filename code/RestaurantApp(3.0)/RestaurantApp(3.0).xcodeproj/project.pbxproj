@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		638807A82B618E510043D14D /* Chango-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 638807A72B618E4A0043D14D /* Chango-Regular.ttf */; };
+		638FA13A2B67D41E0003DC2F /* TextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638FA1392B67D41E0003DC2F /* TextExtensions.swift */; };
+		638FA1422B67D76F0003DC2F /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638FA1412B67D76F0003DC2F /* MenuScreen.swift */; };
+		638FA1442B67D77B0003DC2F /* EmployeesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638FA1432B67D77B0003DC2F /* EmployeesScreen.swift */; };
+		638FA1482B67D87B0003DC2F /* ProductsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638FA1472B67D87B0003DC2F /* ProductsScreen.swift */; };
+		638FA14B2B67F7740003DC2F /* EmployeerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638FA14A2B67F7740003DC2F /* EmployeerListView.swift */; };
+		638FA14D2B67F85B0003DC2F /* EmployeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638FA14C2B67F85B0003DC2F /* EmployeeModel.swift */; };
 		63BA05A32B60144000E7E3A7 /* RestaurantApp_3_0_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05A22B60144000E7E3A7 /* RestaurantApp_3_0_App.swift */; };
 		63BA05A72B60144200E7E3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BA05A62B60144200E7E3A7 /* Assets.xcassets */; };
 		63BA05AA2B60144200E7E3A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BA05A92B60144200E7E3A7 /* Preview Assets.xcassets */; };
@@ -33,6 +39,12 @@
 
 /* Begin PBXFileReference section */
 		638807A72B618E4A0043D14D /* Chango-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chango-Regular.ttf"; sourceTree = "<group>"; };
+		638FA1392B67D41E0003DC2F /* TextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExtensions.swift; sourceTree = "<group>"; };
+		638FA1412B67D76F0003DC2F /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
+		638FA1432B67D77B0003DC2F /* EmployeesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreen.swift; sourceTree = "<group>"; };
+		638FA1472B67D87B0003DC2F /* ProductsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsScreen.swift; sourceTree = "<group>"; };
+		638FA14A2B67F7740003DC2F /* EmployeerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeerListView.swift; sourceTree = "<group>"; };
+		638FA14C2B67F85B0003DC2F /* EmployeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeModel.swift; sourceTree = "<group>"; };
 		63BA059F2B60144000E7E3A7 /* RestaurantApp(3.0).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RestaurantApp(3.0).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BA05A22B60144000E7E3A7 /* RestaurantApp_3_0_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantApp_3_0_App.swift; sourceTree = "<group>"; };
 		63BA05A62B60144200E7E3A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +88,48 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		638FA13B2B67D4220003DC2F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				638FA1392B67D41E0003DC2F /* TextExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		638FA13D2B67D7200003DC2F /* MenuModule */ = {
+			isa = PBXGroup;
+			children = (
+				638FA1412B67D76F0003DC2F /* MenuScreen.swift */,
+			);
+			path = MenuModule;
+			sourceTree = "<group>";
+		};
+		638FA13E2B67D7370003DC2F /* ProductsModule */ = {
+			isa = PBXGroup;
+			children = (
+				638FA1472B67D87B0003DC2F /* ProductsScreen.swift */,
+			);
+			path = ProductsModule;
+			sourceTree = "<group>";
+		};
+		638FA13F2B67D7450003DC2F /* EmployeesModule */ = {
+			isa = PBXGroup;
+			children = (
+				638FA1432B67D77B0003DC2F /* EmployeesScreen.swift */,
+				638FA14C2B67F85B0003DC2F /* EmployeeModel.swift */,
+				638FA1492B67F7590003DC2F /* Views */,
+			);
+			path = EmployeesModule;
+			sourceTree = "<group>";
+		};
+		638FA1492B67F7590003DC2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				638FA14A2B67F7740003DC2F /* EmployeerListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		63BA05962B60144000E7E3A7 = {
 			isa = PBXGroup;
 			children = (
@@ -96,10 +150,13 @@
 		63BA05A12B60144000E7E3A7 /* RestaurantApp(3.0) */ = {
 			isa = PBXGroup;
 			children = (
-				63E8AB4B2B613DD9003179CC /* GoogleService-Info.plist */,
 				63BA05A22B60144000E7E3A7 /* RestaurantApp_3_0_App.swift */,
 				63E8AB4D2B613F10003179CC /* mainView.swift */,
+				638FA13F2B67D7450003DC2F /* EmployeesModule */,
+				638FA13E2B67D7370003DC2F /* ProductsModule */,
+				638FA13D2B67D7200003DC2F /* MenuModule */,
 				63BA05BB2B6057C100E7E3A7 /* UserManager.swift */,
+				63E8AB4B2B613DD9003179CC /* GoogleService-Info.plist */,
 				63FB01D52B606F5D0051EAED /* Helpers */,
 				63BA05BD2B60590A00E7E3A7 /* AuthModule */,
 				63BA05A62B60144200E7E3A7 /* Assets.xcassets */,
@@ -138,6 +195,7 @@
 		63FB01D52B606F5D0051EAED /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				638FA13B2B67D4220003DC2F /* Extensions */,
 				63FB01D62B606FAA0051EAED /* CustomTextField.swift */,
 				63E8AB4F2B6143F1003179CC /* ErrorText.swift */,
 				63E8AB492B613B11003179CC /* MainTapBarView.swift */,
@@ -230,16 +288,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638FA1422B67D76F0003DC2F /* MenuScreen.swift in Sources */,
+				638FA1442B67D77B0003DC2F /* EmployeesScreen.swift in Sources */,
+				638FA13A2B67D41E0003DC2F /* TextExtensions.swift in Sources */,
 				63E8AB4E2B613F10003179CC /* mainView.swift in Sources */,
 				63BA05BC2B6057C100E7E3A7 /* UserManager.swift in Sources */,
 				63BA05BF2B60595200E7E3A7 /* IntroductionScreen.swift in Sources */,
 				63BA05C52B605AE500E7E3A7 /* AuthViewModel.swift in Sources */,
+				638FA14B2B67F7740003DC2F /* EmployeerListView.swift in Sources */,
 				63E8AB4A2B613B11003179CC /* MainTapBarView.swift in Sources */,
 				63E8AB502B6143F1003179CC /* ErrorText.swift in Sources */,
+				638FA1482B67D87B0003DC2F /* ProductsScreen.swift in Sources */,
 				63FB01D72B606FAA0051EAED /* CustomTextField.swift in Sources */,
 				63BA05A32B60144000E7E3A7 /* RestaurantApp_3_0_App.swift in Sources */,
 				63BA05C32B605AA000E7E3A7 /* CreateUserScreen.swift in Sources */,
 				63BA05C12B605A9100E7E3A7 /* AuthScreen.swift in Sources */,
+				638FA14D2B67F85B0003DC2F /* EmployeeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
