@@ -1,6 +1,6 @@
 import Foundation
 
-struct EmployeerStruct:Identifiable{
+struct EmployeeStruct:Identifiable{
     let id: String?
     let name:String
     let phone:String

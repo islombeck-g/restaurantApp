@@ -1,13 +1,14 @@
 import FirebaseAuth
 import FirebaseFirestore
-
-final class UserManager: ObservableObject {
+import SwiftUI
+class UserManager: ObservableObject {
     
     static var shared = UserManager()
     @Published var currentUser: User?
     @Published var isLoading = false
     @Published var userSession: FirebaseAuth.User?
     @Published var isLoggedIn = false
+    
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -60,6 +61,9 @@ final class UserManager: ObservableObject {
         print("current user is: \(String(describing: self.currentUser))")
     }
     
+    
+    
+    
 }
 
 struct User: Identifiable, Codable {
@@ -78,6 +82,10 @@ struct User: Identifiable, Codable {
     }
 }
 
-//extension User {
-//    static var Mock_user = User(id: NSUUID().uuidString, name: "test", email: "test@gmail.com")
-//}
+final class ShareUresData: UserManager {
+    
+    func getUserEmail() -> String {
+        currentUser?.email ?? "error"
+    }
+    
+}
