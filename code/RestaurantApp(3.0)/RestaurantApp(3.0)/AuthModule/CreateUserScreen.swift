@@ -61,7 +61,6 @@ struct CreateUserScreen: View {
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     Text("MenuCraft")
-                        .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.custom("GillSans-Bold", size: 30))
                 }
             }

@@ -3,6 +3,8 @@ import SwiftUI
 struct MainTapBarView: View {
     var userStateManager:UserManager = UserManager.shared
     @State private var selectedTab:TabCustom = .menu
+    
+    @StateObject var employeeViewModel:EmployeeViewModel = EmployeeViewModel()
     var body: some View {
         
         ZStack {
@@ -14,6 +16,7 @@ struct MainTapBarView: View {
                     ProductsScreen()
                         .tag(TabCustom.cube)
                     EmployeesScreen()
+                        .environmentObject(self.employeeViewModel)
                         .tag(TabCustom.person)
                 }
             }

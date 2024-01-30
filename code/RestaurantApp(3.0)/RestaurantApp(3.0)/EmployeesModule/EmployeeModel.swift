@@ -7,9 +7,16 @@ struct EmployeeStruct:Identifiable{
     let position:String
     let email:String
     let photoUrl:String?
-    let bossEmail:String
+    let bossEmail:String?
 }
-enum EmployeePositions {
+enum EmployeePositions:String, CaseIterable {
     case cooker
     case cashier
+}
+enum EmployeeAPIResults: String, CaseIterable{
+    case success
+    case idIsEmpty = "Id is empty"
+    case serverError = "Server Error"
+    case idEmpty = "Some Error"
+    case userError = "Error from User"
 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct EmployeerListView: View {
+struct EmployeeListView: View {
     
     let person: EmployeeStruct
     
@@ -23,8 +23,8 @@ struct EmployeerListView: View {
         }
         .frame(height: 80)
         
-        .frame(minWidth: 360, maxWidth: 460)
-        .background(RoundedRectangle(cornerRadius: 15).stroke(lineWidth: 3))
+        .frame(minWidth: 300, maxWidth: 460)
+        .background(RoundedRectangle(cornerRadius: 15).stroke(Color("darkGreen"), lineWidth: 3))
 //        .padding()
         
     }

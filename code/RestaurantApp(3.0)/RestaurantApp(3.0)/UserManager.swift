@@ -56,9 +56,12 @@ class UserManager: ObservableObject {
     private func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else{return}
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else {return}
-        self.currentUser = try? snapshot.data(as:User.self)
         
-        print("current user is: \(String(describing: self.currentUser))")
+        DispatchQueue.main.async {
+            self.currentUser = try? snapshot.data(as:User.self)
+            print("current user is: \(String(describing: self.currentUser))")
+        }
+        
     }
     
     
