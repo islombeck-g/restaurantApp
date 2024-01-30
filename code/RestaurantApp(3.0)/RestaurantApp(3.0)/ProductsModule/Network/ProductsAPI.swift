@@ -105,17 +105,17 @@ final class ProductsAPI {
 //    Products(id: "P011", name: "Kiwi", price: 0.99),
 //    Products(id: "P012", name: "Lemon", price: 0.49),
 //    Products(id: "P013", name: "Milk", price: 1.99),
-//    Products(id: "P014", name: "Noodle", price: 1.49),
+//    Products(id: "P014", name: "Noodle", price: 1.49), pasta
 //    Products(id: "P015", name: "Olive", price: 3.99),
 //    Products(id: "P016", name: "Peanut", price: 2.49),
 //    Products(id: "P017", name: "Quinoa", price: 4.99),
 //    Products(id: "P018", name: "Rice", price: 1.99),
 //    Products(id: "P019", name: "Salmon", price: 9.99),
 //    Products(id: "P020", name: "Tomato", price: 0.99),
-//    Products(id: "P021", name: "Udon", price: 2.99),
+//    Products(id: "P021", name: "Udon", price: 2.99), -
 //    Products(id: "P022", name: "Vanilla", price: 3.99),
 //    Products(id: "P023", name: "Butter", price: 2.99),
-//    Products(id: "P024", name: "Xylitol", price: 5.99),
+//    Products(id: "P024", name: "Xylitol", price: 5.99),-
 //    Products(id: "P025", name: "Yogurt", price: 1.99),
 //    Products(id: "P026", name: "Zucchini", price: 1.49),
 //    Products(id: "P027", name: "Bread", price: 2.49),
