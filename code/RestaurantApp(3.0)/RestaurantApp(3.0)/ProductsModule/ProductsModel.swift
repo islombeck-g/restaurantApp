@@ -2,9 +2,8 @@ import Foundation
 import UIKit
 
 struct Product:Identifiable, Hashable{
-    let id: Int
+    let id: String
     var name:String
-    var image:UIImage
     var count:Int
     let price:Double
 }

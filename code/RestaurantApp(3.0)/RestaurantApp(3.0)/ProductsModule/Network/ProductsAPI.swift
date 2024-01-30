@@ -1,15 +1,78 @@
 import Foundation
 import FirebaseFirestore
 
-final class ProductsAPI:ObservableObject {
+final class ProductsAPI {
     
-    let db = Firestore.firestore().collection("Products")
+    let db = Firestore.firestore()
     
- 
-    func push(product: Product) {
+    
+    func get(completion: @escaping ([Product]?, ProductsAPIError?) -> Void) {
+        var products: [Product] = [Product]()
         
+        db.collection("products").getDocuments { snapshot, error in
+            guard error == nil else {
+                print ("error in ProductAPI in getData, error: \(String(describing: error))")
+                completion(nil, .serverError("Network error"))
+                return
+            }
+            guard let snapshot = snapshot else {
+                print ("error in ProductAPI in getData, snapshot: \(String(describing: error))")
+                completion(nil, .serverError("Server data error"))
+                return
+            }
+            DispatchQueue.main.async {
+                print ("productApi getData_start")
+                products = snapshot.documents.compactMap { document -> Product? in
+                    guard let name = document["name"] as? String,
+                          let count = document["count"] as? Int,
+                          let price = document["price"] as? Double
+                    else {
+                        print("error in ProductAPI in getData, compactMap")
+                        return nil
+                    }
+                    return Product(id: document.documentID, name: name, count: count, price: price)
+                }
+                completion(products, nil)
+            }
+        }
         
     }
+    
+    func deleteProduct (product:Product) -> ProductsAPIError? {
+        do {
+            db.collection("products").document(product.id).delete()
+            return nil
+        }
+    }
+    
+    func add(product: Product) {
+        
+        self.db.collection("products").whereField("name", isEqualTo: product.name).getDocuments { snapshot, error in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                if let document = snapshot?.documents.first {
+                    
+                    let newCount = document.data()["count"] as! Int + product.count
+                    document.reference.setData([
+                        "count": newCount
+                    ], merge: true)
+                } else {
+                    
+                    self.db.collection("products").addDocument(data: [
+                        "name": product.name,
+                        "count": product.count,
+                        "price": product.price
+                    ])
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
 }
 
 //MARK: for download productList
