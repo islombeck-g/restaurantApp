@@ -16,7 +16,7 @@ struct RestaurantApp_3_0_App: App {
     var body: some Scene {
         WindowGroup {
             
-           mainView()
+           MainView()
                 .environmentObject(AuthViewModel(userStateManager: userStateManager))
         }
     }

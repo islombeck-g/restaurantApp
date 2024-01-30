@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct mainView: View {
+struct MainView: View {
     
     @EnvironmentObject var authViewModel:AuthViewModel
     
@@ -14,6 +14,6 @@ struct mainView: View {
 }
 
 #Preview {
-    mainView()
+    MainView()
         .environmentObject(AuthViewModel(userStateManager: UserManager.shared))
 }

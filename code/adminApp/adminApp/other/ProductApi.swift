@@ -39,6 +39,7 @@ class ProductAPI{
         }
         
     }
+    
     func pushData (product: Product) {
         
         db.collection("products").addDocument(data: [
@@ -78,8 +79,6 @@ class ProductAPI{
                 completion (nil)
                 return
             }
-            
-            
             guard let document = snapshot.documents.first,
                   let name = document["name"] as? String,
                   let count = document["count"] as? Int,

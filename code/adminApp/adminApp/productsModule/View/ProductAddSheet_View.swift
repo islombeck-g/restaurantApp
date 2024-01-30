@@ -26,8 +26,8 @@ struct ProductAddSheet_View: View {
                 Button{
                     isPresentingListOfProducts = true
                 }label: {
-                    HStack{
-                        if self.viewModel.selectedProduct != nil{
+                    HStack {
+                        if self.viewModel.selectedProduct != nil {
                             Text("\(self.viewModel.selectedProduct!.name)")
                                 .font(.system(size: 25))
                             Image(uiImage: self.viewModel.selectedProduct!.image)

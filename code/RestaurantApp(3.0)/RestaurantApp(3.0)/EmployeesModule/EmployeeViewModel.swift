@@ -1,6 +1,5 @@
 import Foundation
 
-
 class EmployeeViewModel: ObservableObject {
     
     @Published var employeeArray = [EmployeeStruct]()

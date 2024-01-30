@@ -5,6 +5,8 @@ struct MainTapBarView: View {
     @State private var selectedTab:TabCustom = .menu
     
     @StateObject var employeeViewModel:EmployeeViewModel = EmployeeViewModel()
+    @StateObject var productsViewMode:ProductsViewModel = ProductsViewModel()
+    
     var body: some View {
         
         ZStack {
@@ -14,6 +16,7 @@ struct MainTapBarView: View {
                     MenuScreen()
                         .tag(TabCustom.menu)
                     ProductsScreen()
+                        .environmentObject(self.productsViewMode)
                         .tag(TabCustom.cube)
                     EmployeesScreen()
                         .environmentObject(self.employeeViewModel)
@@ -22,7 +25,6 @@ struct MainTapBarView: View {
             }
             CustomTabBar(selectedTab: self.$selectedTab)
                 .frame(maxHeight: .infinity, alignment: .bottom)
-//                .ignoresSafeArea()
             
         }
         

@@ -61,8 +61,8 @@ struct EmployeesMain_View: View {
 
 
 
-//struct EmployeesMain_View_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EmployeesMain_View()
-//    }
-//}
+struct EmployeesMain_View_Previews: PreviewProvider {
+    static var previews: some View {
+        EmployeesMain_View()
+    }
+}
