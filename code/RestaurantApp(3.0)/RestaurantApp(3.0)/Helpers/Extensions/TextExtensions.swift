@@ -13,3 +13,9 @@ extension Text {
             .bold()
     }
 }
+extension Text {
+    func styleMainText() -> some View {
+        self
+            .font(.custom("GillSans-Bold", size: 30))
+    }
+}
