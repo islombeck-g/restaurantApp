@@ -18,8 +18,10 @@ class UserManager: ObservableObject {
     func signIn(_ email:String, _ password:String) async throws {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            
             self.userSession = result.user
-            isLoggedIn = true
+            self.isLoggedIn = true
+            
         } catch {
             print("error in auth in signIn: \(error.localizedDescription)")
             throw error
@@ -63,18 +65,15 @@ class UserManager: ObservableObject {
         }
         
     }
-    
-    
-    
-    
+   
 }
 
 struct User: Identifiable, Codable {
     let id: String
     let name: String
     let email: String
-//    var image: String?
-
+    //    var image: String?
+    
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
         if let components = formatter.personNameComponents(from: name){

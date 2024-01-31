@@ -10,17 +10,20 @@ struct ProductListView: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundStyle(.white)
                 .shadow(color: .gray, radius: 2.5)
+            
             VStack {
                 GetSafeImage(named: product.name)
+                    .resizable()
+                    .frame(width: 50, height: 50)
                 
                 Text(product.name)
-                    .font(.custom("GillSans-Bold", size: 30))
+                    .font(.custom("GillSans-Bold", size: 20))
                 Text("\(product.price.formatted())$")
                 
             }
         }
-        .frame(minWidth: 150, maxWidth: 180)
-        .frame(height: 200)
+        .frame(minWidth: 108, maxWidth: 150)
+        .frame(height: 140)
     }
     
     func GetSafeImage(named: String) -> Image {

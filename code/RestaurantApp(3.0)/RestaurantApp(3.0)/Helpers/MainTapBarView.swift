@@ -1,41 +1,40 @@
 import SwiftUI
 
 struct MainTapBarView: View {
-    var userStateManager:UserManager = UserManager.shared
-    @State private var selectedTab:TabCustom = .menu
     
-    @StateObject var employeeViewModel:EmployeeViewModel = EmployeeViewModel()
-    @StateObject var productsViewMode:ProductsViewModel = ProductsViewModel()
+    var userStateManager:UserManager = UserManager.shared
+    
+    @EnvironmentObject var customNavigation:CustomNavigationStack
     
     var body: some View {
-        
-        ZStack {
-            VStack {
-                TabView(selection: self.$selectedTab) {
-                    
-                    MenuScreen()
-                        .tag(TabCustom.menu)
-                    ProductsScreen()
-                        .environmentObject(self.productsViewMode)
-                        .tag(TabCustom.cube)
-                    EmployeesScreen()
-                        .environmentObject(self.employeeViewModel)
-                        .tag(TabCustom.person)
+//        NavigationStack {
+            ZStack {
+                VStack {
+                    TabView(selection: $customNavigation.selectedTab) {
+                        
+                        MenuScreen()
+                            .tag(TabCustom.menu)
+                        
+                        ProductsScreen()
+                            .tag(TabCustom.cube)
+                        
+                        EmployeesScreen()
+                            .tag(TabCustom.person)
+                    }
                 }
+                
+                if customNavigation.showCustomTapbar {
+                    CustomTabBar(selectedTab: $customNavigation.selectedTab)
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                }       
             }
-            CustomTabBar(selectedTab: self.$selectedTab)
-                .frame(maxHeight: .infinity, alignment: .bottom)
-            
-        }
-        
-        
-        
+//        }
     }
 }
 
 #Preview {
     MainTapBarView()
-    //    CustomTabBar(selectedTab: .constant(.cube))
+        .environmentObject(CustomNavigationStack())
 }
 
 
@@ -69,7 +68,6 @@ struct CustomTabBar: View {
                 }
             }
             .frame(height: 60)
-            //            .background(Color("darkGreen"))
             .background(.thinMaterial)
             .clipShape(.rect(cornerRadius: 8))
             .padding()

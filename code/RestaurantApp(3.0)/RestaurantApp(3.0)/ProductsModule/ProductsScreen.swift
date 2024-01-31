@@ -3,14 +3,18 @@ import SwiftUI
 struct ProductsScreen: View {
     
     @EnvironmentObject var viewModel: ProductsViewModel
-    private var columns: [GridItem] = [
-        GridItem(.adaptive(minimum: 150))]
+    
+    private var columns: [GridItem] = [ GridItem(.adaptive(minimum: 108)) ]
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 
                 Group {
-                    NavigationLink {} label: {
+                    NavigationLink {
+                        ProductMarketScreen()
+                            
+                    } label: {
                         GoToNextViewButton()
                             .padding(.horizontal)
                     }
@@ -25,7 +29,6 @@ struct ProductsScreen: View {
                 }
             }
             .scrollIndicators(.hidden)
-      
             
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -33,12 +36,13 @@ struct ProductsScreen: View {
                         .styleMainText()
                 }
             }
+            .toolbar(.hidden, for: .tabBar)
         }
         .padding(.horizontal, 16)
     }
 }
 
-
+  
 #Preview {
     ProductsScreen()
         .environmentObject(ProductsViewModel())

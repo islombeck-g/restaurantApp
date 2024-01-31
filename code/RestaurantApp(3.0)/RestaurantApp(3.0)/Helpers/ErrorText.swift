@@ -1,10 +1,3 @@
-//
-//  ErrorText.swift
-//  RestaurantApp(3.0)
-//
-//  Created by Islombek Gofurov on 24/01/24.
-//
-
 import SwiftUI
 
 struct ErrorText: View {

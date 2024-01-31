@@ -6,11 +6,9 @@ struct EmployeesScreen: View {
     
     @State private var selectedEmployee: EmployeeStruct?
     @State private var addNewEmployee:Bool = false
-    private var columns: [GridItem] = [
-        GridItem(.adaptive(minimum: 300))
-//        GridItem(Array(repeating: .init(.flexible()),
-//                                count: UIDevice.current.userInterfaceIdiom == .pad ? 4 : 2))
-    ]
+
+    private var columns: [GridItem] = [ GridItem(.adaptive(minimum: 300)) ]
+    
     var body: some View {
         
         NavigationStack {
@@ -57,16 +55,9 @@ struct EmployeesScreen: View {
     }
 }
 
-//#Preview {
-//    EmployeesScreen()
-//        .environmentObject(EmployeeViewModel())
-//}
-
-
-struct EmployeesScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        EmployeesScreen()
-            .environmentObject(EmployeeViewModel())
-    }
+#Preview {
+    EmployeesScreen()
+        .environmentObject(EmployeeViewModel())
 }
+
 
