@@ -45,6 +45,7 @@
 		63FC1BBA2B69244E008E6116 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC1BB92B69244E008E6116 /* ProductsModel.swift */; };
 		63FC1BBC2B692459008E6116 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC1BBB2B692459008E6116 /* ProductsViewModel.swift */; };
 		63FC1BBE2B6A3808008E6116 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC1BBD2B6A3808008E6116 /* ProductListView.swift */; };
+		63FC1BC12B6A4FF9008E6116 /* GoToNextViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC1BC02B6A4FF9008E6116 /* GoToNextViewButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		63FC1BB92B69244E008E6116 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
 		63FC1BBB2B692459008E6116 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
 		63FC1BBD2B6A3808008E6116 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		63FC1BC02B6A4FF9008E6116 /* GoToNextViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToNextViewButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 		63FC1BBF2B6A3BA9008E6116 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63FC1BC02B6A4FF9008E6116 /* GoToNextViewButton.swift */,
 				63FC1BBD2B6A3808008E6116 /* ProductListView.swift */,
 			);
 			path = Views;
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				638FA1532B67FF0A0003DC2F /* EmployeeService.swift in Sources */,
+				63FC1BC12B6A4FF9008E6116 /* GoToNextViewButton.swift in Sources */,
 				638FA1422B67D76F0003DC2F /* MenuScreen.swift in Sources */,
 				637123D72B69122200739827 /* EmployeeAddView.swift in Sources */,
 				63FC1BB82B69241F008E6116 /* ProductsAPI.swift in Sources */,

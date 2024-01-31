@@ -19,7 +19,8 @@ struct ProductListView: View {
                 
             }
         }
-        .frame(width: 150, height: 200)
+        .frame(minWidth: 150, maxWidth: 180)
+        .frame(height: 200)
     }
     
     func GetSafeImage(named: String) -> Image {
