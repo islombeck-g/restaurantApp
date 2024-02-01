@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ProductListView: View {
     
-    let product: Products
+    let product: MarketProduct
     
     var body: some View {
         

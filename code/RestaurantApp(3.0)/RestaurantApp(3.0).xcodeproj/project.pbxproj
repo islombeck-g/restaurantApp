@@ -136,9 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				638FA1472B67D87B0003DC2F /* ProductsScreen.swift */,
+				63650EED2B6A816C0028146F /* ProductMarketScreen.swift */,
 				63FC1BB92B69244E008E6116 /* ProductsModel.swift */,
 				63FC1BBB2B692459008E6116 /* ProductsViewModel.swift */,
-				63650EED2B6A816C0028146F /* ProductMarketScreen.swift */,
 				63FC1BB42B6923CE008E6116 /* Network */,
 				63FC1BBF2B6A3BA9008E6116 /* Views */,
 			);

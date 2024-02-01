@@ -8,7 +8,7 @@ struct Product:Identifiable, Hashable{
     let price:Double
 }
 
-struct Products:Hashable, Encodable {
+struct MarketProduct:Hashable, Encodable {
     let id: String
     let name: String
     var price: Double
