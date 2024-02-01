@@ -8,6 +8,7 @@ struct ProductMarketScreen: View {
     @EnvironmentObject var customNavigation: CustomNavigationStack
     
     private var columns: [GridItem] = [ GridItem(.adaptive(minimum: 108)) ]
+    @State private var selectedProduct:MarketProduct?
     
     var body: some View {
         NavigationStack {
@@ -18,11 +19,19 @@ struct ProductMarketScreen: View {
                         ForEach(ConstProducts, id:\.self) { product in
                             ProductListView(product: product)
                                 .padding(.horizontal, 20)
-                            
+                                .onTapGesture {
+                                    self.selectedProduct = product
+                                }
                         }
                     }
                 }
             }
+            
+            .sheet(item: self.$selectedProduct, content: { product in
+                BuyCurrentProductView(product: product)
+                    .presentationDetents([.height(620)])
+            })
+            
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Button {
