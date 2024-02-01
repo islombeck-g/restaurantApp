@@ -9,6 +9,12 @@ class ProductsViewModel:ObservableObject {
     @Published var error:String?
     @Published var isLoading:Bool = false
     
+    init() {
+        print("_______start getting Products for productViewModel")
+        self.getProducts()
+        self.getmarketProducts()
+    }
+    
 //    MARK: Operations with Basket
     func addToBasket(productToAdd: Product) {
         if let index = basketProducts.firstIndex(where: { product in

@@ -13,20 +13,29 @@ struct ProductsScreen: View {
                 Group {
                     NavigationLink {
                         ProductMarketScreen()
-                            
+                        
                     } label: {
                         GoToNextViewButton()
                             .padding(.horizontal)
                     }
                 }
                 
-                LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
-                    ForEach(ConstProducts, id:\.self) { product in
-                        ProductListView(product: product)
-                            .padding(.horizontal, 20)
-                        
+                if self.viewModel.products.isEmpty {
+                    NoProductView()
+                        .padding()
+                } else {
+                    LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
+                        ForEach(ConstProducts, id:\.self) { product in
+                            ProductListView(product: product)
+                                .padding(.horizontal, 20)
+                            
+                        }
                     }
+                   
                 }
+                Spacer()
+                    .frame(height: 90)
+           
             }
             .scrollIndicators(.hidden)
             
@@ -34,6 +43,7 @@ struct ProductsScreen: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Text("Products")
                         .styleMainText()
+                        .foregroundStyle(.darkGreen)
                 }
             }
             .toolbar(.hidden, for: .tabBar)
@@ -42,7 +52,7 @@ struct ProductsScreen: View {
     }
 }
 
-  
+
 #Preview {
     ProductsScreen()
         .environmentObject(ProductsViewModel())
