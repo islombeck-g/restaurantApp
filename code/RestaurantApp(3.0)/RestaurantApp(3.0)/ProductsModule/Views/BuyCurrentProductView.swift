@@ -7,6 +7,7 @@ struct BuyCurrentProductView: View {
     @Environment(\.dismiss) var dismiss
     let product: MarketProduct
     
+    let randomColor:Color = Color.random
     var body: some View {
         
         VStack {
@@ -14,7 +15,7 @@ struct BuyCurrentProductView: View {
                 ZStack  {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundStyle(.white)
-                        .shadow(color: .yellow, radius: 100)
+                        .shadow(color: randomColor , radius: 100)
                     
                     
                     GetSafeImage(named: product.name)
@@ -115,4 +116,15 @@ struct BuyCurrentProductView: View {
     ProductMarketScreen()
         .environmentObject(ProductsViewModel())
         .environmentObject(CustomNavigationStack())
+}
+
+
+extension Color {
+    static var random: Color {
+        return Color(
+            red: .random(in: 0...1),
+            green: .random(in: 0...1),
+            blue: .random(in: 0...1)
+        )
+    }
 }
