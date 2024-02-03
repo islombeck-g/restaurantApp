@@ -12,6 +12,7 @@ struct EmployeeListView: View {
                 .padding(.leading, 16)
             
             Text(person.name)
+                .styleMainText_25()
                 .lineLimit(1)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
@@ -19,6 +20,7 @@ struct EmployeeListView: View {
                 .frame(width: 3)
                 .overlay(.black)
             Text(person.position)
+                .styleMainText_20()
                 .padding(.trailing, 16)
         }
         .frame(height: 80)
