@@ -25,8 +25,8 @@ struct ProductsScreen: View {
                         .padding()
                 } else {
                     LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
-                        ForEach(ConstProducts, id:\.self) { product in
-                            ProductListView(product: product)
+                        ForEach(self.viewModel.products , id:\.self) { product in
+                            ProductInRestaurantListView(product: product)
                                 .padding(.horizontal, 20)
                             
                         }
@@ -38,17 +38,21 @@ struct ProductsScreen: View {
            
             }
             .scrollIndicators(.hidden)
+            .padding(.horizontal, 16)
             
+            .refreshable {
+                self.viewModel.getProducts()
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Text("Products")
-                        .styleMainText()
+                        .styleMainText_30()
                         .foregroundStyle(.darkGreen)
                 }
             }
             .toolbar(.hidden, for: .tabBar)
         }
-        .padding(.horizontal, 16)
+       
     }
 }
 

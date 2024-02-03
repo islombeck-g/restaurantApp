@@ -12,7 +12,7 @@ class ProductsViewModel:ObservableObject {
     init() {
         print("_______start getting Products for productViewModel")
         self.getProducts()
-        self.getmarketProducts()
+        self.getMarketProducts()
     }
     
 //    MARK: Operations with Basket
@@ -31,7 +31,11 @@ class ProductsViewModel:ObservableObject {
             removeProduct.id == product.id
         }
     }
-    
+    func calculateBasketTotal() -> Double {
+        basketProducts.reduce(0) { (sum, product) in
+          sum + (product.price * Double(product.count))
+        }
+      }
     func removeBasket() {
         self.basketProducts.removeAll()
     }
@@ -39,7 +43,7 @@ class ProductsViewModel:ObservableObject {
     //    MARK: Product Service
     private var productsService = ProductsService()
     
-    func getmarketProducts() {
+    func getMarketProducts() {
         isLoading = true
         self.productsService.getMarketProducts { products, error in
             if products != nil {
@@ -60,12 +64,12 @@ class ProductsViewModel:ObservableObject {
     }
     
     func buyProductsFromMarket() {
+        
         guard self.basketProducts != [] else { return }
         
         for product in self.basketProducts {
             self.productsService.addProductToServer(product: product)
         }
-        self.getProducts()
     }
     
     func deleteProductFromServer(product: Product) {

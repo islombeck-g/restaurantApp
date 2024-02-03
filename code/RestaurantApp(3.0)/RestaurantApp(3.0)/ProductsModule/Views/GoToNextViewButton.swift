@@ -8,7 +8,7 @@ struct GoToNextViewButton: View {
                 .shadow(color: .gray, radius: 2.5)
             HStack {
                 Text("Go to the market")
-                    .styleMainText()
+                    .styleMainText_30()
                     .foregroundStyle(Color("darkGreen"))
                 Image("vegetables")
             }

@@ -19,8 +19,6 @@ struct NoProductView: View {
             }
             .padding(.bottom)
         }
-  
-        
     }
 }
 

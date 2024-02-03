@@ -1,11 +1,10 @@
 import SwiftUI
 
-struct ProductListView: View {
+struct ProductInRestaurantListView: View {
     
-    let product: MarketProduct
+    let product: Product
     
     var body: some View {
-        
         ZStack  {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundStyle(.white)
@@ -18,7 +17,7 @@ struct ProductListView: View {
                 
                 Text(product.name)
                     .font(.custom("GillSans-Bold", size: 20))
-                Text("\(product.price.formatted())$")
+                Text("\(product.count) count")
                 
             }
         }
@@ -28,6 +27,5 @@ struct ProductListView: View {
 }
 
 #Preview {
-    ProductsScreen()
-        .environmentObject(ProductsViewModel())
+    ProductInRestaurantListView(product: Product(id: "", name: "Apple", count: 11, price: 20))
 }
