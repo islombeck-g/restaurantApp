@@ -75,7 +75,7 @@ struct EmployyeeIDView: View {
                 Spacer()
                 
                 Button{
-                    viewModel.deleteEmployee(employeeID: employee.id!)
+                    viewModel.deleteEmployee(employeeID: employee.id)
                     dismiss()
                 }label: {
                     Text("delete account")

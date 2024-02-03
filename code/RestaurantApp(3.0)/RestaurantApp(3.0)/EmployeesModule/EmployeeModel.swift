@@ -1,7 +1,7 @@
 import Foundation
 
-struct EmployeeStruct:Identifiable{
-    let id: String?
+struct EmployeeStruct:Identifiable { //112
+    let id: String
     let name:String
     let phone:String
     let position:String
@@ -13,7 +13,7 @@ enum EmployeePositions:String, CaseIterable {
     case cooker
     case cashier
 }
-enum EmployeeAPIResults: String, CaseIterable{
+enum EmployeeAPIResults: String, CaseIterable {
     case success
     case idIsEmpty = "Id is empty"
     case serverError = "Server Error"

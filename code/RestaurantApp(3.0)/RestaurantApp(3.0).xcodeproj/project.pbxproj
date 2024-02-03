@@ -49,6 +49,13 @@
 		63E8AB4E2B613F10003179CC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8AB4D2B613F10003179CC /* MainView.swift */; };
 		63E8AB502B6143F1003179CC /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8AB4F2B6143F1003179CC /* ErrorText.swift */; };
 		63F71DFC2B6DCE81009A91F6 /* ProductInRestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F71DFB2B6DCE81009A91F6 /* ProductInRestaurantListView.swift */; };
+		63F71E002B6DD330009A91F6 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F71DFF2B6DD330009A91F6 /* MenuViewModel.swift */; };
+		63F71E022B6DD38A009A91F6 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F71E012B6DD38A009A91F6 /* MenuModel.swift */; };
+		63F71E042B6DDB00009A91F6 /* CreateNewDishScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F71E032B6DDB00009A91F6 /* CreateNewDishScreen.swift */; };
+		63F71E062B6E4F89009A91F6 /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F71E052B6E4F89009A91F6 /* MenuService.swift */; };
+		63F71E082B6E4F97009A91F6 /* MenuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F71E072B6E4F96009A91F6 /* MenuAPI.swift */; };
+		63F71E0A2B6E50C3009A91F6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 63F71E092B6E50C3009A91F6 /* FirebaseStorage */; };
+		63F71E0C2B6E6295009A91F6 /* MenuListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F71E0B2B6E6295009A91F6 /* MenuListItemView.swift */; };
 		63FB01D72B606FAA0051EAED /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FB01D62B606FAA0051EAED /* CustomTextField.swift */; };
 		63FC1BB62B692413008E6116 /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC1BB52B692413008E6116 /* ProductsService.swift */; };
 		63FC1BB82B69241F008E6116 /* ProductsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC1BB72B69241F008E6116 /* ProductsAPI.swift */; };
@@ -94,6 +101,12 @@
 		63E8AB4D2B613F10003179CC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		63E8AB4F2B6143F1003179CC /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		63F71DFB2B6DCE81009A91F6 /* ProductInRestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInRestaurantListView.swift; sourceTree = "<group>"; };
+		63F71DFF2B6DD330009A91F6 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		63F71E012B6DD38A009A91F6 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		63F71E032B6DDB00009A91F6 /* CreateNewDishScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewDishScreen.swift; sourceTree = "<group>"; };
+		63F71E052B6E4F89009A91F6 /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuService.swift; sourceTree = "<group>"; };
+		63F71E072B6E4F96009A91F6 /* MenuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAPI.swift; sourceTree = "<group>"; };
+		63F71E0B2B6E6295009A91F6 /* MenuListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListItemView.swift; sourceTree = "<group>"; };
 		63FB01D62B606FAA0051EAED /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		63FC1BB52B692413008E6116 /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
 		63FC1BB72B69241F008E6116 /* ProductsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAPI.swift; sourceTree = "<group>"; };
@@ -110,6 +123,7 @@
 			files = (
 				63BA05B62B60154D00E7E3A7 /* FirebaseAnalyticsSwift in Frameworks */,
 				63BA05B22B60154D00E7E3A7 /* FirebaseAnalytics in Frameworks */,
+				63F71E0A2B6E50C3009A91F6 /* FirebaseStorage in Frameworks */,
 				63BA05B42B60154D00E7E3A7 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				63BA05BA2B60154D00E7E3A7 /* FirebaseAppCheck in Frameworks */,
 				63BA05B82B60154D00E7E3A7 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
@@ -143,6 +157,11 @@
 			isa = PBXGroup;
 			children = (
 				638FA1412B67D76F0003DC2F /* MenuScreen.swift */,
+				63F71DFF2B6DD330009A91F6 /* MenuViewModel.swift */,
+				63F71E012B6DD38A009A91F6 /* MenuModel.swift */,
+				63F71E032B6DDB00009A91F6 /* CreateNewDishScreen.swift */,
+				63F71DFD2B6DD2E7009A91F6 /* Network */,
+				63F71DFE2B6DD300009A91F6 /* Views */,
 			);
 			path = MenuModule;
 			sourceTree = "<group>";
@@ -253,6 +272,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		63F71DFD2B6DD2E7009A91F6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				63F71E052B6E4F89009A91F6 /* MenuService.swift */,
+				63F71E072B6E4F96009A91F6 /* MenuAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		63F71DFE2B6DD300009A91F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63F71E0B2B6E6295009A91F6 /* MenuListItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		63FB01D52B606F5D0051EAED /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +351,7 @@
 				63E8AB432B612E9B003179CC /* FirebaseFirestoreSwift */,
 				63E8AB452B613134003179CC /* FirebaseAuth */,
 				63E8AB472B613745003179CC /* FirebaseFirestore */,
+				63F71E092B6E50C3009A91F6 /* FirebaseStorage */,
 			);
 			productName = "RestaurantApp(3.0)";
 			productReference = 63BA059F2B60144000E7E3A7 /* RestaurantApp(3.0).app */;
@@ -378,6 +415,7 @@
 				638FA1532B67FF0A0003DC2F /* EmployeeService.swift in Sources */,
 				63FC1BC12B6A4FF9008E6116 /* GoToNextViewButton.swift in Sources */,
 				638FA1422B67D76F0003DC2F /* MenuScreen.swift in Sources */,
+				63F71E002B6DD330009A91F6 /* MenuViewModel.swift in Sources */,
 				637123D72B69122200739827 /* EmployeeAddView.swift in Sources */,
 				63FC1BB82B69241F008E6116 /* ProductsAPI.swift in Sources */,
 				632A423B2B6C20F300C502A5 /* BuyCurrentProductView.swift in Sources */,
@@ -392,23 +430,28 @@
 				63E2FB552B6ABB2E00314569 /* forTest.swift in Sources */,
 				63BA05C52B605AE500E7E3A7 /* AuthViewModel.swift in Sources */,
 				638FA14B2B67F7740003DC2F /* EmployeeListView.swift in Sources */,
+				63F71E042B6DDB00009A91F6 /* CreateNewDishScreen.swift in Sources */,
 				63E8AB4A2B613B11003179CC /* MainTapBarView.swift in Sources */,
 				63650EF02B6A8AAF0028146F /* CustomNavigationStack.swift in Sources */,
+				63F71E0C2B6E6295009A91F6 /* MenuListItemView.swift in Sources */,
 				63E8AB502B6143F1003179CC /* ErrorText.swift in Sources */,
 				634C3F192B6CD79E00AC0C54 /* ProductsInBasketListView.swift in Sources */,
 				633C4A482B6D111300C8E4B4 /* MakeOrderView.swift in Sources */,
 				63FC1BBC2B692459008E6116 /* ProductsViewModel.swift in Sources */,
 				638FA1482B67D87B0003DC2F /* ProductsScreen.swift in Sources */,
+				63F71E062B6E4F89009A91F6 /* MenuService.swift in Sources */,
 				638FA14F2B67FBED0003DC2F /* EmployeeViewModel.swift in Sources */,
 				635CFB8C2B68F12A00B91122 /* EmployyeeIDView.swift in Sources */,
 				632A42392B6C153500C502A5 /* NoProductView.swift in Sources */,
 				638FA1512B67FDD50003DC2F /* EmployeeAPI.swift in Sources */,
+				63F71E082B6E4F97009A91F6 /* MenuAPI.swift in Sources */,
 				63FB01D72B606FAA0051EAED /* CustomTextField.swift in Sources */,
 				63BA05A32B60144000E7E3A7 /* RestaurantApp_3_0_App.swift in Sources */,
 				63FC1BBA2B69244E008E6116 /* ProductsModel.swift in Sources */,
 				63BA05C32B605AA000E7E3A7 /* CreateUserScreen.swift in Sources */,
 				63FC1BBE2B6A3808008E6116 /* ProductListView.swift in Sources */,
 				63F71DFC2B6DCE81009A91F6 /* ProductInRestaurantListView.swift in Sources */,
+				63F71E022B6DD38A009A91F6 /* MenuModel.swift in Sources */,
 				63BA05C12B605A9100E7E3A7 /* AuthScreen.swift in Sources */,
 				638FA14D2B67F85B0003DC2F /* EmployeeModel.swift in Sources */,
 				63FC1BB62B692413008E6116 /* ProductsService.swift in Sources */,
@@ -669,6 +712,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63BA05B02B60154D00E7E3A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		63F71E092B6E50C3009A91F6 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63BA05B02B60154D00E7E3A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

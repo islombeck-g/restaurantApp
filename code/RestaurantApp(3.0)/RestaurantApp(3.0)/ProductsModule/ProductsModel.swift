@@ -2,16 +2,16 @@ import Foundation
 import UIKit
 
 struct Product:Identifiable, Hashable{
-    let id: String
-    var name:String
-    var count:Int
-    let price:Double
+    let id: String //16
+    var name:String // 16
+    let price:Double  //8
+    var count:Int16 //2
 }
 
 struct MarketProduct:Hashable, Encodable, Identifiable {
-    let id: String
-    let name: String
-    var price: Double
+    let id: String //16
+    let name: String // 16
+    var price: Double // 8
 }
 
 enum ProductsAPIError {

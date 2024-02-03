@@ -44,5 +44,25 @@ extension Text {
             .font(.custom("GillSans-Bold", size: 10))
             .foregroundStyle(.darkGreen)
     }
+    func styleMainText_30_black() -> some View {
+        self
+            .font(.custom("GillSans-Bold", size: 30))
+    }
+    func styleMainText_20_black() -> some View {
+        self
+            .font(.custom("GillSans-Bold", size: 20))
+    }
+    func styleMainText_25_black() -> some View {
+        self
+            .font(.custom("GillSans-Bold", size: 25))
+    }
+    func styleMainText_15_black() -> some View {
+        self
+            .font(.custom("GillSans-Bold", size: 15))
+    }
+    func styleMainText_10_black() -> some View {
+        self
+            .font(.custom("GillSans-Bold", size: 10))
+    }
 }
 

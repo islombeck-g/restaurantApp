@@ -32,7 +32,7 @@ struct EmployeeAddView: View {
             .pickerStyle(.palette)
             
             Button {
-                viewModel.employeeToAdd = EmployeeStruct(id: nil, name: self.name, phone: self.phone, position: self.position.rawValue, email: self.email,photoUrl: nil, bossEmail: nil)
+                viewModel.employeeToAdd = EmployeeStruct(id: "", name: self.name, phone: self.phone, position: self.position.rawValue, email: self.email,photoUrl: nil, bossEmail: nil)
                 viewModel.addEmployee()
                 dismiss()
             } label: {

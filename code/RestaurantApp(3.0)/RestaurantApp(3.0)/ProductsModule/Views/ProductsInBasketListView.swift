@@ -56,16 +56,16 @@ struct ProductsInBasketListView: View {
 
 let con = [
     Product(
-        id: "", name: "Apple", count: 20, price: 0.99),
+        id: "", name: "Apple", price: 0.99, count: 20),
     Product(
-        id: "", name: "Banana", count: 10, price: 0.79),
+        id: "", name: "Banana", price: 0.79, count: 10),
     Product(
-        id: "", name: "Egg", count: 50, price: 0.19),
+        id: "", name: "Egg", price: 0.19, count: 50),
     Product(
-        id: "", name: "Peanut", count: 5, price: 2.49),
+        id: "", name: "Peanut", price: 2.49, count: 5),
     Product(
-        id: "", name: "Rice", count: 8, price: 1.99),
+        id: "", name: "Rice", price: 1.99, count: 8),
     Product(
-        id: "", name: "Butter", count: 3, price: 2.99),
+        id: "", name: "Butter", price: 2.99, count: 3),
     Product(
-        id: "", name: "Cheese", count: 10, price: 3.99)]
+        id: "", name: "Cheese", price: 3.99, count: 10)]

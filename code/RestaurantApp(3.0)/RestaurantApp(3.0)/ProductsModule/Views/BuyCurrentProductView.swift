@@ -2,7 +2,7 @@ import SwiftUI
 
 struct BuyCurrentProductView: View {
     
-    @State private var countOfProduct = 1
+    @State private var countOfProduct:Int16 = 1
     @EnvironmentObject var viewModel:ProductsViewModel
     @Environment(\.dismiss) var dismiss
     
@@ -81,7 +81,7 @@ struct BuyCurrentProductView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             Button {
-                self.viewModel.addToBasket(productToAdd: Product(id: product.id, name: product.name, count: countOfProduct, price: product.price))
+                self.viewModel.addToBasket(productToAdd: Product(id: product.id, name: product.name, price: product.price, count: countOfProduct))
                 self.dismiss()
             } label: {
                 Text("Add to basket")

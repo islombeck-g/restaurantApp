@@ -47,8 +47,8 @@ struct EmployeesScreen: View {
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     Text("Employees")
-                        .font(.custom("GillSans-Bold", size: 30))
-                        .foregroundStyle(Color("darkGreen"))
+                        .styleMainText_30()
+                        
                 }
             }
         }

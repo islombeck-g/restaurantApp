@@ -66,5 +66,5 @@ struct OrderListItem: View {
 }
 
 #Preview {
-    OrderListItem(product: .constant(Product(id: "", name: "Apple", count: 20, price: 2.32)))
+    OrderListItem(product: .constant(Product(id: "", name: "Apple", price: 2.32, count: 20)))
 }

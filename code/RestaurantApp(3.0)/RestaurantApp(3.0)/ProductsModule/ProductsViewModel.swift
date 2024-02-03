@@ -10,9 +10,9 @@ class ProductsViewModel:ObservableObject {
     @Published var isLoading:Bool = false
     
     init() {
-        print("_______start getting Products for productViewModel")
-        self.getProducts()
-        self.getMarketProducts()
+//        print("_______start getting Products for productViewModel")
+//        self.getProducts()
+//        self.getMarketProducts()
     }
     
 //    MARK: Operations with Basket

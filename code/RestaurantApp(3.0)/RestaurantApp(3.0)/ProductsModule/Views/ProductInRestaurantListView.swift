@@ -27,5 +27,5 @@ struct ProductInRestaurantListView: View {
 }
 
 #Preview {
-    ProductInRestaurantListView(product: Product(id: "", name: "Apple", count: 11, price: 20))
+    ProductInRestaurantListView(product: Product(id: "", name: "Apple", price: 20, count: 11))
 }
