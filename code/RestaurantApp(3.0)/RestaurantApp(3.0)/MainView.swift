@@ -16,7 +16,7 @@ struct MainView: View {
             MainTapBarView()
                 .environmentObject(employeeViewModel)
                 .environmentObject(productsViewMode)
-                .environmentObject(menuViewModel)
+                .environmentObject(menuViewModel) 
                 .environmentObject(customNavigation)
                 
         } else {

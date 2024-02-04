@@ -1,21 +1,20 @@
 import SwiftUI
 
 struct MenuListItemView: View {
-   
+    
     let picture: UIImage
     let stars: Double
+    @Binding var description: String
+    @Binding var name: String
     
     var body: some View {
         VStack {
             ZStack {
-                //                Image(uiImage: picture)
-                Image("1")
+                Image(uiImage: picture)
                     .resizable()
                     .scaledToFill()
                     .frame(height: 100)
-                //                    .clipShape(.rect(cornerRadius: 8))
                     .clipped()
-                //                .frame(maxWidth: 350)
                 
                 Group {
                     HStack {
@@ -33,12 +32,15 @@ struct MenuListItemView: View {
                 .padding(.bottom, 8)
                 
             }
+            
             Group {
-                Text("Some name")
+                Text(self.name != "" ? name :"Name of new dish")
                     .styleMainText_20_black()
-                Text("Some name")
-                    .styleMainText_15_black()       
+                Text(self.description != "" ? description :"Description of new dish")
+                    .styleMainText_15_black()
+                    .lineLimit(1)
             }
+            
             .padding(.horizontal, 16)
             .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
@@ -46,7 +48,7 @@ struct MenuListItemView: View {
         }
         .frame(height: 158)
         .frame(maxWidth: 400)
-        .background(.red)
+        .background(.thickMaterial )
         .clipShape(.rect(cornerRadius: 8))
     }
 }

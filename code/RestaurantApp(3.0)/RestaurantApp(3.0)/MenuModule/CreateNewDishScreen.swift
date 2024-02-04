@@ -7,6 +7,9 @@ struct CreateNewDishScreen: View {
     //    @State private var dish = Dish(id: "", name: "", price: 0.0, products: [], imageUrls: [])
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var downloadedPhoto: UIImage?
+    
+    @State private var name: String = ""
+    @State private var description: String = ""
     var body: some View {
         NavigationStack {
             VStack {
@@ -14,7 +17,12 @@ struct CreateNewDishScreen: View {
                 
                 ScrollView {
                     
-                    MenuListItemView(picture: self.downloadedPhoto != nil ? self.downloadedPhoto! : UIImage(resource: .default), stars: 4.2345)
+                    MenuListItemView(
+                        picture: self.downloadedPhoto != nil ? self.downloadedPhoto! : UIImage(resource: .defaultDish),
+                        stars: 4.2345,
+                        description: $description,
+                        name: $name)
+                    
 //                    MenuListItemView(picture: )
                     
                     PhotosPicker(selection: $selectedPhoto) {
