@@ -12,9 +12,8 @@ struct CreateNewDishScreen: View {
     @State private var description: String = ""
     var body: some View {
         NavigationStack {
+
             VStack {
-                
-                
                 ScrollView {
                     
                     MenuListItemView(
@@ -38,9 +37,15 @@ struct CreateNewDishScreen: View {
              
                     if !self.viewModel.ingredients.isEmpty {
                         
-                        ProductsInBasketListView(products: self.viewModel.ingredients)
+                        ProductsInBasketListView(products: self.viewModel.ingredients, text: "Ingredients:")
                             .padding(.leading)
                             .padding(.top, 15)
+                    }
+                    NavigationLink {
+                        IngredientsSearchScreen()
+                    } label: {
+                        Text("Chose ingredients")
+                            .styleOne()
                     }
                 }
                 .padding(.horizontal, 16)
@@ -71,5 +76,5 @@ struct CreateNewDishScreen: View {
 
 #Preview {
     CreateNewDishScreen()
-        .environmentObject(MenuViewModel())
+        .environmentObject(MenuViewModel(productsService: ProductsService.shared))
 }

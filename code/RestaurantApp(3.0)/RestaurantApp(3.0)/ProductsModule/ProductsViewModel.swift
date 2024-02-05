@@ -9,7 +9,8 @@ class ProductsViewModel:ObservableObject {
     @Published var error:String?
     @Published var isLoading:Bool = false
     
-    init() {
+    init(productsService: ProductsService) {
+        self.productsService = productsService
 //        print("_______start getting Products for productViewModel")
 //        self.getProducts()
 //        self.getMarketProducts()
@@ -35,13 +36,13 @@ class ProductsViewModel:ObservableObject {
         basketProducts.reduce(0) { (sum, product) in
           sum + (product.price * Double(product.count))
         }
-      }
+    }
     func removeBasket() {
         self.basketProducts.removeAll()
     }
     
     //    MARK: Product Service
-    private var productsService = ProductsService()
+    private var productsService:ProductsService
     
     func getMarketProducts() {
         isLoading = true

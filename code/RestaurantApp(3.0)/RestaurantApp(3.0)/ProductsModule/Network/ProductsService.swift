@@ -1,8 +1,8 @@
 import Foundation
 
-class ProductsService {
+class ProductsService: ObservableObject {
     
-    
+    static var shared = ProductsService()
     
     let productAPI = ProductsAPI()
     

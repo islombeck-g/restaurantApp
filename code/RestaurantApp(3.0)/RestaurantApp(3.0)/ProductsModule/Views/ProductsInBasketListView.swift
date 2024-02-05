@@ -4,11 +4,11 @@ import SwiftUI
 struct ProductsInBasketListView: View {
     
     let products:[Product]
-    
+    let text: String
     var body: some View {
         HStack {
             
-            Text("Basket \nproducts")
+            Text(text)
                 .styleMainText_25()
             
             ScrollView(.horizontal) {
@@ -50,7 +50,7 @@ struct ProductsInBasketListView: View {
 }
 
 #Preview {
-    ProductsInBasketListView(products: con )
+    ProductsInBasketListView(products: con, text: "Basket \nproducts")
 }
 
 

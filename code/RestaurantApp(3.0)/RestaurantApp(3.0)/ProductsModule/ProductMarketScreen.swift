@@ -18,7 +18,7 @@ struct ProductMarketScreen: View {
                     
                     if !self.viewModel.basketProducts.isEmpty {
                         
-                        ProductsInBasketListView(products: self.viewModel.basketProducts)
+                        ProductsInBasketListView(products: self.viewModel.basketProducts, text: "Basket \nproducts")
                             .padding(.leading)
                             .padding(.top, 15)
                     }
@@ -37,7 +37,7 @@ struct ProductMarketScreen: View {
             }
             
             .sheet(item: self.$selectedProduct, content: { product in
-                BuyCurrentProductView(product: product)
+                BuyCurrentProductView(which: .productViewModel, product: product)
                     .presentationDetents([.height(620)])
             })
             .sheet(isPresented: self.$showMakeOrderView) {
@@ -89,7 +89,7 @@ struct ProductMarketScreen: View {
 
 #Preview {
     ProductMarketScreen()
-        .environmentObject(ProductsViewModel())
+        .environmentObject(ProductsViewModel(productsService: ProductsService.shared))
         .environmentObject(CustomNavigationStack())
 }
 

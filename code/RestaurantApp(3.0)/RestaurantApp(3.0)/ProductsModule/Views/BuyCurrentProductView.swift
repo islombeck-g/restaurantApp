@@ -1,9 +1,16 @@
 import SwiftUI
 
+enum whichViewModel {
+    case productViewModel
+    case menuViewModel
+}
+
 struct BuyCurrentProductView: View {
     
     @State private var countOfProduct:Int16 = 1
-    @EnvironmentObject var viewModel:ProductsViewModel
+    @EnvironmentObject var productViewModel: ProductsViewModel
+    @EnvironmentObject var menuViewModel: MenuViewModel
+    let which:whichViewModel
     @Environment(\.dismiss) var dismiss
     
     let product: MarketProduct
@@ -81,7 +88,15 @@ struct BuyCurrentProductView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             Button {
-                self.viewModel.addToBasket(productToAdd: Product(id: product.id, name: product.name, price: product.price, count: countOfProduct))
+                
+                let product = Product(id: product.id, name: product.name, price: product.price, count: countOfProduct)
+                
+                if self.which == .productViewModel {
+                    self.productViewModel.addToBasket(productToAdd: product)
+                } else {
+                    self.menuViewModel.addIngredient(productToAdd: product)
+                }
+                
                 self.dismiss()
             } label: {
                 Text("Add to basket")
@@ -107,6 +122,6 @@ struct BuyCurrentProductView: View {
 
 #Preview {
     ProductMarketScreen()
-        .environmentObject(ProductsViewModel())
+        .environmentObject(ProductsViewModel(productsService: ProductsService.shared))
         .environmentObject(CustomNavigationStack())
 }

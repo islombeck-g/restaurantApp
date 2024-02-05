@@ -9,7 +9,6 @@ class UserManager: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var isLoggedIn = false
     
-    
     init() {
         self.userSession = Auth.auth().currentUser
         Task {await fetchUser()}
