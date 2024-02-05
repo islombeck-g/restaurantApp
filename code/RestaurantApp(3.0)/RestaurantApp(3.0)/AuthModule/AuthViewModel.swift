@@ -3,6 +3,7 @@ import Foundation
 final class AuthViewModel: ObservableObject {
     
     var userStateManager:UserManager
+    
     init(userStateManager: UserManager) {
         self.userStateManager = userStateManager
     }

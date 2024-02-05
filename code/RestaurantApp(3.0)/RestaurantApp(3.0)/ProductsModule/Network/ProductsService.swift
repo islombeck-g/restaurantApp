@@ -2,6 +2,8 @@ import Foundation
 
 class ProductsService {
     
+    
+    
     let productAPI = ProductsAPI()
     
     func getProducts(completion: @escaping([Product]?, ProductsAPIError?) -> Void ) {

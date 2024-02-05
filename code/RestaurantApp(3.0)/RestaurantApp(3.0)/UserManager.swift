@@ -42,7 +42,7 @@ class UserManager: ObservableObject {
         }
     }
     
-    func signOut(){
+    func signOut() {
         do {
             try Auth.auth().signOut()
             self.userSession = nil
@@ -56,8 +56,8 @@ class UserManager: ObservableObject {
     }
     
     private func fetchUser() async {
-        guard let uid = Auth.auth().currentUser?.uid else{return}
-        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else {return}
+        guard let uid = Auth.auth().currentUser?.uid else{ return }
+        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
         
         DispatchQueue.main.async {
             self.currentUser = try? snapshot.data(as:User.self)
@@ -69,6 +69,7 @@ class UserManager: ObservableObject {
 }
 
 struct User: Identifiable, Codable {
+    
     let id: String
     let name: String
     let email: String
@@ -76,7 +77,7 @@ struct User: Identifiable, Codable {
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
-        if let components = formatter.personNameComponents(from: name){
+        if let components = formatter.personNameComponents(from: name) {
             formatter.style = .abbreviated
             return formatter.string(from: components)
         }
@@ -89,5 +90,4 @@ final class ShareUresData: UserManager {
     func getUserEmail() -> String {
         currentUser?.email ?? "error"
     }
-    
 }

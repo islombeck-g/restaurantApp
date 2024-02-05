@@ -22,19 +22,29 @@ struct CreateNewDishScreen: View {
                         stars: 4.2345,
                         description: $description,
                         name: $name)
+                    .padding(.bottom)
                     
-//                    MenuListItemView(picture: )
+                    Divider()
+                        .background(Color.green)
                     
                     PhotosPicker(selection: $selectedPhoto) {
                         Text("Chose image")
                             .styleOne()
+                            
                     }
+                    CustomTextField(name: "Dish name", text: self.$name, isSecured: false)
+                    CustomTextField(name: "Dish description", text: self.$description, isSecured: false)
+  
              
+                    if !self.viewModel.ingredients.isEmpty {
+                        
+                        ProductsInBasketListView(products: self.viewModel.ingredients)
+                            .padding(.leading)
+                            .padding(.top, 15)
+                    }
                 }
                 .padding(.horizontal, 16)
             }
-            
-            
             
             .toolbar {
                 ToolbarItem(placement: .navigation) {
