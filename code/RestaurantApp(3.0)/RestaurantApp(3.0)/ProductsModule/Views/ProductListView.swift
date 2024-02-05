@@ -3,7 +3,7 @@ import SwiftUI
 struct ProductListView: View {
     
     let product: MarketProduct
-    
+    let which: whichViewModel
     var body: some View {
         
         ZStack  {
@@ -18,7 +18,10 @@ struct ProductListView: View {
                 
                 Text(product.name)
                     .font(.custom("GillSans-Bold", size: 20))
-                Text("\(product.price.formatted())$")
+                if self.which == .productViewModel {
+                    Text("\(product.price.formatted())$")
+                }
+                
                 
             }
         }

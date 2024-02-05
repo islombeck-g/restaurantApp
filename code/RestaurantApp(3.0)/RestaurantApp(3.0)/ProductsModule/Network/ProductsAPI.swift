@@ -23,7 +23,7 @@ final class ProductsAPI {
                 print ("productApi getData_start")
                 products = snapshot.documents.compactMap { document -> Product? in
                     guard let name = document["name"] as? String,
-                          let count = document["count"] as? Int16,
+                          let count = document["count"] as? Double,
                           let price = document["price"] as? Double
                     else {
                         print("error in ProductAPI in getData, compactMap")
@@ -54,7 +54,7 @@ final class ProductsAPI {
             } else {
                 if let document = snapshot?.documents.first {
                     
-                    let newCount = document.data()["count"] as! Int16 + product.count
+                    let newCount = document.data()["count"] as! Double + product.count
                     document.reference.setData([
                         "count": newCount
                     ], merge: true)

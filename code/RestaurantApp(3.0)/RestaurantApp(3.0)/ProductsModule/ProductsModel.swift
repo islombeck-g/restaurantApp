@@ -5,7 +5,7 @@ struct Product:Identifiable, Hashable{
     let id: String //16
     var name:String // 16
     let price:Double  //8
-    var count:Int16 //2
+    var count:Double // 8
 }
 
 struct MarketProduct:Hashable, Encodable, Identifiable {

@@ -9,7 +9,7 @@ struct MenuScreen: View {
             ScrollView {
                 
                 NavigationLink {
-                    
+                    CreateNewDishScreen()
                 } label: {
                     Text("Create new dish")
                         .styleOne()
@@ -23,6 +23,7 @@ struct MenuScreen: View {
                         .styleMainText_30()
                 }
             }
+            .toolbar(.hidden, for: .tabBar)
         }
         
     }

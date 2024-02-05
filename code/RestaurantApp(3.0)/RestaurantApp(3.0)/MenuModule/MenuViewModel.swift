@@ -5,7 +5,6 @@ class MenuViewModel: ObservableObject {
     @Published var dishes: [Dish] = []
     @Published var ingredients: [Product] = []
     @Published var marketProducts: [MarketProduct] = []
-    @Published var chosedIngredients: [Product] = []
     
     @Published var error:String?
     @Published var isLoading:Bool = false
@@ -27,22 +26,31 @@ class MenuViewModel: ObservableObject {
         }
     }
     func addIngredient(productToAdd: Product) {
-        if let index = chosedIngredients.firstIndex(where: { product in
+        if let index = ingredients.firstIndex(where: { product in
             product.id == productToAdd.id
         }) {
-            chosedIngredients[index].count += productToAdd.count
+            ingredients[index].count += productToAdd.count
         } else {
-            chosedIngredients.append(productToAdd)
+            ingredients.append(productToAdd)
         }
     }
-    
+    func updateProductAfterChanging(product: Product) {
+        if let index = ingredients.firstIndex(where: { product in
+            product.id == product.id}) {
+            ingredients[index] = product
+        }
+    }
     func removeFromChosenIngredients(removeProduct: Product) {
-        self.chosedIngredients.removeAll { product in
+        self.ingredients.removeAll { product in
             removeProduct.id == product.id
         }
     } 
     func removeIngredients() {
-        self.chosedIngredients.removeAll()
+        self.ingredients.removeAll()
+    }
+    
+    func createDish() {
+        
     }
 
 }

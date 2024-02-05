@@ -38,7 +38,7 @@ struct OrderListItem: View {
                                 .foregroundStyle(.darkGreen)
                         }
                         
-                        Text("\(product.count)")
+                        Text("\(product.count.formatted())")
                             .font(.custom("GillSans-Bold", size: 18))
                             .frame(width: 35)
                         

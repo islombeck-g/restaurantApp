@@ -18,14 +18,14 @@ struct ProductMarketScreen: View {
                     
                     if !self.viewModel.basketProducts.isEmpty {
                         
-                        ProductsInBasketListView(products: self.viewModel.basketProducts, text: "Basket \nproducts")
+                        ProductsInBasketListView(products: self.viewModel.basketProducts, text: "Basket products")
                             .padding(.leading)
                             .padding(.top, 15)
                     }
                         
                     LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
                         ForEach(self.viewModel.marketProducts, id:\.self) { product in
-                            ProductListView(product: product)
+                            ProductListView(product: product, which: .productViewModel)
                                 .padding(.horizontal, 20)
                                 .onTapGesture {
                                     self.selectedProduct = product

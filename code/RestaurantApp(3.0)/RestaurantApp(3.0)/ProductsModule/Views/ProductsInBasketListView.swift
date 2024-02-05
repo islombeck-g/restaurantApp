@@ -5,30 +5,37 @@ struct ProductsInBasketListView: View {
     
     let products:[Product]
     let text: String
+    var onProductSelected: ((Int) -> Void)?
+    
     var body: some View {
-        HStack {
+        VStack {
             
             Text(text)
                 .styleMainText_25()
+                .frame(maxWidth: .infinity, alignment: .leading)
             
             ScrollView(.horizontal) {
                 HStack {
                     
-                    ForEach(products, id: \.self) { product in
-                        ZStack  {
+                    ForEach(products.indices, id: \.self) { index in
+                        ZStack {
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundStyle(.white)
                                 .shadow(color: .gray, radius: 2.5)
+                                .onTapGesture {
+                                    // Вызывайте замыкание при нажатии на продукт
+                                    onProductSelected?(index)
+                                }
                             
                             VStack {
-                                Image.getSafeImage(named: product.name)
+                                Image.getSafeImage(named: products[index].name)
                                     .resizable()
                                     .frame(width: 30, height: 30)
                                 
-                                Text(product.name)
+                                Text(products[index].name)
                                     .font(.custom("GillSans-Bold", size: 20))
-
-                                Text("count: \(product.count)")
+                                
+                                Text("count: \(products[index].count.formatted())")
                                 
                             }
                         }

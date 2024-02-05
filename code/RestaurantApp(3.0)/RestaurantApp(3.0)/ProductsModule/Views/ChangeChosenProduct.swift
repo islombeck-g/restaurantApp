@@ -1,23 +1,16 @@
 import SwiftUI
 
-enum whichViewModel {
-    case productViewModel
-    case menuViewModel
-}
-
-struct BuyCurrentProductView: View {
-    
-    @State private var countOfProduct:Int16 = 1
+struct ChangeChosenProduct: View {
+   
     @EnvironmentObject var productViewModel: ProductsViewModel
     @EnvironmentObject var menuViewModel: MenuViewModel
     let which:whichViewModel
     @Environment(\.dismiss) var dismiss
     
-    let product: MarketProduct
+    @State var product: Product
     let randomColor:Color = Color.random
     
     var body: some View {
-        
         VStack {
             ZStack  {
                 RoundedRectangle(cornerRadius: 20)
@@ -48,8 +41,8 @@ struct BuyCurrentProductView: View {
                 Group {
                     
                     Button {
-                        if self.countOfProduct != 1 {
-                            self.countOfProduct -= 1
+                        if self.product.count != 0.1 {
+                            product.count -= 0.1
                         }
                     } label: {
                         Image(systemName: "minus.square.fill")
@@ -57,13 +50,13 @@ struct BuyCurrentProductView: View {
                             .foregroundStyle(.darkGreen)
                     }
                     
-                    Text("\(self.countOfProduct)")
+                    Text("\(self.product.count.formatted())")
                         .font(.custom("GillSans-Bold", size: 20))
                         .frame(width: 40)
                     
                     Button {
-                        if self.countOfProduct != 999 {
-                            self.countOfProduct += 1
+                        if self.product.count != 999 {
+                            self.product.count += 0.1
                         }
                     } label: {
                         Image(systemName: "plus.square.fill")
@@ -79,7 +72,7 @@ struct BuyCurrentProductView: View {
                 Text("Unit Price: $\(self.product.price.formatted()) per item")
                     .font(.custom("GillSans-Bold", size: 20))
                 
-                Text("Total Price for \(self.countOfProduct) Items: $\((self.product.price * Double(countOfProduct)).formatted())")
+                Text("Total Price for \(self.product.count.formatted()) Items: $\((self.product.price * product.count).formatted())")
                     .font(.custom("GillSans-Bold", size: 20))
                 
             }
@@ -88,22 +81,27 @@ struct BuyCurrentProductView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             Button {
-                
-                let product = Product(id: product.id, name: product.name, price: product.price, count: Double(countOfProduct))
-                
-                if self.which == .productViewModel {
-                    self.productViewModel.addToBasket(productToAdd: product)
-                } else {
-                    self.menuViewModel.addIngredient(productToAdd: product)
+                if which == .menuViewModel {
+                    self.menuViewModel.updateProductAfterChanging(product: product)
                 }
-                
                 self.dismiss()
             } label: {
-                Text("Add to basket")
+                Text("Save")
                     .styleOne()
             }
             .padding(.top, 40)
             
+            Button {
+                if which == .menuViewModel {
+                    self.menuViewModel.removeFromChosenIngredients(removeProduct: product)
+                }
+                self.dismiss()
+            } label: {
+                Text("Remove product")
+                    .padding()
+                    .foregroundStyle(.red)
+                    
+            }
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding(.top, 40)
@@ -111,17 +109,8 @@ struct BuyCurrentProductView: View {
     }
 }
 
-//#Preview {
-//    BuyCurrentProductView(
-//        product: MarketProduct(
-//            id: "P001",
-//            name: "Apple",
-//            price: 0.99))
-//            .environmentObject(ProductsViewModel())
-//}
-
 #Preview {
-    ProductMarketScreen()
+    ChangeChosenProduct(which: .menuViewModel, product: Product(id: "", name: "Apple", price: 2.3, count: 10))
         .environmentObject(ProductsViewModel(productsService: ProductsService.shared))
-        .environmentObject(CustomNavigationStack())
+        .environmentObject(MenuViewModel(productsService: ProductsService.shared))
 }

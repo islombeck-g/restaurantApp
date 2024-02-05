@@ -17,7 +17,7 @@ struct ProductInRestaurantListView: View {
                 
                 Text(product.name)
                     .font(.custom("GillSans-Bold", size: 20))
-                Text("\(product.count) count")
+                Text("\(product.count.formatted()) count")
                 
             }
         }
