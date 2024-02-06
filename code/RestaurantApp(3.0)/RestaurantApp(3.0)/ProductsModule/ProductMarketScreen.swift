@@ -89,7 +89,7 @@ struct ProductMarketScreen: View {
 
 #Preview {
     ProductMarketScreen()
-        .environmentObject(ProductsViewModel(productsService: ProductsService.shared))
+        .environmentObject(ProductsViewModel())
         .environmentObject(CustomNavigationStack())
 }
 

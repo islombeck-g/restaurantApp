@@ -58,5 +58,5 @@ struct MenuListItemView: View {
 //}
 #Preview {
     CreateNewDishScreen()
-        .environmentObject(MenuViewModel(productsService: ProductsService.shared))
+        .environmentObject(MenuViewModel())
 }

@@ -6,16 +6,16 @@ struct CreateNewDishScreen: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: MenuViewModel
     @EnvironmentObject var customNavigation: CustomNavigationStack
-    //    @State private var dish = Dish(id: "", name: "", price: 0.0, products: [], imageUrls: [])
+
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var downloadedPhoto: UIImage?
-    
     
     @State private var name: String = ""
     @State private var description: String = ""
     @State private var gm: Double = 0
-    @State private var kcal: Int16 = 0
-    @State private var dishCategory: DishCategory = .breakfast
+    @State private var kcal: Double = 0
+    @State private var dishCategory: DishCategory = .beverage
+    @State private var price: Double?
     
     var body: some View {
         NavigationStack {
@@ -54,19 +54,55 @@ struct CreateNewDishScreen: View {
                     }
                     
                   
-                    Slider(value: $gm, in: 1...5000, step: 3)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15).stroke(Color("darkGreen"), lineWidth: 3)
+                        VStack {
+                            Slider(value: $gm, in: 1...5000, step: 1)
+                                .padding()
+                            Text("Gramm: \(gm.formatted())")
+                                .styleMainText_20()
+                                .padding(.bottom)
+                        }
+                    }
                     
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15).stroke(Color("darkGreen"), lineWidth: 3)
+                        VStack {
+                            Slider(value: $kcal, in: 1...5000, step: 1)
+                                .padding()
+                            Text("Kcal: \(kcal.formatted())")
+                                .styleMainText_20()
+                                .padding(.bottom)
+                        }
+                    }
                     
+                    TextField("Price", value: $price, format: .number)
+                        .font(.custom("GillSans-Bold", size: 22))
+                        .padding(.top)
+                    Divider()
+                    
+//                    Picker("CategoryPicker", selection: self.$dishCategory) {
+//                        ForEach(self.viewModel.allDishCategories, id: \.self) { category in
+//                            Text(category.rawValue)
+//                                .tag(category)
+//                        }
+//                    }
+//                    .pickerStyle(.wheel)
+                    
+                    DropDownView(menuActions: self.viewModel.allDishCategories, title: self.$dishCategory)
                     
                     Button {
-                        self.viewModel.createDish()
+                        
+                        let dish = Dish(id: "", name: self.name, price: self.price ?? 0.0, imageUrls: nil, stars: 0.0, products: self.viewModel.ingredients, gm: Int16(self.gm), kcal: Int16(self.kcal), category: self.dishCategory.rawValue, image: downloadedPhoto)
+                        if self.viewModel.checkData(dish: dish) {
+                            self.viewModel.createDish(dish: dish)
+                        }
                     } label: {
                         Text("Create dish")
                             .styleOne()
                     }
-                    
-                    
                 }
+                .scrollIndicators(.hidden)
                 .padding(.horizontal, 16)
             }
             
@@ -113,6 +149,6 @@ struct CreateNewDishScreen: View {
 
 #Preview {
     CreateNewDishScreen()
-        .environmentObject(MenuViewModel(productsService: ProductsService.shared))
+        .environmentObject(MenuViewModel())
         .environmentObject(CustomNavigationStack())
 }

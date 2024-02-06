@@ -47,5 +47,5 @@ struct MakeOrderView: View {
 
 #Preview {
     MakeOrderView()
-        .environmentObject(ProductsViewModel(productsService: ProductsService.shared))
+        .environmentObject(ProductsViewModel())
 }

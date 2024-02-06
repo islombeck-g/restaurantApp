@@ -32,5 +32,5 @@ struct ProductListView: View {
 
 #Preview {
     ProductsScreen()
-        .environmentObject(ProductsViewModel(productsService: ProductsService.shared))
+        .environmentObject(ProductsViewModel())
 }

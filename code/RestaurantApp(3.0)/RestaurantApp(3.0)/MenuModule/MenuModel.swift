@@ -7,34 +7,37 @@ struct Dish {
     var name:String // 16
     var price:Double // 16
     var description:String? // 16
-    var imageUrls:[String] //16
+    var imageUrls:[String]? //16
     var stars:Double // 16
     var products:[Product] // 42
     var gm:Int16 // 2 байта
     var kcal:Int16 // 2
-    var category:DishCategory // 1
-    
+    var category:String // 1
+    var image:UIImage?
 }
 
-enum DishCategory: String, CaseIterable {
-    case appetizer = "appetizer" //закуски
-    case soup = "soup" //супы
-    case salad = "salad"
-    case mainCourse = "main_course"
-    case sideDish = "side_dish" //гарнир
-    case dessert = "dessert"
-    case beverage = "beverage" //напиток
-    case breakfast = "breakfast"
-    case brunch = "brunch"
-    case sandwich = "sandwich" //бутерброд
-    case pizza = "pizza"
-    case pasta = "pasta"
-    case seafood = "seafood" //морепродукты
-    case vegan = "vegan"
-    case glutenFree = "gluten_free"
-    case comfortFood = "comfort_food" //домашняя_кухня
-    case international = "international"
-    case barbecue = "barbecue"
-    case snack = "snack"
-    case fusion = "fusion" //перекус
+enum DishCategory:String, CaseIterable {
+    
+    case appetizer = "Appetizer"      // закуски
+    case soup = "Soup"                // супы
+    case salad = "Salad"
+    case mainCourse = "Main Course"
+    case sideDish = "Side Dish"       // гарнир
+    case dessert = "Dessert"
+    case beverage = "Beverage"        // напиток
+    case breakfast = "Breakfast"
+    case brunch = "Brunch"
+    case sandwich = "Sandwich"        // бутерброд
+    case pizza = "Pizza"
+    case pasta = "Pasta"
+    case seafood = "Seafood"          // морепродукты
+    case vegan = "Vegan"
+    case glutenFree = "Gluten-Free"
+    case comfortFood = "Comfort Food" // домашняя кухня
+    case international = "International"
+    case barbecue = "Barbecue"
+    case snack = "Snack"
+    case fusion = "Fusion"            // перекус
+    case some = "Some"
 }
+

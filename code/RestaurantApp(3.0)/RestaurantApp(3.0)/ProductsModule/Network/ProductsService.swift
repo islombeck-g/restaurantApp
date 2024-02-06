@@ -2,7 +2,7 @@ import Foundation
 
 class ProductsService: ObservableObject {
     
-    static var shared = ProductsService()
+//    static var shared = ProductsService()
     
     let productAPI = ProductsAPI()
     

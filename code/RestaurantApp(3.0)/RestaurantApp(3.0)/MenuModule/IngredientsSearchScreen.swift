@@ -17,9 +17,10 @@ struct IngredientsSearchScreen: View {
             ScrollView {
                
                 if !self.viewModel.ingredients.isEmpty {
-                    ProductsInBasketListView(products: self.viewModel.ingredients, text: "Ingredients:") { index in productToChange = self.viewModel.ingredients[index] }
-                        .padding(.horizontal)
-//                        .padding(.top, 5)
+                    ProductsInBasketListView(products: self.viewModel.ingredients, text: "Ingredients:") { index in
+                        productToChange = self.viewModel.ingredients[index]
+                    }
+                    .padding(.horizontal)
                 }
                 
                 LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
@@ -31,7 +32,6 @@ struct IngredientsSearchScreen: View {
                             }
                     }
                 }
-                .padding(.top)
             }
             
             .sheet(item: self.$selectedProduct, content: { product in
@@ -50,7 +50,6 @@ struct IngredientsSearchScreen: View {
                         withAnimation {
                             self.customNavigation.showCustomTapbar = true
                         }
-                        
                     } label: {
                         Image(systemName: "chevron.backward.circle.fill")
                             .foregroundStyle(Color("darkGreen"))
@@ -68,14 +67,11 @@ struct IngredientsSearchScreen: View {
             }
             .navigationBarBackButtonHidden()
         }
-        .onAppear {
-            self.customNavigation.showCustomTapbar = false
-        }
     }
 }
 
 #Preview {
     IngredientsSearchScreen()
-        .environmentObject(MenuViewModel(productsService: ProductsService.shared))
+        .environmentObject(MenuViewModel())
         .environmentObject(CustomNavigationStack())
 }

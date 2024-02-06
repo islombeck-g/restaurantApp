@@ -13,10 +13,10 @@ struct CustomTextField: View {
             HStack {
                 if showPassword {
                     TextField(name, text: $text)
-                        .font(.system(size: 22))
+                        .font(.custom("GillSans-Bold", size: 22))
                 } else {
                     SecureField(name, text: $text)
-                        .font(.system(size: 22))
+                        .font(.custom("GillSans-Bold", size: 22))
                 }
                 Button {showPassword.toggle()} label: {
                     Image(systemName: showPassword ? "eye.fill": "eye.slash.fill")
@@ -26,7 +26,7 @@ struct CustomTextField: View {
             
         } else {
             TextField(name, text: $text)
-                .font(.system(size: 22))
+                .font(.custom("GillSans-Bold", size: 22))
         }
         Divider()
     }

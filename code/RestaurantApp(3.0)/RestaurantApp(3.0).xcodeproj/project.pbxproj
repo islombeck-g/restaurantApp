@@ -42,6 +42,7 @@
 		63BA05C12B605A9100E7E3A7 /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05C02B605A9100E7E3A7 /* AuthScreen.swift */; };
 		63BA05C32B605AA000E7E3A7 /* CreateUserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05C22B605AA000E7E3A7 /* CreateUserScreen.swift */; };
 		63BA05C52B605AE500E7E3A7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA05C42B605AE500E7E3A7 /* AuthViewModel.swift */; };
+		63D7EB682B7236C000224FC7 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7EB672B7236C000224FC7 /* DropDownView.swift */; };
 		63E2FB552B6ABB2E00314569 /* forTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E2FB542B6ABB2E00314569 /* forTest.swift */; };
 		63E8AB442B612E9B003179CC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63E8AB432B612E9B003179CC /* FirebaseFirestoreSwift */; };
 		63E8AB462B613134003179CC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 63E8AB452B613134003179CC /* FirebaseAuth */; };
@@ -99,6 +100,7 @@
 		63BA05C02B605A9100E7E3A7 /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
 		63BA05C22B605AA000E7E3A7 /* CreateUserScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserScreen.swift; sourceTree = "<group>"; };
 		63BA05C42B605AE500E7E3A7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		63D7EB672B7236C000224FC7 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		63E2FB542B6ABB2E00314569 /* forTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = forTest.swift; sourceTree = "<group>"; };
 		63E8AB492B613B11003179CC /* MainTapBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapBarView.swift; sourceTree = "<group>"; };
 		63E8AB4B2B613DD9003179CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				63FB01D62B606FAA0051EAED /* CustomTextField.swift */,
 				63650EEF2B6A8AAF0028146F /* CustomNavigationStack.swift */,
 				63E2FB542B6ABB2E00314569 /* forTest.swift */,
+				63D7EB672B7236C000224FC7 /* DropDownView.swift */,
 				63E8AB4F2B6143F1003179CC /* ErrorText.swift */,
 				63E8AB492B613B11003179CC /* MainTapBarView.swift */,
 			);
@@ -435,6 +438,7 @@
 				63580A772B7090620011568C /* IngredientsSearchScreen.swift in Sources */,
 				63BA05BF2B60595200E7E3A7 /* IntroductionScreen.swift in Sources */,
 				63E2FB552B6ABB2E00314569 /* forTest.swift in Sources */,
+				63D7EB682B7236C000224FC7 /* DropDownView.swift in Sources */,
 				63BA05C52B605AE500E7E3A7 /* AuthViewModel.swift in Sources */,
 				638FA14B2B67F7740003DC2F /* EmployeeListView.swift in Sources */,
 				63F71E042B6DDB00009A91F6 /* CreateNewDishScreen.swift in Sources */,

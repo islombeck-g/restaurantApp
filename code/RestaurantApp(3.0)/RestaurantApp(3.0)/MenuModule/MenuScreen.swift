@@ -25,11 +25,10 @@ struct MenuScreen: View {
             }
             .toolbar(.hidden, for: .tabBar)
         }
-        
     }
 }
 
 #Preview {
     MenuScreen()
-        .environmentObject(MenuViewModel(productsService: ProductsService.shared))
+        .environmentObject(MenuViewModel())
 }
