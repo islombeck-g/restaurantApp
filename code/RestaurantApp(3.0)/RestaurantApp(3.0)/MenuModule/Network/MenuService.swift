@@ -11,18 +11,13 @@ final class MenuService {
             guard result != nil else {
                 return
             }
-            let newDish = Dish(id: "", name: dish.name, price: dish.price, description: dish.description, imageUrls: [result!], stars: dish.stars, products: dish.products, gm: dish.gm, kcal: dish.kcal, category: dish.category)
+            let newDish = Dish(id: "", name: dish.name, price: dish.price, description: dish.description, imageUrls: result, stars: dish.stars, products: dish.products, gm: dish.gm, kcal: dish.kcal, category: dish.category)
             
             self.menuAPI.uploadDish(dish: newDish) { error in
                 completion(error)
-            }
-            
+            }       
         }
     }
-    
-    
-    
-    
 }
 
 enum MenuErrors: String, CaseIterable {

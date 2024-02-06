@@ -6,19 +6,16 @@ struct DropDownView: View {
     @State private var expand: Bool = false
     
     var body: some View {
-        VStack {
-            DropDownHeader(
-                title: title.rawValue,
-                action: {
-                    expand.toggle()},
-                expand: expand)
-            if expand {
-                DropDownViewMenu(
-                    menuActions: menuActions,
-                    expand: self.$expand,
-                    title: self.$title)
-            }
-            Spacer()
+        DropDownHeader(
+            title: title.rawValue,
+            action: {
+                expand.toggle()},
+            expand: expand)
+        if expand {
+            DropDownViewMenu(
+                menuActions: menuActions,
+                expand: self.$expand,
+                title: self.$title)
         }
     }
 }
@@ -35,10 +32,12 @@ struct DropDownButton: View {
             self.expand = false
             self.selectedTitle = text
         } label: {
-            HStack{
-                Text(text.rawValue)
-                Spacer()
-            }
+            
+            Text(text.rawValue)
+                .foregroundStyle(.white)
+                .styleMainText_15()
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
         }
         .padding(.all, 10)
     }
@@ -51,19 +50,17 @@ struct DropDownViewMenu: View {
     @Binding var title: DishCategory
     
     var body: some View {
-        VStack(alignment: .leading) {
-            
-            ScrollView{
-                ForEach(menuActions, id: \.self) { action in
-                    DropDownButton(
-                        text: action ,
-                        expand: self.$expand,
-                        selectedTitle: $title)
-                    Divider()
-                }
+        ScrollView {
+            ForEach(menuActions, id: \.self) { action in
+                DropDownButton(
+                    text: action ,
+                    expand: self.$expand,
+                    selectedTitle: $title)
+                Divider()
             }
-            .frame(width: 293, height: 150)
         }
+        .background(.darkGreen)
+        .frame(height: 150)
         .clipShape(RoundedRectangle(cornerRadius: 10.0))
     }
 }
@@ -77,16 +74,29 @@ struct DropDownHeader: View {
         Button(action: action) {
             HStack {
                 Text(title + " ")
+                    .foregroundStyle(.white)
+                    .styleMainText_15()
                 Spacer()
                 Image(systemName: "chevron.\(expand ? "up" : "down")")
             }
             .padding(.all, 10)
         }
-        .frame(width: 293, height: 50)
-        .clipShape(RoundedRectangle(cornerRadius: 10.0))
+//        .frame(width: 293, height: 50)
+        .frame(height: 50)
+        .foregroundStyle(.white)
+        .background(.darkGreen)
+        .clipShape(
+            RoundedRectangle(cornerRadius: 10.0)
+        )
     }
 }
 //
 //#Preview {
 //    DropDownView()
 //}
+
+#Preview {
+    CreateNewDishScreen()
+        .environmentObject(MenuViewModel())
+        .environmentObject(CustomNavigationStack())
+}

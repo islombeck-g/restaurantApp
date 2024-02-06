@@ -9,25 +9,29 @@ final class MenuAPI {
     let storageRef = Storage.storage().reference()
     
     func uploadDish(dish: Dish, completion: @escaping(MenuErrors?) ->Void) {
-        
-            
-            do {
-                db.collection("Dish").addDocument(data: [
-                    "name": dish.name,
-                    "price": dish.price,
-                    "description": dish.description!,
-                    "imageUrls": dish.imageUrls![0],
-                    "stars": dish.stars,
-                    "products": dish.products,
-                    "gm": dish.gm,
-                    "kcal": dish.kcal,
-                    "category": dish.category
-                ])
-                completion(nil)
-                
+        do {
+            let productsData = dish.products.map { product -> [String: Any] in
+                return [
+                    "id": product.id,
+                    "name": product.name,
+                    "price": product.price,
+                    "count": product.count
+                ]
             }
-        
-        
+            print("dish = \(dish)")
+            db.collection("Dish").addDocument(data: [
+                "name": dish.name,
+                "price": dish.price,
+                "description": dish.description ?? "",
+                "imageUrls": dish.imageUrls ?? "",
+                "stars": dish.stars,
+                "products": productsData,
+                "gm": dish.gm,
+                "kcal": dish.kcal,
+                "category": dish.category
+            ])
+            completion(nil)
+        }
     }
     
     func uploadPhoto(selectedImage: UIImage, completion: @escaping(String?) -> Void) {

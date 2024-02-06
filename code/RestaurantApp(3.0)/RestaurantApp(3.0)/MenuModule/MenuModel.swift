@@ -7,7 +7,7 @@ struct Dish {
     var name:String // 16
     var price:Double // 16
     var description:String? // 16
-    var imageUrls:[String]? //16
+    var imageUrls:String? //16
     var stars:Double // 16
     var products:[Product] // 42
     var gm:Int16 // 2 байта
