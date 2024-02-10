@@ -85,7 +85,7 @@ struct CreateNewDishScreen: View {
                     
                     Button {
                         
-                        let dish = Dish(id: "", name: self.name, price: self.price ?? 0.0, imageUrls: nil, stars: 0.0, products: self.viewModel.ingredients, gm: Int16(self.gm), kcal: Int16(self.kcal), category: self.dishCategory.rawValue, image: downloadedPhoto)
+                        let dish = Dish(id: "", name: self.name, price: self.price ?? 0.0, description: self.description, imageUrls: nil, stars: 0.0, products: self.viewModel.ingredients, gm: Int16(self.gm), kcal: Int16(self.kcal), category: self.dishCategory.rawValue, image: downloadedPhoto)
                         if self.viewModel.checkData(dish: dish) {
                             self.viewModel.createDish(dish: dish)
                             self.dismiss()

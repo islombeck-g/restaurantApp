@@ -1,19 +1,20 @@
 import Foundation
 import UIKit
 
-struct Dish {
+struct Dish: Identifiable {
     
     var id: String // 16
-    var name:String // 16
-    var price:Double // 16
-    var description:String? // 16
-    var imageUrls:String? //16
-    var stars:Double // 16
-    var products:[Product] // 42
-    var gm:Int16 // 2 байта
-    var kcal:Int16 // 2
-    var category:String // 1
-    var image:UIImage?
+    var name: String // 16
+    var price: Double // 16
+    var description: String // 16
+    var imageUrls: String? //16
+    var stars: Double // 16
+    var products: [Product] // 42
+    var gm: Int16 // 2 байта
+    var kcal: Int16 // 2
+    var category: String // 1
+    var image: UIImage?
+    var isExpanded: Bool = false
 }
 
 enum DishCategory:String, CaseIterable {

@@ -1,11 +1,12 @@
 import SwiftUI
 
-struct MenuListItemView: View {
+struct ListMainItem: View {
     
     let picture: UIImage
     let stars: Double
-    @Binding var description: String
-    @Binding var name: String
+    let description: String
+    let name: String
+    
     
     var body: some View {
         VStack {
@@ -15,6 +16,7 @@ struct MenuListItemView: View {
                     .scaledToFill()
                     .frame(height: 100)
                     .clipped()
+                
                 
                 Group {
                     HStack {
@@ -46,17 +48,11 @@ struct MenuListItemView: View {
             Spacer()
             
         }
-        .frame(height: 158)
         .frame(maxWidth: 400)
-        .background(.thickMaterial)
+        .background(.thickMaterial )
         .clipShape(.rect(cornerRadius: 8))
     }
 }
-
 //#Preview {
-//    MenuListItemView(picture: UIImage(resource: <#T##ImageResource#>))
+//    ListMainItem(picture: UIImage(.default), stars: 20, description: "desc", name: "name")
 //}
-#Preview {
-    CreateNewDishScreen()
-        .environmentObject(MenuViewModel())
-}
