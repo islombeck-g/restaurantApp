@@ -6,21 +6,24 @@ struct MenuDetailListView: View {
     @EnvironmentObject var viewModel: MenuViewModel
     
     @Binding var dish: Dish
-    
+    @Binding var isHeroAnimation: Bool
     
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var gm: Double
     @State private var kcal: Double
     
-    init(dish: Binding<Dish>) {
-            self._dish = dish
-            _gm = State(initialValue: Double(dish.wrappedValue.gm))
-            _kcal = State(initialValue: Double(dish.wrappedValue.kcal))
-        }
+    init(dish: Binding<Dish>, isHeroAnimation: Binding<Bool>) {
+        self._dish = dish
+        _gm = State(initialValue: Double(dish.wrappedValue.gm))
+        _kcal = State(initialValue: Double(dish.wrappedValue.kcal))
+        self._isHeroAnimation = isHeroAnimation
+    }
     
     var body: some View {
         VStack {
             ZStack {
+                
+                
                 Image("defaultDish")
                     .resizable()
                     .scaledToFill()
@@ -43,6 +46,22 @@ struct MenuDetailListView: View {
                     .frame(maxHeight: .infinity, alignment: .bottom)
                     .padding(.leading, 16)
                     .padding(.bottom, 8)
+                } else {
+                    Button {
+                        
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            dish.isExpanded.toggle()
+                            self.isHeroAnimation.toggle()
+                        }
+                        
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.system(size: 30))
+                            .foregroundStyle(.white)
+                            .padding()
+                        
+                    }
+                    .frame(maxWidth: .infinity, alignment: .trailing)
                 }
                 
             }
@@ -75,8 +94,16 @@ struct MenuDetailListView: View {
                 
                 Text(dish.description)
                     .styleMainText_20()
-                    .padding(.top, 15)
+                    .padding(.top, 10)
                 
+                HStack {
+                    CalorieInfoView(number: dish.kcal, text: "Kcal")
+                    CalorieInfoView(number: dish.gm, text: "Gm")
+                }
+                
+                ProductsInBasketListView(products: self.dish.products, text: "Ingredients:")
+                    .padding(.top, 15)
+                    .padding(.horizontal)
                 
             }
             
@@ -84,26 +111,12 @@ struct MenuDetailListView: View {
         }
         .background(.thickMaterial)
         .clipShape(.rect(cornerRadius: self.dish.isExpanded ? 0 : 10))
-        .onChange(of: selectedPhoto) { oldValue, newValue in
-            Task {
-                if let selectedPhoto,
-                   let data = try? await selectedPhoto.loadTransferable(type: Data.self) {
-                    if let image = UIImage(data: data) {
-                        dish.image = image
-                    }
-                }
-                selectedPhoto = nil
-            }
-            
-        }
-//        .frame(maxHeight: .infinity, alignment: .top)
-        //        .frame(height: self.dish.isExpanded ? (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.screen.scale : 100)
     }
 }
 
 
 
 #Preview {
-    MenuDetailListView(dish: .constant(Dish(id: "", name: "Tea", price: 5.0, description: "sdfaodnsfoadnfoadnfasd afojnds faijn dskjf nasdj ifnasdifn aisdnf iasdjn fiadjsn ifadn", stars: 3.4, products: [Product(id: "", name: "Tea", price: 3, count: 1)], gm: 200, kcal: 12, category: "Beverage", isExpanded: false)))
+    MenuDetailListView(dish: .constant(Dish(id: "", name: "Tea", price: 5.0, description: "sdfaodnsfoadnfoadnfasd afojnds faijn dskjf nasdj ifnasdifn aisdnf iasdjn fiadjsn ifadn", stars: 3.4, products: [Product(id: "", name: "Tea", price: 3, count: 1)], gm: 200, kcal: 12, category: "Beverage", isExpanded: false)), isHeroAnimation: .constant(true))
         .environmentObject(MenuViewModel())
 }

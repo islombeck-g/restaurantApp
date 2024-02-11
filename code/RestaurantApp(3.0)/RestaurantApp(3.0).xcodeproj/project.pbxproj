@@ -15,6 +15,7 @@
 		634C3F192B6CD79E00AC0C54 /* ProductsInBasketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634C3F182B6CD79E00AC0C54 /* ProductsInBasketListView.swift */; };
 		63580A772B7090620011568C /* IngredientsSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63580A762B7090620011568C /* IngredientsSearchScreen.swift */; };
 		635CFB8C2B68F12A00B91122 /* EmployyeeIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635CFB8B2B68F12A00B91122 /* EmployyeeIDView.swift */; };
+		636357682B788C1600927813 /* CalorieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636357672B788C1600927813 /* CalorieInfoView.swift */; };
 		63650EEE2B6A816C0028146F /* ProductMarketScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63650EED2B6A816C0028146F /* ProductMarketScreen.swift */; };
 		63650EF02B6A8AAF0028146F /* CustomNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63650EEF2B6A8AAF0028146F /* CustomNavigationStack.swift */; };
 		637123D72B69122200739827 /* EmployeeAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637123D62B69122200739827 /* EmployeeAddView.swift */; };
@@ -79,6 +80,7 @@
 		634C3F182B6CD79E00AC0C54 /* ProductsInBasketListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsInBasketListView.swift; sourceTree = "<group>"; };
 		63580A762B7090620011568C /* IngredientsSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsSearchScreen.swift; sourceTree = "<group>"; };
 		635CFB8B2B68F12A00B91122 /* EmployyeeIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployyeeIDView.swift; sourceTree = "<group>"; };
+		636357672B788C1600927813 /* CalorieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieInfoView.swift; sourceTree = "<group>"; };
 		63650EED2B6A816C0028146F /* ProductMarketScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMarketScreen.swift; sourceTree = "<group>"; };
 		63650EEF2B6A8AAF0028146F /* CustomNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationStack.swift; sourceTree = "<group>"; };
 		637123D62B69122200739827 /* EmployeeAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeAddView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				63F71E0B2B6E6295009A91F6 /* MenuListItemView.swift */,
 				6382ED772B73666800A0014F /* ListMainItem.swift */,
 				63E313D02B7509B7003A9B64 /* MenuDetailListView.swift */,
+				636357672B788C1600927813 /* CalorieInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				633C4A4A2B6D12B100C8E4B4 /* OrderListItem.swift in Sources */,
 				63BA05BC2B6057C100E7E3A7 /* UserManager.swift in Sources */,
 				63650EEE2B6A816C0028146F /* ProductMarketScreen.swift in Sources */,
+				636357682B788C1600927813 /* CalorieInfoView.swift in Sources */,
 				634C3F172B6CD56F00AC0C54 /* Extensions.swift in Sources */,
 				63580A772B7090620011568C /* IngredientsSearchScreen.swift in Sources */,
 				63BA05BF2B60595200E7E3A7 /* IntroductionScreen.swift in Sources */,

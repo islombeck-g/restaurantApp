@@ -71,6 +71,5 @@ extension Text {
         self
             .font(.custom("GillSans-Bold", size: 30))
     }
-   
 }
 

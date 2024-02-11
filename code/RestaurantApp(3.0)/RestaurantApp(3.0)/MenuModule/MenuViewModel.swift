@@ -13,12 +13,12 @@ class MenuViewModel: ObservableObject {
     ]
 
     init() {
-//        self.getMarketProducts()
-//        print("self.getMarketProducts()")
-        self.dishes = [
-            Dish(id: "1", name: "Tea", price: 5.45, description: "asdofiajsdfo nasdu fndsio fjasdioj faiods fiods joisd j", stars: 5, products: [Product(id: "3", name: "Tea", price: 2, count: 1)], gm: 200, kcal: 2, category: "beverage", isExpanded: true),
-            Dish(id: "2", name: "Burger", price: 2.34,description: "adskjf kasdj nfjd aoif joisdaj foiadsj ofiasdj fa s", stars: 5, products: [Product(id: "4", name: "Tea", price: 2, count: 1)], gm: 200, kcal: 2, category: "beverage", isExpanded: false),
-            Dish(id: "3", name: "Tort", price: 52.234234, description: "sdi fioas djfoia jsdif jasdofi jasdoi jdsai fjiuabsga", stars: 5, products: [Product(id: "6", name: "Tea", price: 2, count: 1)], gm: 200, kcal: 2, category: "beverage", isExpanded: false)]
+        self.getMarketProducts()
+        print("self.getMarketProducts()")
+//        self.dishes = [
+//            Dish(id: "1", name: "Tea", price: 5.45, description: "asdofiajsdfo nasdu fndsio fjasdioj faiods fiods joisd j", stars: 5, products: [Product(id: "1", name: "Tea", price: 2, count: 1),Product(id: "2", name: "Tea", price: 2, count: 1),Product(id: "3", name: "Banana", price: 2, count: 1),Product(id: "4", name: "Apple", price: 2, count: 1),Product(id: "5", name: "Milk", price: 2, count: 1),Product(id: "6", name: "Lemon", price: 2, count: 1)], gm: 200, kcal: 2, category: "beverage", isExpanded: false),
+//            Dish(id: "2", name: "Burger", price: 2.34,description: "adskjf kasdj nfjd aoif joisdaj foiadsj ofiasdj fa s", stars: 5, products: [Product(id: "4", name: "Tea", price: 2, count: 1)], gm: 200, kcal: 2, category: "beverage", isExpanded: false),
+//            Dish(id: "3", name: "Tort", price: 52.234234, description: "sdi fioas djfoia jsdif jasdofi jasdoi jdsai fjiuabsga", stars: 5, products: [Product(id: "6", name: "Tea", price: 2, count: 1)], gm: 200, kcal: 2, category: "beverage", isExpanded: false)]
     }
     private var productsService:ProductsService = ProductsService()
     

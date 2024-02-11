@@ -22,7 +22,7 @@ final class MenuAPI {
             db.collection("Dish").addDocument(data: [
                 "name": dish.name,
                 "price": dish.price,
-                "description": dish.description ?? "",
+                "description": dish.description ,
                 "imageUrls": dish.imageUrls ?? "",
                 "stars": dish.stars,
                 "products": productsData,
