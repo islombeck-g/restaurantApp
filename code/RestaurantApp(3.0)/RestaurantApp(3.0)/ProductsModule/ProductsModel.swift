@@ -2,9 +2,9 @@ import Foundation
 import UIKit
 
 struct Product:Identifiable, Hashable{
-    let id: String //16
+    let id: String // 16
     var name:String // 16
-    let price:Double  //8
+    let price:Double // 8
     var count:Double // 8
 }
 

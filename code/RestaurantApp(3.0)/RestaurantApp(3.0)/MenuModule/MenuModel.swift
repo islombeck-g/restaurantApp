@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 struct Dish: Identifiable {
-    
     var id: String // 16
     var name: String // 16
     var price: Double // 16

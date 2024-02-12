@@ -83,6 +83,14 @@ struct CreateNewDishScreen: View {
                     
                     DropDownView(menuActions: self.viewModel.allDishCategories, title: self.$dishCategory)
                     
+//                    Picker("", selection: self.$dishCategory) {
+//                        ForEach(DishCategory.allCases, id: \.self) {dishC in
+//                            Text("\(dishC.rawValue)")
+//                                .tag(dishC)
+//                        }
+//                    }
+//                    .pickerStyle(.wheel)
+                    
                     Button {
                         
                         let dish = Dish(id: "", name: self.name, price: self.price ?? 0.0, description: self.description, imageUrls: nil, stars: 0.0, products: self.viewModel.ingredients, gm: Int16(self.gm), kcal: Int16(self.kcal), category: self.dishCategory.rawValue, image: downloadedPhoto)
@@ -101,7 +109,6 @@ struct CreateNewDishScreen: View {
                 .scrollIndicators(.hidden)
                 .padding(.horizontal, 16)
             }
-            
             .toolbar {
                 ToolbarItem(placement: .navigation) {
                     Text("Create dish")
