@@ -23,12 +23,21 @@ struct MenuDetailListView: View {
         VStack {
             ZStack {
                 
+                if let image = dish.image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: self.dish.isExpanded ? 250 : 100)
+                        .clipped()
+                } else {
+                        Image("unknown")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: self.dish.isExpanded ? 250 : 100)
+                        .clipped()
+                }
                 
-                Image("defaultDish")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: self.dish.isExpanded ? 250 : 100)
-                    .clipped()
+                    
                 
                 
                 if !self.dish.isExpanded {

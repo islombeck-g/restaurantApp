@@ -37,6 +37,7 @@ struct CreateNewDishScreen: View {
                         Text("Chose image")
                             .styleOne()
                     }
+                    
                     CustomTextField(name: "Dish name", text: self.$name, isSecured: false)
                     CustomTextField(name: "Dish description", text: self.$description, isSecured: false)
   

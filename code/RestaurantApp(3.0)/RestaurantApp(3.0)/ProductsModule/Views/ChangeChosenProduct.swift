@@ -103,8 +103,7 @@ struct ChangeChosenProduct: View {
                     
             }
         }
-        .frame(maxHeight: .infinity, alignment: .top)
-        .padding(.top, 40)
+//        .padding(.top, 40)
         .padding(.horizontal, 16)
     }
 }

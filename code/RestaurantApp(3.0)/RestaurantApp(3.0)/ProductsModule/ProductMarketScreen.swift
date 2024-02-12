@@ -10,19 +10,21 @@ struct ProductMarketScreen: View {
     private var columns: [GridItem] = [ GridItem(.adaptive(minimum: 108)) ]
     @State private var selectedProduct:MarketProduct?
     @State private var showMakeOrderView:Bool = false
+    
+    @State private var productToChange: Product?
+    
     var body: some View {
         NavigationStack {
-            
-            ZStack {
                 ScrollView {
                     
                     if !self.viewModel.basketProducts.isEmpty {
-                        
-                        ProductsInBasketListView(products: self.viewModel.basketProducts, text: "Basket products")
-                            .padding(.leading)
+                        ProductsInBasketListView(products: self.viewModel.basketProducts, text: "Basket products") { index in
+                            productToChange = self.viewModel.basketProducts[index]
+                        }
+                            .padding(.horizontal)
                             .padding(.top, 15)
                     }
-                        
+                      
                     LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
                         ForEach(self.viewModel.marketProducts, id:\.self) { product in
                             ProductListView(product: product, which: .productViewModel)
@@ -34,7 +36,6 @@ struct ProductMarketScreen: View {
                     }
                     .padding(.top)
                 }
-            }
             
             .sheet(item: self.$selectedProduct, content: { product in
                 BuyCurrentProductView(which: .productViewModel, product: product)
@@ -42,6 +43,10 @@ struct ProductMarketScreen: View {
             })
             .sheet(isPresented: self.$showMakeOrderView) {
                 MakeOrderView()
+            }
+            .sheet(item: self.$productToChange) { productToChange in
+                    ChangeChosenProduct(which: .productViewModel, product: productToChange)
+                    .presentationDetents([.height(620)])
             }
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
@@ -80,9 +85,12 @@ struct ProductMarketScreen: View {
                 
             }
             .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
         .onAppear {
-            self.customNavigation.showCustomTapbar = false
+            withAnimation {
+                self.customNavigation.showCustomTapbar = false
+            }
         }
     }
 }

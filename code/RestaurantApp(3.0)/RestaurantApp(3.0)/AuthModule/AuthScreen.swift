@@ -73,12 +73,12 @@ struct AuthScreen: View {
                             }
                             .padding(.top, 30)
                             
-                            Button{
-                                viewModel.email = "w@gmail.com"
-                                viewModel.password = "1234567890"
-                            } label: {
-                                Text("testData")
-                            }
+//                            Button{
+//                                viewModel.email = "w@gmail.com"
+//                                viewModel.password = "1234567890"
+//                            } label: {
+//                                Text("testData")
+//                            }
                             
                             HStack {
                                 Text("Don't have account?")

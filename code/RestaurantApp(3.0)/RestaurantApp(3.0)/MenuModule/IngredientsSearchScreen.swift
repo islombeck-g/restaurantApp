@@ -40,6 +40,7 @@ struct IngredientsSearchScreen: View {
             })
             .sheet(item: self.$productToChange, content: { productToChange in
                 ChangeChosenProduct(which: .menuViewModel, product: productToChange)
+                    .presentationDetents([.height(620)])
             })
             
             
