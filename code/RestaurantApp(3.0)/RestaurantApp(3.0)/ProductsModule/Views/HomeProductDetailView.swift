@@ -1,14 +1,18 @@
 import SwiftUI
 
-struct ChangeChosenProduct: View {
-   
-    @EnvironmentObject var productViewModel: ProductsViewModel
-    @EnvironmentObject var menuViewModel: MenuViewModel
-    let which:whichViewModel
-    @Environment(\.dismiss) var dismiss
+struct HomeProductDetailView: View {
     
+    @EnvironmentObject var productViewModel: ProductsViewModel
+    @Environment(\.dismiss) var dismiss
     @State var product: Product
-    let randomColor:Color = Color.random
+    
+    let randomColor: Color = Color.random
+    let maxCount: Double
+    
+    init(product: Product) {
+        self._product = State(initialValue: product)
+        self.maxCount = product.count
+    }
     
     var body: some View {
         VStack {
@@ -41,7 +45,7 @@ struct ChangeChosenProduct: View {
                 Group {
                     
                     Button {
-                        if self.product.count > 0.1 {
+                        if self.product.count != 0.1 {
                             product.count -= 0.1
                         }
                     } label: {
@@ -55,7 +59,7 @@ struct ChangeChosenProduct: View {
                         .frame(width: 40)
                     
                     Button {
-                        if self.product.count != 999 {
+                        if self.product.count != maxCount {
                             self.product.count += 0.1
                         }
                     } label: {
@@ -65,36 +69,17 @@ struct ChangeChosenProduct: View {
                     }
                 }
             }
-            .padding(.top, 40)
-            
-            Group {
-                
-                Text("Unit Price: $\(self.product.price.formatted()) per item")
-                    .font(.custom("GillSans-Bold", size: 20))
-                
-                Text("Total Price for \(self.product.count.formatted()) Items: $\((self.product.price * product.count).formatted())")
-                    .font(.custom("GillSans-Bold", size: 20))
-                
-            }
-            .padding(.top, 40)
-            .frame(height: 30)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.top, 20)
             
             Button {
-                if which == .menuViewModel {
-                    self.menuViewModel.updateProductAfterChanging(product: product)
-                }
                 self.dismiss()
             } label: {
                 Text("Save")
                     .styleOne()
             }
-            .padding(.top, 40)
+            .padding(.top, 20)
             
             Button {
-                if which == .menuViewModel {
-                    self.menuViewModel.removeFromChosenIngredients(removeProduct: product)
-                }
                 self.dismiss()
             } label: {
                 Text("Remove product")
@@ -108,8 +93,7 @@ struct ChangeChosenProduct: View {
     }
 }
 
-#Preview {
-    ChangeChosenProduct(which: .menuViewModel, product: Product(id: "", name: "Apple", price: 2.3, count: 10))
-        .environmentObject(ProductsViewModel())
-        .environmentObject(MenuViewModel())
-}
+//#Preview {
+//    HomeProductDetailView(product: Product(id: "", name: "Apple", price: 2.3, count: 10))
+//        .environmentObject(ProductsViewModel())
+//}

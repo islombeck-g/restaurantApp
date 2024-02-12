@@ -21,13 +21,13 @@ struct MenuDetailListView: View {
     
     var body: some View {
         VStack {
-            ZStack {
+            ZStack(alignment: .top) {
                 
                 if let image = dish.image {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
-                        .frame(height: self.dish.isExpanded ? 250 : 100)
+                        .frame(width:self.dish.isExpanded ? UIScreen.main.bounds.width : UIScreen.main.bounds.width - 32, height: self.dish.isExpanded ? 250 : 100)
                         .clipped()
                 } else {
                         Image("unknown")
@@ -54,7 +54,8 @@ struct MenuDetailListView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(maxHeight: .infinity, alignment: .bottom)
                     .padding(.leading, 16)
-                    .padding(.bottom, 8)
+//                    .padding(.top, 20)
+                    .padding(.bottom, 12)
                 } else {
                     Button {
                         
@@ -67,10 +68,10 @@ struct MenuDetailListView: View {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 30))
                             .foregroundStyle(.white)
-                            .padding()
-                        
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.trailing, 10)
+                    .padding(.top, 50)
                 }
                 
             }

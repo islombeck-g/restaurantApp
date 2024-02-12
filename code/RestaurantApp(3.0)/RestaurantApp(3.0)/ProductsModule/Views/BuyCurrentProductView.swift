@@ -48,7 +48,7 @@ struct BuyCurrentProductView: View {
                 Group {
                     
                     Button {
-                        if self.countOfProduct != 1 {
+                        if self.countOfProduct > 0 {
                             self.countOfProduct -= 1
                         }
                     } label: {

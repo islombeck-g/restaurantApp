@@ -6,6 +6,8 @@ struct ProductsScreen: View {
     
     private var columns: [GridItem] = [ GridItem(.adaptive(minimum: 108)) ]
     
+    @State private var detailProduct: Product?
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -28,6 +30,9 @@ struct ProductsScreen: View {
                         ForEach(self.viewModel.products , id:\.self) { product in
                             ProductInRestaurantListView(product: product)
                                 .padding(.horizontal, 20)
+                                .onTapGesture {
+                                    self.detailProduct = product
+                                }
                             
                         }
                     }
@@ -42,6 +47,11 @@ struct ProductsScreen: View {
             
             .refreshable {
                 self.viewModel.getProducts()
+            }
+            
+            .sheet(item: self.$detailProduct) { product in
+                HomeProductDetailView(product: product)
+                    .presentationDetents([.height(520)])
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

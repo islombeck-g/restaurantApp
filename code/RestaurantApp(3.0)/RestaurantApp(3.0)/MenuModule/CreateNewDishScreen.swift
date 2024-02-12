@@ -43,7 +43,7 @@ struct CreateNewDishScreen: View {
   
                     if !self.viewModel.ingredients.isEmpty {
                         
-                        ProductsInBasketListView(products: self.viewModel.ingredients, text: "Ingredients:")                            
+                        ProductsInBasketListView(products: self.viewModel.ingredients, text: "Ingredients:")
                             .padding(.top, 15)
                     }
                     
