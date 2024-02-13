@@ -35,6 +35,7 @@ struct ProductsInBasketListView: View {
                                 Text(products[index].name)
                                     .font(.custom("GillSans-Bold", size: 20))
                                 
+                                
                                 Text("count: \(products[index].count.formatted())")
                                 
                             }

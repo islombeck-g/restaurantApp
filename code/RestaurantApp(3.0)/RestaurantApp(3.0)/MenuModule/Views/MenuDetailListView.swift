@@ -37,9 +37,6 @@ struct MenuDetailListView: View {
                         .clipped()
                 }
                 
-                    
-                
-                
                 if !self.dish.isExpanded {
                     Group {
                         HStack {
@@ -96,7 +93,7 @@ struct MenuDetailListView: View {
                 HStack {
                     ForEach(1..<6, id:\.self) { number in
                         Image(systemName: "star.fill")
-                            .foregroundStyle(dish.stars > Double(number) ? Color.yellow : Color.gray)
+                            .foregroundStyle(dish.stars >= Double(number) ? Color.yellow : Color.gray)
                     }
                 }
                 Text("\(dish.price.formatted()) $")
@@ -105,6 +102,7 @@ struct MenuDetailListView: View {
                 Text(dish.description)
                     .styleMainText_20()
                     .padding(.top, 10)
+                    .padding(.horizontal)
                 
                 HStack {
                     CalorieInfoView(number: dish.kcal, text: "Kcal")
