@@ -4,11 +4,8 @@ struct MainView: View {
     
     @EnvironmentObject var authViewModel:AuthViewModel
     
+    @EnvironmentObject var prodcutsService: ProductsService
     @StateObject var employeeViewModel:EmployeeViewModel = EmployeeViewModel()
-    @StateObject var productsViewMode:ProductsViewModel = ProductsViewModel()
-//        productsService: ProductsService.shared)
-    @StateObject var menuViewModel: MenuViewModel = MenuViewModel()
-//        productsService: ProductsService.shared)
 
     @StateObject var customNavigation: CustomNavigationStack = CustomNavigationStack()
     
@@ -17,8 +14,8 @@ struct MainView: View {
         if (authViewModel.userStateManager.userSession != nil) {
             MainTapBarView()
                 .environmentObject(employeeViewModel)
-                .environmentObject(productsViewMode)
-                .environmentObject(menuViewModel) 
+                .environmentObject(ProductsViewModel(productsService: prodcutsService))
+                .environmentObject(MenuViewModel(productsService: prodcutsService))
                 .environmentObject(customNavigation)
                 
         } else {
@@ -30,4 +27,5 @@ struct MainView: View {
 #Preview {
     MainView()
         .environmentObject(AuthViewModel(userStateManager: UserManager.shared))
+        .environmentObject(ProductsService())
 }

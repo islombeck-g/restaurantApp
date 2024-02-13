@@ -110,6 +110,6 @@ struct ChangeChosenProduct: View {
 
 #Preview {
     ChangeChosenProduct(which: .menuViewModel, product: Product(id: "", name: "Apple", price: 2.3, count: 10))
-        .environmentObject(ProductsViewModel())
-        .environmentObject(MenuViewModel())
+        .environmentObject(ProductsViewModel(productsService: ProductsService()))
+            .environmentObject(MenuViewModel(productsService: ProductsService()))
 }

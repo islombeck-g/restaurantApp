@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 class ProductsViewModel:ObservableObject {
     
@@ -9,11 +10,14 @@ class ProductsViewModel:ObservableObject {
     @Published var error:String?
     @Published var isLoading:Bool = false
     
-    init() {
-        print("_______start getting Products for productViewModel")
-        self.getProducts()
-        self.getMarketProducts()
+    init(productsService: ProductsService) {
+        self.productsService = productsService
+        self.productsService.$error.sink { [weak self] error in self?.error = error }.store(in: &cancellables)
+        self.productsService.$ownProducts.sink { [weak self] ownProducts in self?.products = ownProducts }.store(in: &cancellables)
+        self.productsService.$marketProducts.sink { [weak self] market in self?.marketProducts = market }.store(in: &cancellables)
     }
+//    Это позволяет вам держать ссылку на подписку и отменять ее при необходимости (например, когда ProductsViewModel уничтожается, чтобы избежать утечек памяти).
+    private var cancellables = Set<AnyCancellable>()
     
 //    MARK: Operations with Basket
     func addToBasket(productToAdd: Product) {
@@ -25,7 +29,6 @@ class ProductsViewModel:ObservableObject {
             basketProducts.append(productToAdd)
         }
     }
-    
     func removeFromBasket(removeProduct: Product) {
         self.basketProducts.removeAll { product in
             removeProduct.id == product.id
@@ -41,39 +44,19 @@ class ProductsViewModel:ObservableObject {
     }
     
     //    MARK: Product Service
-    private var productsService:ProductsService = ProductsService()
+    private var productsService:ProductsService
     
-    func getMarketProducts() {
-        isLoading = true
-        self.productsService.getMarketProducts { products, error in
-            if products != nil {
-                self.marketProducts = products!
-            }
-            self.error = error?.description
-            self.isLoading = false
-        }
+
+    func updateOwnProducts(){
+        productsService.getOwnProducts()
     }
     
-    func getProducts() {
-        self.isLoading = true
-        self.productsService.getProducts { products, error in
-            if products != nil { self.products = products! }
-            self.error = error?.description
-            self.isLoading = false
-        }
-    }
-    
-    func buyProductsFromMarket() {
-        
+    func buyProducts() {
         guard self.basketProducts != [] else { return }
-        
-        for product in self.basketProducts {
-            self.productsService.addProductToServer(product: product)
-        }
+        productsService.buyProduct(products: basketProducts)
+        self.basketProducts = []
     }
-    
-    func deleteProductFromServer(product: Product) {
-        self.error =  self.productsService.deleteProductFromServer(product: product)?.description
-        self.getProducts()
+    func removeOwmProduct(product: Product) {
+        self.productsService.removeOwnProduct(product: product)
     }
 }

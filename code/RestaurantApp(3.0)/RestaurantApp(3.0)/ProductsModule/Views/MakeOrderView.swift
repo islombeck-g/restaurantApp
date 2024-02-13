@@ -23,8 +23,7 @@ struct MakeOrderView: View {
             
             Button {
                 self.dismiss()
-                self.viewModel.buyProductsFromMarket()
-                self.viewModel.removeBasket()
+                self.viewModel.buyProducts()
             } label: {
                 Text("Make order")
                     .styleOneWithCustomFont()
@@ -47,5 +46,5 @@ struct MakeOrderView: View {
 
 #Preview {
     MakeOrderView()
-        .environmentObject(ProductsViewModel())
+        .environmentObject(ProductsViewModel(productsService: ProductsService()))
 }

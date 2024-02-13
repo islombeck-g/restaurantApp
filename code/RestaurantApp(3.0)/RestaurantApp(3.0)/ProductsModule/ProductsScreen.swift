@@ -46,7 +46,7 @@ struct ProductsScreen: View {
             .padding(.horizontal, 16)
             
             .refreshable {
-                self.viewModel.getProducts()
+                self.viewModel.updateOwnProducts()
             }
             
             .sheet(item: self.$detailProduct) { product in
@@ -69,5 +69,5 @@ struct ProductsScreen: View {
 
 #Preview {
     ProductsScreen()
-        .environmentObject(ProductsViewModel())
+        .environmentObject(ProductsViewModel(productsService: ProductsService()))
 }

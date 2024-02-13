@@ -54,5 +54,5 @@ struct MenuScreen: View {
 
 #Preview {
     MenuScreen()
-        .environmentObject(MenuViewModel())
+        .environmentObject(MenuViewModel(productsService: ProductsService()))
 }

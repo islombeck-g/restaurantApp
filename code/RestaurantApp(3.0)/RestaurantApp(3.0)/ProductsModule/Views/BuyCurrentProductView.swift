@@ -122,6 +122,6 @@ struct BuyCurrentProductView: View {
 
 #Preview {
     ProductMarketScreen()
-        .environmentObject(ProductsViewModel())
+        .environmentObject(ProductsViewModel(productsService: ProductsService()))
         .environmentObject(CustomNavigationStack())
 }

@@ -126,5 +126,5 @@ struct MenuDetailListView: View {
 
 #Preview {
     MenuDetailListView(dish: .constant(Dish(id: "", name: "Tea", price: 5.0, description: "sdfaodnsfoadnfoadnfasd afojnds faijn dskjf nasdj ifnasdifn aisdnf iasdjn fiadjsn ifadn", stars: 3.4, products: [Product(id: "", name: "Tea", price: 3, count: 1)], gm: 200, kcal: 12, category: "Beverage", isExpanded: false)), isHeroAnimation: .constant(true))
-        .environmentObject(MenuViewModel())
+        .environmentObject(MenuViewModel(productsService: ProductsService()))
 }

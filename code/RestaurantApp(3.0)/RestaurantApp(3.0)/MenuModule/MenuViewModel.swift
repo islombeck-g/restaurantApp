@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Combine
 
 class MenuViewModel: ObservableObject {
     
@@ -11,25 +12,20 @@ class MenuViewModel: ObservableObject {
     @Published var isLoading:Bool = false
     let allDishCategories: [DishCategory] = [.appetizer, .soup, .salad, .mainCourse, .sideDish, .dessert, .beverage, .breakfast, .brunch, .sandwich, .pizza, .pasta, .seafood, .vegan, .glutenFree, .comfortFood, .international, .barbecue, .snack, .fusion, .some
     ]
-
-    init() {
-        self.getMarketProducts()
-        print("self.getMarketProducts()")
-        self.getDishes()
-    }
     private var productsService:ProductsService = ProductsService()
     
+    init(productsService: ProductsService) {
+        self.productsService = productsService
+        self.productsService.$error.sink { [weak self] error in self?.error = error }.store(in: &cancellables)
+        self.productsService.$marketProducts.sink { [weak self] market in self?.marketProducts = market }.store(in: &cancellables)
+
+        self.getDishes()
+    }
+    private var cancellables = Set<AnyCancellable>()
+   
 //    MARK: ingredients module
-    func getMarketProducts() {
-        isLoading = true
-        self.productsService.getMarketProducts { products, error in
-            if products != nil {
-                self.marketProducts = products!
-                print("marketProducts = \(self.marketProducts)")
-            }
-            self.error = error?.description
-            self.isLoading = false
-        }
+    func updateMarketProducts() {
+        self.productsService.getMarketProducts()
     }
     func addIngredient(productToAdd: Product) {
         if let index = ingredients.firstIndex(where: { product in

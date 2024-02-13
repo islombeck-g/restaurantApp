@@ -153,6 +153,6 @@ struct CreateNewDishScreen: View {
 
 #Preview {
     CreateNewDishScreen()
-        .environmentObject(MenuViewModel())
+        .environmentObject(MenuViewModel(productsService: ProductsService()))
         .environmentObject(CustomNavigationStack())
 }

@@ -73,6 +73,6 @@ struct IngredientsSearchScreen: View {
 
 #Preview {
     IngredientsSearchScreen()
-        .environmentObject(MenuViewModel())
+        .environmentObject(MenuViewModel(productsService: ProductsService()))
         .environmentObject(CustomNavigationStack())
 }
