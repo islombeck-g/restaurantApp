@@ -61,11 +61,34 @@ struct Dish: Identifiable {
 <h2 align="leading">Использование</h2> 
 <p>Позже...</p>
 <h3>Примеры</h3>
-<p>Ниже приведены скриншоты приложения:</p>
-<div class="screenshot-container">
- <img src="путь_к_изображению" alt="Скриншот приложения">
- <img src="путь_к_другому_изображению" alt="Еще один скриншот приложения">
+<p>Окно входа:</p>
+<div>
+ <img src="img/0.1.png" width="280">
+ <img src="img/0.3.png" width="280">
+ <img src="img/0.2.png" width="280">
 </div>
 
+<p>Окно блюд (Create, Read):</p>
+<div>
+ <img src="img/1.0.png" width="280">
+ <img src="img/1.1.png" width="280">
+ <img src="img/1.2.png" width="280">
+ <img src="img/1.3.png" width="280">
+</div>
 
-    
+<p>Окно продуктов (Create, Read, Update, Delete):</p>
+<div>
+ <img src="img/2.0.png" width="280">
+ <img src="img/2.1.png" width="280">
+ <img src="img/2.2.png" width="280">
+ <img src="img/2.3.png" width="280">
+ <img src="img/2.4.png" width="280">
+ <img src="img/2.5.png" width="280">
+</div>
+
+<p>Окно Работников (Create, Read, Delete):</p>
+<div>
+ <img src="img/3.0.png" width="280">
+ <img src="img/3.1.png" width="280">
+ <img src="img/3.2.png" width="280">
+</div>
