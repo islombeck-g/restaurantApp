@@ -46,7 +46,6 @@ struct MenuScreen: View {
                     }
                 }
             }
-            
             .toolbar(.hidden, for: .tabBar)
         }
     }

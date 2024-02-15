@@ -20,7 +20,6 @@ final class ProductsAPI {
                 return
             }
             DispatchQueue.main.async {
-                print ("productApi getData_start")
                 products = snapshot.documents.compactMap { document -> Product? in
                     guard let name = document["name"] as? String,
                           let count = document["count"] as? Double,

@@ -101,6 +101,7 @@ struct MenuDetailListView: View {
                 
                 Text(dish.description)
                     .styleMainText_20()
+                    .lineLimit(3)
                     .padding(.top, 10)
                     .padding(.horizontal)
                 

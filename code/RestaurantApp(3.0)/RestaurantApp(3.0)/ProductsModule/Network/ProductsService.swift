@@ -9,8 +9,10 @@ class ProductsService: ObservableObject {
     let productAPI = ProductsAPI()
     
     init() {
+        print("init_productService")
         self.getMarketProducts()
         self.getOwnProducts()
+        
     }
     
     func getMarketProducts() {

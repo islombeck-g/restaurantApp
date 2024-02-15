@@ -3,9 +3,12 @@ import SwiftUI
 
 struct ProductsInBasketListView: View {
     
+    @EnvironmentObject var menuViewModel: MenuViewModel
+    
     let products:[Product]
     let text: String
     var onProductSelected: ((Int) -> Void)?
+    let whichView:whichViewModel = .menuViewModel
     
     var body: some View {
         VStack {
@@ -37,6 +40,8 @@ struct ProductsInBasketListView: View {
                                 
                                 
                                 Text("count: \(products[index].count.formatted())")
+                                    .foregroundStyle(whichView == .menuViewModel ? (menuViewModel.canCookOrNot(product: products[index]) ? Color.green: Color.red): .black)
+//                                    .foregroundStyle(whichViewModel == .menuViewModel ? Color.red : Color.black)
                                 
                             }
                         }

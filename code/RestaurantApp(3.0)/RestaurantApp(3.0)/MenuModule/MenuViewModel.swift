@@ -10,15 +10,17 @@ class MenuViewModel: ObservableObject {
     
     @Published var error:String?
     @Published var isLoading:Bool = false
+    
     let allDishCategories: [DishCategory] = [.appetizer, .soup, .salad, .mainCourse, .sideDish, .dessert, .beverage, .breakfast, .brunch, .sandwich, .pizza, .pasta, .seafood, .vegan, .glutenFree, .comfortFood, .international, .barbecue, .snack, .fusion, .some
     ]
-    private var productsService:ProductsService = ProductsService()
+    
+    private var productsService:ProductsService
     
     init(productsService: ProductsService) {
+        print("init_ menuViewModel")
         self.productsService = productsService
         self.productsService.$error.sink { [weak self] error in self?.error = error }.store(in: &cancellables)
         self.productsService.$marketProducts.sink { [weak self] market in self?.marketProducts = market }.store(in: &cancellables)
-
         self.getDishes()
     }
     private var cancellables = Set<AnyCancellable>()
@@ -87,4 +89,11 @@ class MenuViewModel: ObservableObject {
         }
     }
 
+    func canCookOrNot(product: Product) ->Bool {
+        
+        if let index = productsService.ownProducts.firstIndex(where: {$0.name == product.name}) {
+            if productsService.ownProducts[index].count >= product.count { return true }
+        }
+        return false
+    }
 }

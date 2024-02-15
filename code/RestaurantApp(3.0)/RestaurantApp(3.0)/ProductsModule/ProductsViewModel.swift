@@ -11,6 +11,7 @@ class ProductsViewModel:ObservableObject {
     @Published var isLoading:Bool = false
     
     init(productsService: ProductsService) {
+        print("init product ViewModel")
         self.productsService = productsService
         self.productsService.$error.sink { [weak self] error in self?.error = error }.store(in: &cancellables)
         self.productsService.$ownProducts.sink { [weak self] ownProducts in self?.products = ownProducts }.store(in: &cancellables)
@@ -45,7 +46,6 @@ class ProductsViewModel:ObservableObject {
     
     //    MARK: Product Service
     private var productsService:ProductsService
-    
 
     func updateOwnProducts(){
         productsService.getOwnProducts()

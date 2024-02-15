@@ -82,7 +82,6 @@ struct ProductMarketScreen: View {
                         .styleMainText_30()
                         .foregroundStyle(.darkGreen)
                 }
-                
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)

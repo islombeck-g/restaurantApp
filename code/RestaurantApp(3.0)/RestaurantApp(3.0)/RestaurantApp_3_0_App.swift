@@ -12,13 +12,13 @@ struct RestaurantApp_3_0_App: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var userStateManager:UserManager = UserManager.shared
-    @StateObject private var productsService: ProductsService = ProductsService()
+    @StateObject private var productsService = ProductsService()
+
     var body: some Scene {
         WindowGroup {
             
-           MainView()
+            MainView(productService: productsService)
                 .environmentObject(AuthViewModel(userStateManager: userStateManager))
-                .environmentObject(productsService)
         }
     }
 }
